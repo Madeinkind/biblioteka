@@ -9,10 +9,6 @@ export default {
 		{
 			return this.$store.state.app.auth;
 		},
-		noticeModel()
-		{
-			return this.$store.state.app.notice;
-		},
 		
 		store()
 		{

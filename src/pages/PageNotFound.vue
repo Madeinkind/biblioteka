@@ -38,15 +38,11 @@ export default {
 	mixins: lib.mixins,
 	beforeMount(){
 		window.scrollTo(0, 0);
-		document.body.classList.add('authentication-bg');
 	},
-	beforeUnmount(){
-		document.body.classList.remove('authentication-bg');
-	},
+	beforeUnmount(){},
 	beforeRouteUpdate(to, from, next){
 		next();
 		window.scrollTo(0, 0);
-		document.body.classList.add('authentication-bg');
 	},
 };
 </script>

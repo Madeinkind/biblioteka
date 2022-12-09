@@ -7,19 +7,17 @@ import router from '@/router';
 import axios from 'axios';
 import VueAxios from 'vue-axios';
 import { createMetaManager, plugin as metaPlugin } from 'vue-meta';
-import { FontAwesomeIcon } from '@/assets/plugins/font-awesome';
-import Toaster from '@meforma/vue-toaster';
 import app_mixin from "./mixin.js";
 import lib from '@/lib';
 
-//import 'bootstrap/dist/css/bootstrap.min.css';
-//import 'bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap';
 //import '@/assets/css/bootstrap.min.css';
 //import '@/assets/css/icons.min.css';
 //import '@/assets/css/app.min.css';
 //import '@/assets/css/style.css';
 
-import '@/assets/js/date.format.js';
+//import '@/assets/js/date.format.js';
 
 
 const app = createApp(App);
@@ -34,12 +32,10 @@ app.config.globalProperties.$store = store;
 //app.config.debug = true;
 //app.config.devtools = true;
 app.use(router);
-app.use(store);
+app.use(store)
 app.use(VueAxios, axios);
 app.use(store.state.app.i18n);
 app.use(metaManager);
-app.use(Toaster);
-app.component('font-awesome-icon', FontAwesomeIcon);
 lib.addMixin(app_mixin);
 app.mount('#app');
 
