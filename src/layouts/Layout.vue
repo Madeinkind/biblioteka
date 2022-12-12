@@ -1,9 +1,6 @@
 <template>
 	<div class="container">
-		<div>
-			<router-link :to="{path: '/'}">main</router-link>, 
-			<router-link :to="{path: '/test1'}">test1</router-link>
-		</div>
+
 		<router-view/>
 	</div>
 </template>

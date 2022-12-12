@@ -5,10 +5,11 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="text-center">
-                            <router-link :to="{path: '/'}" class="my-5 d-block auth-logo">
-                                <img src="/assets/images/logo-lg-colored.svg" alt="Krasp" height="50" class="logo logo-dark" />
-                                <img src="/assets/images/logo-lg-white.svg" alt="Krasp" height="50" class="logo logo-light" />
-                            </router-link>
+							<router-link :to="{path: '/'}">
+								<a >
+									<img src="/assets/images/41-home-outline.png" alt="Главная" height="100" />	
+								</a>
+							</router-link>
                         </div>
                     </div>
                 </div>
@@ -57,9 +58,6 @@
 								<label class="btn btn-sm btn-light mx-1" :for="'btnlang'+i">{{appModel.langsName[lang]}}</label>
 							</span>
 						</div>
-                        <div class="mt-2 text-center">
-							<p>2022 © Krasp. Разработал <a href="https://bylex.info" target="_blank" class="text-reset">Алексей (lexinzector) Михалёв</a></p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -79,7 +77,7 @@ export default {
 	name: 'Login',
 	mixins: lib.mixins,
 	setup(){
-		useMeta({title: 'Авторизация | Krasp'});
+		useMeta({title: 'Авторизация'});
 	},
 	data: () => ({
 		username: '',
