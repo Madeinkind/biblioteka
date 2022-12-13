@@ -22,23 +22,15 @@ $router->group(['prefix' => 'api'], function () use ($router)
 		return redirect('/', 301);
 	});
 	
-	$router->get('/scr', 'DataController@scr'); // scr
-	
 	$router->get('/auth/checkauth', 'AuthController@checkauth'); // проверка авторизованности
 	$router->post('/auth/login', 'AuthController@login'); // авторизация
 	$router->get('/auth/logout', 'AuthController@logout'); // деавторизация
 	
-	$router->post('/user/save-profile-data', 'UserController@saveProfileData'); // изменение данных профиля
-	$router->post('/user/save-social-data', 'UserController@saveSocialData'); // изменение социальных данных
-	$router->post('/user/change-email', 'UserController@changeEmail'); // смена email
-	$router->post('/user/change-password', 'UserController@changePassword'); // смена пароля
-	$router->post('/user/save-interface-settings', 'UserController@saveInterfaceSettings'); // сохранение настроек интерфейса
-	
-	$router->get('/tasks', 'TasksController@list');
-	$router->post('/tasks', 'TasksController@add');
-	$router->get('/tasks/{id}', 'TasksController@get');
-	$router->post('/tasks/{id}', 'TasksController@edit');
-	$router->delete('/tasks/{id}', 'TasksController@delete');
+	$router->get('/books', 'BooksController@list');
+	$router->post('/books', 'BooksController@add');
+	$router->get('/books/{id}', 'BooksController@get');
+	$router->post('/books/{id}', 'BooksController@edit');
+	$router->delete('/books/{id}', 'BooksController@delete');
 	
 	$router->get('/projects', 'ProjectsController@list');
 	$router->post('/projects', 'ProjectsController@add');
