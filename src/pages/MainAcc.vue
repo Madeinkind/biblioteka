@@ -1,0 +1,460 @@
+<template>
+		<div class="header row">
+			<div class="col-12">
+				<div class=" page-title-box d-flex align-items-center justify-content-between">
+					<h4 class="mb-0">Главная</h4>
+					<div class="page-title-right">
+						<ol class=" breadcrumb m-3">
+							<li ><router-link :to="{path: '/login'}" class="btn1">Log in</router-link></li>
+							<li ><router-link :to="{path: '/'}" class="btn1">Log out</router-link></li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+    <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+          <div class="app-brand demo">
+            <a class="app-brand-link">
+              <span class="app-brand-logo demo">
+                <svg
+                  width="25"
+                  viewBox="0 0 25 42"
+                  version="1.1"
+                  xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
+                  <defs>
+                    <path
+                      d="M13.7918663,0.358365126 L3.39788168,7.44174259 C0.566865006,9.69408886 -0.379795268,12.4788597 0.557900856,15.7960551 C0.68998853,16.2305145 1.09562888,17.7872135 3.12357076,19.2293357 C3.8146334,19.7207684 5.32369333,20.3834223 7.65075054,21.2172976 L7.59773219,21.2525164 L2.63468769,24.5493413 C0.445452254,26.3002124 0.0884951797,28.5083815 1.56381646,31.1738486 C2.83770406,32.8170431 5.20850219,33.2640127 7.09180128,32.5391577 C8.347334,32.0559211 11.4559176,30.0011079 16.4175519,26.3747182 C18.0338572,24.4997857 18.6973423,22.4544883 18.4080071,20.2388261 C17.963753,17.5346866 16.1776345,15.5799961 13.0496516,14.3747546 L10.9194936,13.4715819 L18.6192054,7.984237 L13.7918663,0.358365126 Z"
+                      id="path-1"
+                    ></path>
+                    <path
+                      d="M5.47320593,6.00457225 C4.05321814,8.216144 4.36334763,10.0722806 6.40359441,11.5729822 C8.61520715,12.571656 10.0999176,13.2171421 10.8577257,13.5094407 L15.5088241,14.433041 L18.6192054,7.984237 C15.5364148,3.11535317 13.9273018,0.573395879 13.7918663,0.358365126 C13.5790555,0.511491653 10.8061687,2.3935607 5.47320593,6.00457225 Z"
+                      id="path-3"
+                    ></path>
+                    <path
+                      d="M7.50063644,21.2294429 L12.3234468,23.3159332 C14.1688022,24.7579751 14.397098,26.4880487 13.008334,28.506154 C11.6195701,30.5242593 10.3099883,31.790241 9.07958868,32.3040991 C5.78142938,33.4346997 4.13234973,34 4.13234973,34 C4.13234973,34 2.75489982,33.0538207 2.37032616e-14,31.1614621 C-0.55822714,27.8186216 -0.55822714,26.0572515 -4.05231404e-15,25.8773518 C0.83734071,25.6075023 2.77988457,22.8248993 3.3049379,22.52991 C3.65497346,22.3332504 5.05353963,21.8997614 7.50063644,21.2294429 Z"
+                      id="path-4"
+                    ></path>
+                    <path
+                      d="M20.6,7.13333333 L25.6,13.8 C26.2627417,14.6836556 26.0836556,15.9372583 25.2,16.6 C24.8538077,16.8596443 24.4327404,17 24,17 L14,17 C12.8954305,17 12,16.1045695 12,15 C12,14.5672596 12.1403557,14.1461923 12.4,13.8 L17.4,7.13333333 C18.0627417,6.24967773 19.3163444,6.07059163 20.2,6.73333333 C20.3516113,6.84704183 20.4862915,6.981722 20.6,7.13333333 Z"
+                      id="path-5"
+                    ></path>
+                  </defs>
+                  <g id="g-app-brand" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Brand-Logo" transform="translate(-27.000000, -15.000000)">
+                      <g id="Icon" transform="translate(27.000000, 15.000000)">
+                        <g id="Mask" transform="translate(0.000000, 8.000000)">
+                          <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                          </mask>
+                          <use fill="#696cff" xlink:href="#path-1"></use>
+                          <g id="Path-3" mask="url(#mask-2)">
+                            <use fill="#696cff" xlink:href="#path-3"></use>
+                            <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-3"></use>
+                          </g>
+                          <g id="Path-4" mask="url(#mask-2)">
+                            <use fill="#696cff" xlink:href="#path-4"></use>
+                            <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-4"></use>
+                          </g>
+                        </g>
+                        <g
+                          id="Triangle"
+                          transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) "
+                        >
+                          <use fill="#696cff" xlink:href="#path-5"></use>
+                          <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-5"></use>
+                        </g>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+              </span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Библиотека</span>
+            </a>
+
+
+          </div>
+
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1">
+            <!-- Dashboard -->
+            <li class="menu-item active">
+              <a class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div>Главная</div>
+              </a>
+            </li>
+            
+
+            <!-- Layouts -->
+      <div class="accordion accordion-flush " id="accordionFlushExample">
+        <div class="accordion-item text-secondary">
+          <h2 class="accordion-header" id="flush-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+              Книги
+            </button>
+          </h2>
+          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+              <ul class="meni-item">
+                <li><a href=""><div>
+                  Добавить
+                </div></a></li>
+                <li><a href=""><div>
+                  Добавить
+                </div></a></li>
+                <li><a href=""><div>
+                  Добавить
+                </div></a></li>
+                <li><a href=""><div>
+                  Добавить
+                </div></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item text-secondary">
+          <h2 class="accordion-header" id="flush-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+              Accordion Item #2
+            </button>
+          </h2>
+          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
+          </div>
+        </div>
+        <div class="accordion-item text-secondary">
+          <h2 class="accordion-header" id="flush-headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
+              Accordion Item #3
+            </button>
+          </h2>
+          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
+          </div>
+        </div>
+
+        <li class="menu-item ">
+          <a class="menu-link">
+            <i class="menu-icon tf-icons bx bx-dock-top"></i>
+            <div>Аккаунт</div>
+          </a>
+        </li>
+        <div class="accordion-item text-secondary">
+          <h2 class="accordion-header" id="flush-headingFour">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
+              Профиль
+            </button>
+          </h2>
+          <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body"><div class="accordion-body">
+              <ul class="meni-item">
+                <li></li>
+                <li><a>
+                  Добавить
+                </a></li>
+                <li><a>
+                  Добавить
+                </a></li>
+                <li><a>
+                  Добавить
+                </a></li>
+              </ul>
+            </div></div>
+          </div>
+        </div>
+
+        </div>
+        
+            
+          </ul>
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+
+            <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Account Settings /</span> Account</h4>
+
+              <div class="row">
+                <div class="col-md-12">
+                  <ul class="nav nav-pills flex-column flex-md-row mb-3">
+                    <li class="nav-item">
+                      <a class="nav-link active" href="javascript:void(0);"><i class="bx bx-user me-1"></i> Account</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="pages-account-settings-notifications.html"
+                        ><i class="bx bx-bell me-1"></i> Notifications</a
+                      >
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="pages-account-settings-connections.html"
+                        ><i class="bx bx-link-alt me-1"></i> Connections</a
+                      >
+                    </li>
+                  </ul>
+                  <div class="card mb-4">
+                    <h5 class="card-header">Profile Details</h5>
+                    <!-- Account -->
+                    <div class="card-body">
+                      <div class="d-flex align-items-start align-items-sm-center gap-4">
+                        <img
+                          src="../assets/img/avatars/1.png"
+                          alt="user-avatar"
+                          class="d-block rounded"
+                          height="100"
+                          width="100"
+                          id="uploadedAvatar"
+                        />
+                        <div class="button-wrapper">
+                          <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+                            <span class="d-none d-sm-block">Upload new photo</span>
+                            <i class="bx bx-upload d-block d-sm-none"></i>
+                            <input
+                              type="file"
+                              id="upload"
+                              class="account-file-input"
+                              hidden
+                              accept="image/png, image/jpeg"
+                            />
+                          </label>
+                          <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+                            <i class="bx bx-reset d-block d-sm-none"></i>
+                            <span class="d-none d-sm-block">Reset</span>
+                          </button>
+
+                          <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                        </div>
+                      </div>
+                    </div>
+                    <hr class="my-0" />
+                    <div class="card-body">
+                      <form id="formAccountSettings" method="POST" onsubmit="return false">
+                        <div class="row">
+                          <div class="mb-3 col-md-6">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="firstName"
+                              name="firstName"
+                              value="John"
+                              autofocus
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input class="form-control" type="text" name="lastName" id="lastName" value="Doe" />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="email" class="form-label">E-mail</label>
+                            <input
+                              class="form-control"
+                              type="text"
+                              id="email"
+                              name="email"
+                              value="john.doe@example.com"
+                              placeholder="john.doe@example.com"
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="organization" class="form-label">Organization</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="organization"
+                              name="organization"
+                              value="ThemeSelection"
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label class="form-label" for="phoneNumber">Phone Number</label>
+                            <div class="input-group input-group-merge">
+                              <span class="input-group-text">US (+1)</span>
+                              <input
+                                type="text"
+                                id="phoneNumber"
+                                name="phoneNumber"
+                                class="form-control"
+                                placeholder="202 555 0111"
+                              />
+                            </div>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="address" class="form-label">Address</label>
+                            <input type="text" class="form-control" id="address" name="address" placeholder="Address" />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="state" class="form-label">State</label>
+                            <input class="form-control" type="text" id="state" name="state" placeholder="California" />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="zipCode" class="form-label">Zip Code</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="zipCode"
+                              name="zipCode"
+                              placeholder="231465"
+                              maxlength="6"
+                            />
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label class="form-label" for="country">Country</label>
+                            <select id="country" class="select2 form-select">
+                              <option value="">Select</option>
+                              <option value="Australia">Australia</option>
+                              <option value="Bangladesh">Bangladesh</option>
+                              <option value="Belarus">Belarus</option>
+                              <option value="Brazil">Brazil</option>
+                              <option value="Canada">Canada</option>
+                              <option value="China">China</option>
+                              <option value="France">France</option>
+                              <option value="Germany">Germany</option>
+                              <option value="India">India</option>
+                              <option value="Indonesia">Indonesia</option>
+                              <option value="Israel">Israel</option>
+                              <option value="Italy">Italy</option>
+                              <option value="Japan">Japan</option>
+                              <option value="Korea">Korea, Republic of</option>
+                              <option value="Mexico">Mexico</option>
+                              <option value="Philippines">Philippines</option>
+                              <option value="Russia">Russian Federation</option>
+                              <option value="South Africa">South Africa</option>
+                              <option value="Thailand">Thailand</option>
+                              <option value="Turkey">Turkey</option>
+                              <option value="Ukraine">Ukraine</option>
+                              <option value="United Arab Emirates">United Arab Emirates</option>
+                              <option value="United Kingdom">United Kingdom</option>
+                              <option value="United States">United States</option>
+                            </select>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="language" class="form-label">Language</label>
+                            <select id="language" class="select2 form-select">
+                              <option value="">Select Language</option>
+                              <option value="en">English</option>
+                              <option value="fr">French</option>
+                              <option value="de">German</option>
+                              <option value="pt">Portuguese</option>
+                            </select>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="timeZones" class="form-label">Timezone</label>
+                            <select id="timeZones" class="select2 form-select">
+                              <option value="">Select Timezone</option>
+                              <option value="-12">(GMT-12:00) International Date Line West</option>
+                              <option value="-11">(GMT-11:00) Midway Island, Samoa</option>
+                              <option value="-10">(GMT-10:00) Hawaii</option>
+                              <option value="-9">(GMT-09:00) Alaska</option>
+                              <option value="-8">(GMT-08:00) Pacific Time (US & Canada)</option>
+                              <option value="-8">(GMT-08:00) Tijuana, Baja California</option>
+                              <option value="-7">(GMT-07:00) Arizona</option>
+                              <option value="-7">(GMT-07:00) Chihuahua, La Paz, Mazatlan</option>
+                              <option value="-7">(GMT-07:00) Mountain Time (US & Canada)</option>
+                              <option value="-6">(GMT-06:00) Central America</option>
+                              <option value="-6">(GMT-06:00) Central Time (US & Canada)</option>
+                              <option value="-6">(GMT-06:00) Guadalajara, Mexico City, Monterrey</option>
+                              <option value="-6">(GMT-06:00) Saskatchewan</option>
+                              <option value="-5">(GMT-05:00) Bogota, Lima, Quito, Rio Branco</option>
+                              <option value="-5">(GMT-05:00) Eastern Time (US & Canada)</option>
+                              <option value="-5">(GMT-05:00) Indiana (East)</option>
+                              <option value="-4">(GMT-04:00) Atlantic Time (Canada)</option>
+                              <option value="-4">(GMT-04:00) Caracas, La Paz</option>
+                            </select>
+                          </div>
+                          <div class="mb-3 col-md-6">
+                            <label for="currency" class="form-label">Currency</label>
+                            <select id="currency" class="select2 form-select">
+                              <option value="">Select Currency</option>
+                              <option value="usd">USD</option>
+                              <option value="euro">Euro</option>
+                              <option value="pound">Pound</option>
+                              <option value="bitcoin">Bitcoin</option>
+                            </select>
+                          </div>
+                        </div>
+                        <div class="mt-2">
+                          <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                          <button type="reset" class="btn btn-outline-secondary">Cancel</button>
+                        </div>
+                      </form>
+                    </div>
+                    <!-- /Account -->
+                  </div>
+                  <div class="card">
+                    <h5 class="card-header">Delete Account</h5>
+                    <div class="card-body">
+                      <div class="mb-3 col-12 mb-0">
+                        <div class="alert alert-warning">
+                          <h6 class="alert-heading fw-bold mb-1">Are you sure you want to delete your account?</h6>
+                          <p class="mb-0">Once you delete your account, there is no going back. Please be certain.</p>
+                        </div>
+                      </div>
+                      <form id="formAccountDeactivation" onsubmit="return false">
+                        <div class="form-check mb-3">
+                          <input
+                            class="form-check-input"
+                            type="checkbox"
+                            name="accountActivation"
+                            id="accountActivation"
+                          />
+                          <label class="form-check-label" for="accountActivation"
+                            >I confirm my account deactivation</label
+                          >
+                        </div>
+                        <button type="submit" class="btn btn-danger deactivate-account">Deactivate Account</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- / Content -->
+            <div class="content-backdrop fade"></div>
+          </div>
+          <!-- Content wrapper -->
+
+          
+        </aside>
+        <!-- / Menu -->
+</template>
+
+<style lang="css" scoped>
+
+</style>
+
+
+
+<script>
+import lib from '@/lib';
+import { useMeta } from 'vue-meta';
+
+export default {
+	name: 'Main',
+	mixins: lib.mixins,
+	setup(){
+		useMeta({title: 'Главная | Biblioteka'});
+	},
+	data: () => ({
+		
+	}),
+	methods: {
+		
+	},
+	beforeMount(){
+		window.scrollTo(0, 0);
+	},
+	beforeRouteUpdate(to, from, next){
+		next();
+		window.scrollTo(0, 0);
+	},
+	computed: {},
+	components: {
+		//Navbar,
+	},
+};
+
+
+</script>

@@ -40,5 +40,36 @@
     color: #444;
     cursor: not-allowed;
 }
-
-
+.accordion{
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+.meni-item{
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 100px;
+}
+.meni-item a{
+    color: #808080;
+    padding: 5px 10px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    width: 100px;
+}
+.layout-menu{
+    display: flex;
+left: -20%;
+}
+.content-wrapper{
+    width: 50%;
+}
+.container-xxl{
+    width: 50%;
+}
+.layout-menu{
+    margin-right: 0px;
+    padding-right: 0px;
+}

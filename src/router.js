@@ -28,6 +28,13 @@ const routes = [
 					//requiresAuth: true,
 				},
 			},
+			{
+				path: '/MainAcc',
+				component: Main,
+				meta: {
+					//requiresAuth: true,
+				},
+			},
 			
 			{
 				path: '/langs',
