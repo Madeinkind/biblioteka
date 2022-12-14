@@ -1,68 +1,73 @@
 <template>
-	<div>
-		<div class="account-pages d-flex align-items-center min-vh-100">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="text-center">
-							<router-link :to="{path: '/'}">
-								<a >
-									<img src="/assets/images/41-home-outline.png" alt="Главная" height="100" />	
-								</a>
-							</router-link>
-                        </div>
-                    </div>
+    <!-- Content -->
+
+    <div class="container-xxl">
+      <div class="authentication-wrapper authentication-basic container-p-y">
+        <div class="authentication-inner">
+          <!-- Register -->
+          <div class="card">
+            <div class="card-body">
+              <!-- Logo -->
+              <div class="app-brand justify-content-center">
+                <a href="index.html" class="app-brand-link gap-2">
+                  <span class="app-brand-logo demo">
+                  </span>
+                  <span class="app-brand-text demo text-body fw-bolder"><router-link :to="{path: '/'}">Главная</router-link></span>
+                </a>
+              </div>
+              <!-- /Logo -->
+              <h4 class="mb-2">Добро пожаловать! 👋</h4>
+              <p class="mb-4">Пожалуйста, войдите в свою учетную запись</p>
+
+              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
+                <div class="mb-3">
+                  <label for="email" class="form-label">Электронная почта или имя пользователя</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="email"
+                    name="email-username"
+                    placeholder="Enter your email or username"
+                    autofocus
+                  />
                 </div>
-                <div class="row align-items-center justify-content-center">
-                    <div class="col-md-8 col-lg-6 col-xl-5">
-                        <div class="card">
-                            <div class="card-body p-4">
-                                <div class="text-center mt-2">
-									<h5 class="text-primary">Авторизация</h5>
-								</div>
-								<div class="p-2 mt-4">
-									<form @submit.prevent="onLoginSubmit">
-										<div class="mb-3">
-											<label class="form-label" for="username">Логин, email, номер телефона</label>
-											<input
-												type="text"
-												class="form-control"
-												id="username"
-												v-model="username"
-												autofocus
-											/>
-										</div>
-										<div class="mb-3">
-											<div class="float-end">
-												<router-link :to="{path: '/recovery-password'}" class="text-muted">Забыли пароль?</router-link>
-											</div>
-											<label class="form-label" for="userpassword">Пароль</label>
-											<input
-												type="password"
-												class="form-control"
-												id="userpassword"
-												v-model="password"
-											/>
-										</div>
-										<div class="mt-3 text-end">
-											<button class="btn btn-primary w-sm waves-effect waves-light" type="submit" :disabled="btnLoginDisabled">{{$t('btn-login')}}</button>
-										</div>
-									</form>
-									<div class="alert alert-warning mt-3 mb-0" v-if="error">{{error}}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="mt-1 text-center">
-							<span v-for="(lang, i) in appModel.langs" :key="`lang-${i}`">
-								<input type="radio" class="btn-check" autocomplete="off" v-model="$root.$i18n.locale" :id="'btnlang'+i" :value="lang" />
-								<label class="btn btn-sm btn-light mx-1" :for="'btnlang'+i">{{appModel.langsName[lang]}}</label>
-							</span>
-						</div>
-                    </div>
+                <div class="mb-3 form-password-toggle">
+                  <div class="d-flex justify-content-between">
+                    <label class="form-label" for="password">Пароль</label>
+                    <a href="auth-forgot-password-basic.html">
+                      <small>Забыл пароль?</small>
+                    </a>
+                  </div>
+                  <div class="input-group input-group-merge">
+                    <input
+                      type="password"
+                      id="password"
+                      class="form-control"
+                      name="password"
+                      placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
+                      aria-describedby="password"
+                    />
+                    <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                  </div>
                 </div>
+                <div class="mb-3">
+                  <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="remember-me" />
+                    <label class="form-check-label" for="remember-me"> Запомните меня </label>
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <button class="btn btn-primary d-grid w-100" type="submit">Войти</button>
+                </div>
+              </form>
             </div>
+          </div>
+          <!-- /Register -->
         </div>
-	</div>
+      </div>
+    </div>
+
+    <!-- / Content -->
 </template>
 
 <style lang="css" scoped>
