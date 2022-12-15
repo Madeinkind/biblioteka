@@ -32,6 +32,24 @@ $router->group(['prefix' => 'api'], function () use ($router)
 	$router->post('/books/{id}', 'BooksController@edit');
 	$router->delete('/books/{id}', 'BooksController@delete');
 	
+	$router->get('/books', 'AccountController@list');
+	$router->post('/books', 'AccountController@add');
+	$router->get('/books/{id}', 'AccountController@get');
+	$router->post('/books/{id}', 'AccountController@edit');
+	$router->delete('/books/{id}', 'AccountController@delete');
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	/*
 	$router->get('/projects', 'ProjectsController@list');
 	$router->post('/projects', 'ProjectsController@add');
 	$router->get('/projects/{id}', 'ProjectsController@get');
@@ -96,7 +114,7 @@ $router->group(['prefix' => 'api'], function () use ($router)
 	$router->get('/tasks-types/{id}', 'TasksTypesController@get');
 	$router->post('/tasks-types/{id}', 'TasksTypesController@edit');
 	$router->delete('/tasks-types/{id}', 'TasksTypesController@delete');
-	
+	*/
 	
 	
 	
