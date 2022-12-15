@@ -15118,9 +15118,6 @@ body {
   margin-right: 0;
 }
 
-.layout-container {
-  min-height: 100vh;
-}
 
 .layout-wrapper,
 .layout-container {
@@ -15157,7 +15154,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  left: 10%;
+  left: 5%;
   position: relative;
   margin-top: -20%
 }

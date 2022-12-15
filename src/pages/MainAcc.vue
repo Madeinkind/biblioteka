@@ -2,7 +2,7 @@
 		<div class="header row">
 			<div class="col-12">
 				<div class=" page-title-box d-flex align-items-center justify-content-between">
-					<h4 class="mb-0">Главная</h4>
+					<h4 class="mb-0"><img src="/assets/images/icons8-закладка-120 (1).png" alt=""> Главная</h4>
 					<div class="page-title-right">
 						<ol class=" breadcrumb m-3">
 							<li ><router-link :to="{path: '/login'}" class="btn1">Log in</router-link></li>
@@ -84,7 +84,7 @@
             <li class="menu-item active">
               <a class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div>Главная</div>
+                <div><router-link :to="{path: '/'}" class="menu-glavnaya">Главная</router-link></div>
               </a>
             </li>
             
@@ -212,7 +212,7 @@
                         />
                         <div class="button-wrapper">
                           <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-                            <span class="d-none d-sm-block">Upload new photo</span>
+                            <span class="d-none d-sm-block">Загрузить новое фото</span>
                             <i class="bx bx-upload d-block d-sm-none"></i>
                             <input
                               type="file"
@@ -236,19 +236,12 @@
                       <form id="formAccountSettings" method="POST" onsubmit="return false">
                         <div class="row">
                           <div class="mb-3 col-md-6">
-                            <label for="firstName" class="form-label">First Name</label>
-                            <input
-                              class="form-control"
-                              type="text"
-                              id="firstName"
-                              name="firstName"
-                              value="John"
-                              autofocus
-                            />
+                            <label for="firstName" class="form-label">Имя</label>
+                            <input class="form-control" type="text" placeholder="Олег" aria-label="default input example">
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="lastName" class="form-label">Last Name</label>
-                            <input class="form-control" type="text" name="lastName" id="lastName" value="Doe" />
+                            <label for="lastName" class="form-label">Фамилия</label>
+                            <input class="form-control" type="text" name="lastName" id="lastName" placeholder="Проституткин" />
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="email" class="form-label">E-mail</label>
@@ -257,24 +250,23 @@
                               type="text"
                               id="email"
                               name="email"
-                              value="john.doe@example.com"
                               placeholder="john.doe@example.com"
                             />
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label for="organization" class="form-label">Organization</label>
+                            <label for="organization" class="form-label">Организация</label>
                             <input
                               type="text"
                               class="form-control"
                               id="organization"
                               name="organization"
-                              value="ThemeSelection"
+                              placeholder="Кмиб"
                             />
                           </div>
                           <div class="mb-3 col-md-6">
-                            <label class="form-label" for="phoneNumber">Phone Number</label>
+                            <label class="form-label" for="phoneNumber">Номер Тел.</label>
                             <div class="input-group input-group-merge">
-                              <span class="input-group-text">US (+1)</span>
+                              <span class="input-group-text">KZ (+7)</span>
                               <input
                                 type="text"
                                 id="phoneNumber"
