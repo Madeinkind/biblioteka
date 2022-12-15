@@ -76,11 +76,11 @@ class BooksController extends Controller
 	public function get($id, Request $request)
 	{
 		$data = $request->input();
-		//$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
+		$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
 		
-		$item = DB::table('books')
-			//->select('id', 'name')
-			//->where('virtualspace_id', '=', $virtualspace_id)
+		$item = DB::table('user')
+			->select('id', 'username')
+			->where('virtualspace_id', '=', $virtualspace_id)
 			->where('id', '=', $id)
 			->first();
 		
@@ -127,11 +127,12 @@ class BooksController extends Controller
 	 *		success		Boolean		Статус операции
 	 * )
 	 *
+	  */
 	public function edit($id, Request $request)
 	{
 		$data = $request->input();
-		$name = isset($data['name']) ? $data['name'] : '';
-		$count = isset($data['count']) ? $data['count'] : 1;
+		$name = isset($data['username']) ? $data['username'] : '';
+		$count = isset($data['id']) ? $data['id'] : 1;
 		
 		if($name == '')
 		{
@@ -145,7 +146,7 @@ class BooksController extends Controller
 			'name' => $name,
 			'count' => $count,
 		];
-		$success = DB::table('books')
+		$success = DB::table('username')
 			->where('id', '=', $id)
 			->update($updateData);
 		
@@ -160,7 +161,6 @@ class BooksController extends Controller
 	 * @return	json (
 	 *		success		Boolean		Статус операции
 	 * )
-	 */
 	public function delete($id, Request $request)
 	{
 		$success = DB::table('books')
