@@ -203,7 +203,7 @@
                     <div class="card-body">
                       <div class="d-flex align-items-start align-items-sm-center gap-4">
                         <img
-                          src="/assets/images/icons8-уолтер-уайт-120.png"
+                          src="/assets/images/icons8-уолтер-уайт-120.png "
                           alt="user-avatar"
                           class="d-block rounded"
                           height="100"

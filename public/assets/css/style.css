@@ -61,7 +61,7 @@
 }
 .layout-menu{
     display: flex;
-left: -20%;
+    height: 30%;
 }
 .container-xxl{
     width: 50%;
