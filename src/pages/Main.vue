@@ -12,7 +12,8 @@
 				</div>
 			</div>
 		</div>
-    <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+    <div class="layout-container">
+      <div class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
             <a class="app-brand-link">
               <span class="app-brand-logo demo">
@@ -172,8 +173,10 @@
           </ul>
 
           
-        </aside>
+        </div>
         <!-- / Menu -->
+    </div>
+    
 </template>
 
 <style lang="css" scoped>

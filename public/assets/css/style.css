@@ -63,13 +63,6 @@
     display: flex;
 left: -20%;
 }
-.content-wrapper{
-    width: 50%;
-}
 .container-xxl{
     width: 50%;
-}
-.layout-menu{
-    margin-right: 0px;
-    padding-right: 0px;
 }

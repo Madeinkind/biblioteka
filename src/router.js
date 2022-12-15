@@ -6,6 +6,7 @@ import Layout from '@/layouts/Layout.vue';
 
 import Login from '@/pages/Login.vue';
 import Main from '@/pages/Main.vue';
+import MainAcc from '@/pages/MainAcc.vue';
 import Langs from '@/pages/Langs.vue';
 import Test1 from '@/pages/Test1.vue';
 import Test2 from '@/pages/Test2.vue';
@@ -29,8 +30,8 @@ const routes = [
 				},
 			},
 			{
-				path: '/MainAcc',
-				component: Main,
+				path: '/mainacc',
+				component: MainAcc,
 				meta: {
 					//requiresAuth: true,
 				},
