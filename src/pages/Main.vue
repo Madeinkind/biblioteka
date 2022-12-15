@@ -2,7 +2,7 @@
 		<div class="header row">
 			<div class="col-12">
 				<div class=" page-title-box d-flex align-items-center justify-content-between">
-					<h4 class="mb-0">Главная</h4>
+					<h4 class="mb-0"> <img src="/assets/images/icons8-закладка-120 (1).png" alt=""> Главная</h4>
 					<div class="page-title-right">
 						<ol class=" breadcrumb m-3">
 							<li ><router-link :to="{path: '/login'}" class="btn1">Log in</router-link></li>
@@ -100,18 +100,18 @@
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
               <ul class="meni-item">
-                <li><a href=""><div>
+                <li><a href=""><router-link :to="{path: '/MainKniga'}">Добавить</router-link>
+                  
+                </a></li>
+                <li><a href="">
                   Добавить
-                </div></a></li>
-                <li><a href=""><div>
+                </a></li>
+                <li><a href="">
                   Добавить
-                </div></a></li>
-                <li><a href=""><div>
+                </a></li>
+                <li><a href="">
                   Добавить
-                </div></a></li>
-                <li><a href=""><div>
-                  Добавить
-                </div></a></li>
+                </a></li>
               </ul>
             </div>
           </div>

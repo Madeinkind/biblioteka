@@ -66,3 +66,12 @@
 .container-xxl{
     width: 50%;
 }
+.table{
+    height: 400px;
+    left: 10%;
+    position: relative;
+}
+.menu-glavnaya{
+    text-decoration: none;
+    color: #696cff;
+}
