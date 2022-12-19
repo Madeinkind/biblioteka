@@ -100,7 +100,7 @@
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
               <ul class="meni-item">
-                <li><a href=""><router-link :to="{path: '/MainKniga'}">Добавить</router-link>
+                <li><a href=""><router-link :to="{path: '/MainKniga'}">Справичник книг</router-link>
                   
                 </a></li>
                 <li><a href="">
@@ -175,6 +175,9 @@
           
         </div>
         <!-- / Menu -->
+        <div class="center">
+
+        </div>
     </div>
     
 </template>

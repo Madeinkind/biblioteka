@@ -75,3 +75,12 @@
     text-decoration: none;
     color: #696cff;
 }
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 500px;
+    height: 500px;
+    background-color: #444;
+
+}

@@ -35,7 +35,7 @@
                   <div class="d-flex justify-content-between">
                     <label class="form-label" for="password">Пароль</label>
                     <a href="auth-forgot-password-basic.html">
-                      <small>Забыл пароль?</small>
+                      <small><router-link :to="{path: '/:pathMatch(.*)*'}">Забыли пароль</router-link></small>
                     </a>
                   </div>
                   <div class="input-group input-group-merge">
