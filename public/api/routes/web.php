@@ -26,11 +26,11 @@ $router->group(['prefix' => ''], function () use ($router)
 	$router->post('/auth/login', 'AuthController@login'); // авторизация
 	$router->get('/auth/logout', 'AuthController@logout'); // деавторизация
 	
-	$router->get('/books', 'BooksController@list');
-	$router->post('/books', 'BooksController@add');
-	$router->get('/books/{id}', 'BooksController@get');
-	$router->post('/books/{id}', 'BooksController@edit');
-	$router->delete('/books/{id}', 'BooksController@delete');
+	$router->get('/books', 'BooksController@list'); // получение списка всех книг
+	$router->post('/books', 'BooksController@add'); // добавление книги
+	$router->get('/books/{id}', 'BooksController@get'); // получение книги по ее id
+	$router->post('/books/{id}', 'BooksController@edit'); // изменение книги по ее id
+	$router->delete('/books/{id}', 'BooksController@delete'); // удаление книги по ее id
 	
 	$router->get('/account', 'AccountController@list');
 	$router->post('/account', 'AccountController@add');
