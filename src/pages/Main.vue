@@ -101,7 +101,6 @@
             <div class="accordion-body">
               <ul class="meni-item">
                 <li><a href=""><router-link :to="{path: '/MainKniga'}">Справичник книг</router-link>
-                  
                 </a></li>
                 <li><a href="">
                   Добавить
@@ -176,7 +175,7 @@
         </div>
         <!-- / Menu -->
         <div class="center">
-
+          <h1 class="text-h1 mb-4">Добро Пожаловать</h1>
         </div>
     </div>
     
