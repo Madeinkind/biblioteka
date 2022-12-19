@@ -15,20 +15,24 @@ CREATE TABLE `books` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'айди',
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'название книги',
   `count` int(10) unsigned NOT NULL COMMENT 'кол-во',
+  `publishing` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Книги';
 
-INSERT INTO `books` (`id`, `name`, `count`) VALUES
-(1,	'Zulax',	10),
-(2,	'Danil',	1);
+INSERT INTO `books` (`id`, `name`, `count`, `publishing`) VALUES
+(1,	'Zulax',	10,	''),
+(2,	'Danil',	1,	''),
+(3,	'wqerfwdrftdsw',	1333,	'');
 
 DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'айди',
-  `login` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'логин',
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'логин',
   `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'пароль',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Таблица Пользователей';
 
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1,	'admin',	'admin');
 
--- 2022-12-13 04:39:14
+-- 2022-12-19 04:08:11
