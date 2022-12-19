@@ -127,7 +127,7 @@ class BooksController extends Controller
 	 *		success		Boolean		Статус операции
 	 * )
 	 *
-	  */
+	 */
 	public function edit($id, Request $request)
 	{
 		$data = $request->input();
@@ -161,6 +161,7 @@ class BooksController extends Controller
 	 * @return	json (
 	 *		success		Boolean		Статус операции
 	 * )
+	 */
 	public function delete($id, Request $request)
 	{
 		$success = DB::table('books')

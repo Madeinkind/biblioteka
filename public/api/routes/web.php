@@ -14,7 +14,7 @@
 */
 
 //$router->group(['prefix' => 'api', 'middleware' => 'jwt.auth'], function () use ($router)
-$router->group(['prefix' => 'api'], function () use ($router)
+$router->group(['prefix' => ''], function () use ($router)
 {
 	$router->get('/', function () use ($router)
 	{
@@ -32,11 +32,11 @@ $router->group(['prefix' => 'api'], function () use ($router)
 	$router->post('/books/{id}', 'BooksController@edit');
 	$router->delete('/books/{id}', 'BooksController@delete');
 	
-	$router->get('/books', 'AccountController@list');
-	$router->post('/books', 'AccountController@add');
-	$router->get('/books/{id}', 'AccountController@get');
-	$router->post('/books/{id}', 'AccountController@edit');
-	$router->delete('/books/{id}', 'AccountController@delete');
+	$router->get('/account', 'AccountController@list');
+	$router->post('/account', 'AccountController@add');
+	$router->get('/account/{id}', 'AccountController@get');
+	$router->post('/account/{id}', 'AccountController@edit');
+	$router->delete('/account/{id}', 'AccountController@delete');
 	
 	
 	

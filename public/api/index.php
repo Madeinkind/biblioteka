@@ -10,7 +10,19 @@
 |
 */
 
-$app = require __DIR__.'/../bootstrap/app.php';
+// установим заголовки
+header('Access-Control-Allow-Credentials: true');
+//header('Access-Control-Allow-Methods: GET, PUT, POST, DELETE, PATCH, OPTIONS, HEAD');
+//header('Access-Control-Allow-Headers: *');
+//header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers');
+header('Expires: Sat, 26 Jul 1997 05:00:00 GMT');
+header('Last-Modified: '.gmdate( 'D, d M Y H:i:s').' GMT');
+header('Cache-Control: no-store, no-cache, must-revalidate');
+header('Cache-Control: post-check=0, pre-check=0', false);
+header('Pragma: no-cache');
+header('Content-type: text/plain');
+
+$app = require __DIR__.'/bootstrap/app.php';
 
 /*
 |--------------------------------------------------------------------------
