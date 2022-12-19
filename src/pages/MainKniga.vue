@@ -180,33 +180,28 @@
       <table class="table">
         <thead>
           <tr>
-            <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Count</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
-          <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+          <tr v-for="book in books" :key="book.id">
+            <td>{{book.id}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.count}}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+		  <tr>
+			<td colspan="3">
+				<form @submit.prevent="onBookAdd">
+					<input type="text" class="form-control" v-model="book_name" placeholder="Book name" />
+					<input type="number" class="form-control" v-model.number="book_count" placeholder="Book count" />
+					<input type="submit" class="btn btn-primary" value="Add" />
+				</form>
+			</td>
+		  </tr>
         </tbody>
       </table>
-      
     </div>
     
 </template>
@@ -228,17 +223,57 @@ export default {
 		useMeta({title: 'Главная | Biblioteka'});
 	},
 	data: () => ({
+		books: [],
 		
+		book_name: '',
+		book_count: 1,
 	}),
 	methods: {
-		
+		loadBooks(){
+			fetch('/api/books', {
+				method: 'GET',
+				/*body: JSON.stringify({
+					name: 'TestBook1',
+				}),*/
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}).then(stream => stream.json()).then((data) => {
+				//console.log(data);
+				this.books = data.list;
+			}).catch(error => {
+				console.log(error);
+			});
+		},
+		onBookAdd(){
+			fetch('/api/books', {
+				method: 'POST',
+				body: JSON.stringify({
+					name: this.book_name,
+					count: this.book_count,
+				}),
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}).then(stream => stream.json()).then((data) => {
+				//console.log(data);
+				this.loadBooks();
+			}).catch(error => {
+				console.log(error);
+			});
+		},
+	},
+	mounted(){
+		//this.loadBooks();
 	},
 	beforeMount(){
 		window.scrollTo(0, 0);
+		this.loadBooks();
 	},
 	beforeRouteUpdate(to, from, next){
 		next();
 		window.scrollTo(0, 0);
+		this.loadBooks();
 	},
 	computed: {},
 	components: {
