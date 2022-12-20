@@ -293,6 +293,20 @@
           </div>
           <!-- Content wrapper -->
     </div>
+        <!--Footer -->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6 text-muted">
+                2022☯MadeInKind
+              </div>
+              <div class="col-sm-6 text-sm-end d-none d-sm-block text-muted">
+                Разработал Палагута Данил Александрович
+              </div>
+            </div>
+          </div>
+        </footer>
+     <!--Footer -->
     
 </template>
 

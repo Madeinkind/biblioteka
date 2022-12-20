@@ -1,5 +1,6 @@
 <template>
-		<div class="header row">
+  <!-- header-->
+    <div class="header row">
 			<div class="col-12">
 				<div class=" page-title-box d-flex align-items-center justify-content-between">
 					<h4 class="mb-0"><img src="/assets/images/icons8-закладка-120 (1).png" alt=""> Главная</h4>
@@ -12,6 +13,9 @@
 				</div>
 			</div>
 		</div>
+      <!-- header-->
+
+    
     <div class="layout-container">
       <div class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
@@ -175,10 +179,24 @@
         </div>
         <!-- / Menu -->
         <div class="center">
-          <h1 class="text-h1 mb-4">Добро Пожаловать</h1>
+          <h1 class="text-h1">Добро Пожаловать!</h1>
+          <p class="text-p text-muted">Страница в разработке</p>
         </div>
-    </div>
-    
+    </div> 
+    <!--Footer -->
+        <footer class="footer">
+          <div class="container-fluid">
+            <div class="row">
+              <div class="col-sm-6 text-muted">
+                2022☯MadeInKind
+              </div>
+              <div class="col-sm-6 text-sm-end d-none d-sm-block text-muted">
+                Разработал Палагута Данил Александрович
+              </div>
+            </div>
+          </div>
+        </footer>
+     <!--Footer -->
 </template>
 
 <style lang="css" scoped>
@@ -215,6 +233,7 @@ export default {
 		//Navbar,
 	},
 };
+
 
 
 </script>
