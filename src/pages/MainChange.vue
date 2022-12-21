@@ -1,5 +1,6 @@
 <template>
-		<div class="header row">
+  <!-- header-->
+    <div class="header row">
 			<div class="col-12">
 				<div class=" page-title-box d-flex align-items-center justify-content-between">
 					<h4 class="mb-0"><img src="/assets/images/icons8-закладка-120 (1).png" alt=""> Главная</h4>
@@ -12,6 +13,9 @@
 				</div>
 			</div>
 		</div>
+      <!-- header-->
+
+    
     <div class="layout-container">
       <div class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
@@ -61,7 +65,8 @@
                         </g>
                         <g
                           id="Triangle"
-                          transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) ">
+                          transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) "
+                        >
                           <use fill="#696cff" xlink:href="#path-5"></use>
                           <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-5"></use>
                         </g>
@@ -72,16 +77,22 @@
               </span>
               <span class="app-brand-text demo menu-text fw-bolder ms-2">Библиотека</span>
             </a>
+
+
           </div>
+
           <div class="menu-inner-shadow"></div>
+
           <ul class="menu-inner py-1">
             <!-- Dashboard -->
             <li class="menu-item active">
               <a class="menu-link">
                 <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div><li ><router-link :to="{path: '/'}" class="menu-glavnaya">Главная</router-link></li></div>
+                <div>Главная</div>
               </a>
             </li>
+            
+
             <!-- Layouts -->
       <div class="accordion accordion-flush " id="accordionFlushExample">
         <div class="accordion-item text-secondary">
@@ -130,6 +141,7 @@
             <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
           </div>
         </div>
+
         <li class="menu-item ">
           <a class="menu-link">
             <i class="menu-icon tf-icons bx bx-dock-top"></i>
@@ -159,11 +171,16 @@
             </div></div>
           </div>
         </div>
-        </div>  
+
+        </div>
+        
+            
           </ul>
+
+          
         </div>
         <!-- / Menu -->
-      <table class="table">
+        <table class="table">
         <thead class="thead">
           <tr>
             <th scope="col">ID</th>
@@ -180,29 +197,19 @@
             <td>{{book.count}}</td>
             <td>{{book.name}}</td>
             <td>{{book.date}}</td>
-            <td>
-              <input type="button" class="btn btn-danger" @click="onDeleteBook(book.id)" value="✖" />
-              <input type="button" class="btn btn-success" @click="onDeleteBook(book.id)" value="↺" />
-            </td>
           </tr>
 		  <tr>
 			<td colspan="3" class="table-item">
         <form @submit.prevent="onBookAdd">
-					█ ▆ ▅ ▃ ▂ ▂ ▃ ▅ ▆ █ █ ▆ ▅ ▃ ▂ ▂ ▃ ▅ ▆ █ █ ▆ ▅ ▃ ▂ ▂ ▃ ▅ ▆ █
+					<hr width="800px">
 				</form>
 			</td>
 		  </tr>
         </tbody>
       </table>
-      
-    </div>
-    <form @submit.prevent="onBookAdd" class="form-item">
-					<input type="text" class="form-control" v-model="book_name" placeholder="Book name" />
-					<input type="number" class="form-control" v-model.number="book_count" placeholder="Book count" />
-					<input type="submit" class="btn btn-primary" value="Add" />
-				</form>
-        <!--Footer -->
-        <footer class="footer">
+    </div> 
+     <!--Footer -->
+     <footer class="footer">
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6 text-muted">
@@ -215,7 +222,6 @@
           </div>
         </footer>
      <!--Footer -->
-    
 </template>
 
 <style lang="css" scoped>
@@ -315,6 +321,8 @@ export default {
 		//Navbar,
 	},
 };
+
+
 
 
 </script>

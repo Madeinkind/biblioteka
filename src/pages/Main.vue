@@ -104,7 +104,9 @@
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
               <ul class="meni-item">
-                <li><a href=""><router-link :to="{path: '/MainKniga'}">Справичник книг</router-link>
+                <li><a href=""><router-link :to="{path: '/MainChange'}">Справичник книг</router-link>
+                </a></li>
+                <li><a href=""><router-link :to="{path: '/MainKniga'}">Изменить</router-link>
                 </a></li>
                 <li><a href="">
                   Добавить
@@ -184,15 +186,15 @@
           <img width="100" class="img-light" src="/assets/img/illustrations/404.png" alt="">
         </div>
     </div> 
-    <!--Footer -->
-        <footer class="footer">
+ <!--Footer -->
+ <footer class="footer">
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6 text-muted">
-                2022☯MadeInKind
+                2022☯MadeInKind || MrZulax
               </div>
               <div class="col-sm-6 text-sm-end d-none d-sm-block text-muted">
-                Разработал Палагута Данил Александрович
+                Разработал Палагута Д. А. || Гурьянов И. О.
               </div>
             </div>
           </div>
