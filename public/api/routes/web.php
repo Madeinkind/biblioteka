@@ -32,17 +32,23 @@ $router->group(['prefix' => ''], function () use ($router)
 	$router->post('/books/{id}', 'BooksController@edit'); // изменение книги по ее id
 	$router->delete('/books/{id}', 'BooksController@delete'); // удаление книги по ее id
 	
-	$router->get('/account', 'AccountController@list');
-	$router->post('/account', 'AccountController@add'); 
-	$router->get('/account/{id}', 'AccountController@get');
-	$router->post('/account/{id}', 'AccountController@edit');
-	$router->delete('/account/{id}', 'AccountController@delete');
+	$router->get('/user', 'AccountController@list'); // получение списка всех пользователей
+	$router->post('/user', 'AccountController@add'); // добавление пользователя
+	$router->get('/user/{id}', 'AccountController@get'); // получение айди пользователя
+	$router->post('/user/{id}', 'AccountController@edit'); // изменение по айди
+	$router->delete('/user/{id}', 'AccountController@delete'); // удаление пользователя
 	
 	$router->get('/readers', 'ReadersController@list'); // получение списка всех студентов
 	$router->post('/readers', 'ReadersController@add');  // добавление данных студента
 	$router->get('/readers/{id}', 'ReadersController@get');  // получение айди 
 	$router->post('/readers/{id}', 'ReadersController@edit'); // изменение данных студента по айди 
 	$router->delete('/readers/{id}', 'ReadersController@delete'); // удаление студента из базы
+	
+	$router->get('/books_readers', 'BooksAndReadersController@list'); // получение списка 
+	$router->post('/books_readers', 'BooksAndReadersController@add');  // добавление данных 
+	$router->get('/books_readers/{id}', 'BooksAndReadersController@get');  // получение айди 
+	$router->post('/books_readers/{id}', 'BooksAndReadersController@edit'); // изменение данных по айди 
+	$router->delete('/books_readers/{id}', 'BooksAndReadersController@delete'); // удаление из базы
 	
 	
 	
