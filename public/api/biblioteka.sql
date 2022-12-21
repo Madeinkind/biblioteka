@@ -19,9 +19,6 @@ CREATE TABLE `books` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Книги';
 
-INSERT INTO `books` (`id`, `name`, `count`, `publishing`) VALUES
-(1,	'addd',	11222,	''),
-(2,	'Lox',	11222,	'');
 
 DROP TABLE IF EXISTS `books_readers`;
 CREATE TABLE `books_readers` (
@@ -61,4 +58,4 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `password`) VALUES
 (1,	'admin',	'admin');
 
--- 2022-12-21 03:54:00
+-- 2022-12-21 04:43:56
