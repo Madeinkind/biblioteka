@@ -181,6 +181,7 @@
         <div class="center">
           <h1 class="text-h1">Добро Пожаловать!</h1>
           <p class="text-p text-muted">Страница в разработке</p>
+          <img width="100" class="img-light" src="/assets/img/illustrations/404.png" alt="">
         </div>
     </div> 
     <!--Footer -->
