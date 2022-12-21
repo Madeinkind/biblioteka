@@ -206,10 +206,10 @@
           <div class="container-fluid">
             <div class="row">
               <div class="col-sm-6 text-muted">
-                2022☯MadeInKind
+                2022☯MadeInKind||MrZulax
               </div>
               <div class="col-sm-6 text-sm-end d-none d-sm-block text-muted">
-                Разработал Палагута Данил Александрович
+                Разработал Палагута Д. А. и Гурьянов И. О.
               </div>
             </div>
           </div>
