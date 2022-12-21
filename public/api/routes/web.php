@@ -33,7 +33,7 @@ $router->group(['prefix' => ''], function () use ($router)
 	$router->delete('/books/{id}', 'BooksController@delete'); // удаление книги по ее id
 	
 	$router->get('/account', 'AccountController@list');
-	$router->post('/account', 'AccountController@add');
+	$router->post('/account', 'AccountController@add'); 
 	$router->get('/account/{id}', 'AccountController@get');
 	$router->post('/account/{id}', 'AccountController@edit');
 	$router->delete('/account/{id}', 'AccountController@delete');

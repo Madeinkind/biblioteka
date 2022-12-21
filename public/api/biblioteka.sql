@@ -15,9 +15,28 @@ CREATE TABLE `books` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'айди',
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'название книги',
   `count` int(10) unsigned NOT NULL COMMENT 'кол-во',
-  `publishing` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'издатель',
+  `publishing` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'издатель',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Книги';
+
+INSERT INTO `books` (`id`, `name`, `count`, `publishing`) VALUES
+(1,	'addd',	11222,	''),
+(2,	'Lox',	11222,	'');
+
+DROP TABLE IF EXISTS `books_readers`;
+CREATE TABLE `books_readers` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'айди',
+  `reader_id` int(10) unsigned NOT NULL COMMENT 'айди читателя',
+  `book_id` int(10) unsigned NOT NULL COMMENT 'айди книги',
+  `date_start` datetime NOT NULL COMMENT 'дата выдачи',
+  `date_end_plan` datetime NOT NULL COMMENT 'дата сдачи по плану',
+  `date_end_fact` datetime NOT NULL COMMENT 'дата сдачи по факту',
+  PRIMARY KEY (`id`),
+  KEY `reader_id` (`reader_id`),
+  KEY `book_id` (`book_id`),
+  CONSTRAINT `books_readers_ibfk_1` FOREIGN KEY (`reader_id`) REFERENCES `readers` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `books_readers_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='связи таблиц - books + readers';
 
 
 DROP TABLE IF EXISTS `readers`;
@@ -42,4 +61,4 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `password`) VALUES
 (1,	'admin',	'admin');
 
--- 2022-12-21 03:13:54
+-- 2022-12-21 03:54:00
