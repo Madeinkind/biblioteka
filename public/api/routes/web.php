@@ -38,6 +38,12 @@ $router->group(['prefix' => ''], function () use ($router)
 	$router->post('/account/{id}', 'AccountController@edit');
 	$router->delete('/account/{id}', 'AccountController@delete');
 	
+	$router->get('/readers', 'ReadersController@list'); // получение списка всех студентов
+	$router->post('/readers', 'ReadersController@add');  // добавление данных студента
+	$router->get('/readers/{id}', 'ReadersController@get');  // получение айди 
+	$router->post('/readers/{id}', 'ReadersController@edit'); // изменение данных студента по айди 
+	$router->delete('/readers/{id}', 'ReadersController@delete'); // удаление студента из базы
+	
 	
 	
 	
