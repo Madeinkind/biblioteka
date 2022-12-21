@@ -19,14 +19,18 @@ CREATE TABLE `books` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Книги';
 
+INSERT INTO `books` (`id`, `name`, `count`, `publishing`) VALUES
+(1,	'Zulax',	10,	''),
+(2,	'Danil',	1,	''),
+(3,	'wqerfwdrftdsw',	1333,	'');
 
 DROP TABLE IF EXISTS `readers`;
 CREATE TABLE `readers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'айди',
-  `namestudent` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'имя студента',
-  `surnamestudent` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'фамилия студента',
+  `name student` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'имя студента',
+  `surname student` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'фамилия студента',
   `iin` int(12) unsigned NOT NULL COMMENT 'иин студента',
-  `bookscount` int(10) unsigned NOT NULL COMMENT 'кол-во книг взятым студентом',
+  `books count` int(10) unsigned NOT NULL COMMENT 'кол-во книг взятым студентом',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -42,4 +46,4 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `password`) VALUES
 (1,	'admin',	'admin');
 
--- 2022-12-21 03:13:54
+-- 2022-12-19 06:43:33
