@@ -163,11 +163,13 @@
         </div>
         <!-- / Menu -->
       <table class="table">
-        <thead>
+        <thead class="thead">
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Название</th>
             <th scope="col">Кол-во</th>
+            <th scope="col">Издательство</th>
+            <th scope="col">Год выпуска</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -175,22 +177,29 @@
             <td>{{book.id}}</td>
             <td>{{book.name}}</td>
             <td>{{book.count}}</td>
+            <td>{{book.name}}</td>
+            <td>{{book.date}}</td>
             <td>
-              <input type="button" class="btn btn-primary" @click="onDeleteBook(book.id)" value="-" />
+              <input type="button" class="btn btn-danger" @click="onDeleteBook(book.id)" value="✖" />
+              <input type="button" class="btn btn-success" @click="onDeleteBook(book.id)" value="↺" />
             </td>
           </tr>
 		  <tr>
 			<td colspan="3" class="table-item">
-				<form @submit.prevent="onBookAdd" class="form-item">
-					<input type="text" class="form-control" v-model="book_name" placeholder="Book name" />
-					<input type="number" class="form-control" v-model.number="book_count" placeholder="Book count" />
-					<input type="submit" class="btn btn-primary" value="Add" />
+        <form @submit.prevent="onBookAdd">
+					█ ▆ ▅ ▃ ▂ ▂ ▃ ▅ ▆ █ █ ▆ ▅ ▃ ▂ ▂ ▃ ▅ ▆ █ █ ▆ ▅ ▃ ▂ ▂ ▃ ▅ ▆ █
 				</form>
 			</td>
 		  </tr>
         </tbody>
       </table>
+      
     </div>
+    <form @submit.prevent="onBookAdd" class="form-item">
+					<input type="text" class="form-control" v-model="book_name" placeholder="Book name" />
+					<input type="number" class="form-control" v-model.number="book_count" placeholder="Book count" />
+					<input type="submit" class="btn btn-primary" value="Add" />
+				</form>
         <!--Footer -->
         <footer class="footer">
           <div class="container-fluid">
