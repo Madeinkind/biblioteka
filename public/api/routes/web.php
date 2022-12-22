@@ -32,6 +32,12 @@ $router->group(['prefix' => ''], function () use ($router)
 	$router->post('/books/{id}', 'BooksController@edit'); // изменение книги по ее id
 	$router->delete('/books/{id}', 'BooksController@delete'); // удаление книги по ее id
 	
+	$router->get('/books-issued', 'BooksController@listIssued'); // получение списка выданных книг
+	$router->post('/books-issued', 'BooksController@addIssue'); // выдача книги
+	$router->get('/books-issued/{id}', 'BooksController@getIssued'); // получение выданной книги по ее id
+	$router->post('/books-issued/{id}', 'BooksController@editIssue'); // изменение выданной книги по ее id
+	$router->delete('/books-issued/{id}', 'BooksController@deleteIssue'); // удаление выдачи по ее id
+	
 	$router->get('/user', 'AccountController@list'); // получение списка всех пользователей
 	$router->post('/user', 'AccountController@add'); // добавление пользователя
 	$router->get('/user/{id}', 'AccountController@get'); // получение айди пользователя
@@ -40,15 +46,12 @@ $router->group(['prefix' => ''], function () use ($router)
 	
 	$router->get('/readers', 'ReadersController@list'); // получение списка всех студентов
 	$router->post('/readers', 'ReadersController@add');  // добавление данных студента
-	$router->get('/readers/{id}', 'ReadersController@get');  // получение айди 
+	$router->get('/readers/{id}', 'ReadersController@get');  // получение читателя по его id
 	$router->post('/readers/{id}', 'ReadersController@edit'); // изменение данных студента по айди 
 	$router->delete('/readers/{id}', 'ReadersController@delete'); // удаление студента из базы
 	
-	$router->get('/books_readers', 'BooksAndReadersController@list'); // получение списка 
-	$router->post('/books_readers', 'BooksAndReadersController@add');  // добавление данных 
-	$router->get('/books_readers/{id}', 'BooksAndReadersController@get');  // получение айди 
-	$router->post('/books_readers/{id}', 'BooksAndReadersController@edit'); // изменение данных по айди 
-	$router->delete('/books_readers/{id}', 'BooksAndReadersController@delete'); // удаление из базы
+	$router->get('/readers-debtors', 'ReadersController@listDebtors'); // получение списка должников
+	$router->get('/readers-debtors/{id}', 'ReadersController@getDebtor');  // получение должника по его id
 	
 	
 	

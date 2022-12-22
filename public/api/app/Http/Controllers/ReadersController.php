@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
-class BooksController extends Controller
+class ReadersController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,10 +26,10 @@ class BooksController extends Controller
 	public function list(Request $request)
 	{
 		$jwt_data = $request->jwt_data;
-		$login = $jwt_data['login'];
-		$idUser = $jwt_data['user_id'];
+		//$login = $jwt_data['login'];
+		//$idUser = $jwt_data['user_id'];
 		
-		$data = $request->input();
+		/*$data = $request->input();
 		$search = isset($data['search']) ? $data['search'] : '';
 		$start = isset($data['start']) ? $data['start'] : 0;
 		$limit = isset($data['limit']) ? $data['limit'] : 10;
@@ -50,6 +50,7 @@ class BooksController extends Controller
 				->get();
 		}
 		else
+		{*/
 			$count = DB::table('readers')
 				->count();
 			$list = DB::table('readers')
@@ -59,6 +60,67 @@ class BooksController extends Controller
 				->limit($limit)
 				->offset($start)
 				->get();
+		//}
+		
+		return response()->json([
+			'list' => $list,
+			'count' => $count,
+		], 200);
+	}
+	
+	/**
+	 * Получение олжников книг
+	 * @return	json 	Список должников книг
+	 */
+	public function listDebtors(Request $request)
+	{
+		$jwt_data = $request->jwt_data;
+		//$login = $jwt_data['login'];
+		//$idUser = $jwt_data['user_id'];
+		
+		/*$data = $request->input();
+		$search = isset($data['search']) ? $data['search'] : '';
+		$start = isset($data['start']) ? $data['start'] : 0;
+		$limit = isset($data['limit']) ? $data['limit'] : 10;
+		
+		if($search != '')
+		{
+			$count = DB::table('cwt_projects')
+				->where('virtualspace_id', '=', $virtualspace_id)
+				->where('name', 'like', '%'.$search.'%')
+				->count();
+			$list = DB::table('cwt_projects')
+				->select('id', 'name')
+				->where('virtualspace_id', '=', $virtualspace_id)
+				->where('name', 'like', '%'.$search.'%')
+				->limit($limit)
+				->offset($start)
+				->orderBy('name', 'asc')
+				->get();
+		}
+		else
+		{*/
+			// TODO: доделать!!!!
+			$count = DB::table('books_readers')
+				->where('date_end_fact', '=', '0000-00-00 00:00:00')
+				->distinct()
+				->count(['reader_id']);
+			$list = DB::table('books_readers')
+				->select(
+					'books_readers.id as id',
+					'books_readers.reader_id',
+					'readers.fio as reader_fio',
+					'readers.group as reader_group',
+					'readers.iin as reader_iin'
+				)
+				->join('readers', 'books_readers.reader_id', '=', 'readers.id')
+				->where('books_readers.date_end_fact', '=', '0000-00-00 00:00:00')
+				//->orderBy('name', 'asc')
+				//->limit($limit)
+				//->offset($start)
+				->toSql();
+				//->get()
+				//->unique('books_readers.reader_id');
 		//}
 		
 		return response()->json([

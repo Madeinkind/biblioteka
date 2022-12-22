@@ -14,14 +14,20 @@ DROP TABLE IF EXISTS `books`;
 CREATE TABLE `books` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'айди',
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'название книги',
-  `count` int(10) unsigned NOT NULL COMMENT 'кол-во',
+  `count` int(10) unsigned NOT NULL DEFAULT '1' COMMENT 'кол-во',
   `publishing` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'издатель',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Книги';
 
 INSERT INTO `books` (`id`, `name`, `count`, `publishing`) VALUES
-(1,	'addd',	11222,	''),
-(2,	'Lox',	11222,	'');
+(1,	'dsadsa',	1,	''),
+(2,	'dsadsa',	1,	''),
+(3,	'dsadsa',	1,	''),
+(4,	'dsadsa',	1,	''),
+(5,	'dsadsa',	1,	''),
+(6,	'dsadsa',	1,	''),
+(7,	'dsadsa',	1,	''),
+(8,	'dsadsa',	1,	'');
 
 DROP TABLE IF EXISTS `books_readers`;
 CREATE TABLE `books_readers` (
@@ -38,17 +44,24 @@ CREATE TABLE `books_readers` (
   CONSTRAINT `books_readers_ibfk_2` FOREIGN KEY (`book_id`) REFERENCES `books` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='связи таблиц - books + readers';
 
+INSERT INTO `books_readers` (`id`, `reader_id`, `book_id`, `date_start`, `date_end_plan`, `date_end_fact`) VALUES
+(1,	1,	1,	'2022-12-22 05:34:56',	'2022-12-22 05:34:56',	'0000-00-00 00:00:00'),
+(2,	1,	2,	'2022-12-22 05:34:56',	'2022-12-22 05:34:56',	'0000-00-00 00:00:00'),
+(3,	2,	3,	'2022-12-22 05:34:56',	'2022-12-22 05:34:56',	'0000-00-00 00:00:00');
 
 DROP TABLE IF EXISTS `readers`;
 CREATE TABLE `readers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'айди',
-  `namestudent` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'имя студента',
-  `surnamestudent` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'фамилия студента',
-  `iin` int(12) unsigned NOT NULL COMMENT 'иин студента',
-  `bookscount` int(10) unsigned NOT NULL COMMENT 'кол-во книг взятым студентом',
-  PRIMARY KEY (`id`)
+  `fio` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'имя студента',
+  `group` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'группа студента',
+  `iin` varchar(12) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'иин студента',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `iin` (`iin`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+INSERT INTO `readers` (`id`, `fio`, `group`, `iin`) VALUES
+(1,	'test student',	'vtipob-42',	'4294967295'),
+(2,	'test student 2',	'vtipob-42',	'4294967294');
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -61,4 +74,4 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `username`, `password`) VALUES
 (1,	'admin',	'admin');
 
--- 2022-12-21 03:54:00
+-- 2022-12-22 05:03:41

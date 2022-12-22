@@ -69,8 +69,72 @@ class BooksController extends Controller
 	}
 	
 	/**
+	 * Получение выданных книг
+	 * @return	json 	Данные проекта задач
+	 */
+	public function listIssued(Request $request)
+	{
+		//$jwt_data = $request->jwt_data;
+		//$login = $jwt_data['login'];
+		//$idUser = $jwt_data['user_id'];
+		
+		$data = $request->input();
+		//$search = isset($data['search']) ? $data['search'] : '';
+		//$start = isset($data['start']) ? $data['start'] : 0;
+		//$limit = isset($data['limit']) ? $data['limit'] : 10;
+		
+		/*if($search != '')
+		{
+			$count = DB::table('cwt_projects')
+				->where('virtualspace_id', '=', $virtualspace_id)
+				->where('name', 'like', '%'.$search.'%')
+				->count();
+			$list = DB::table('cwt_projects')
+				->select('id', 'name')
+				->where('virtualspace_id', '=', $virtualspace_id)
+				->where('name', 'like', '%'.$search.'%')
+				->limit($limit)
+				->offset($start)
+				->orderBy('name', 'asc')
+				->get();
+		}
+		else
+		{*/
+			$count = DB::table('books_readers')
+				->where('date_end_fact', '=', '0000-00-00 00:00:00')
+				->count();
+			$list = DB::table('books_readers')
+				->select(
+					'books_readers.id as id',
+					'books_readers.reader_id',
+					'books_readers.book_id',
+					'books_readers.date_start',
+					'books_readers.date_end_plan',
+					'books_readers.date_end_fact',
+					'books.name as book_name',
+					'books.publishing as book_publishing',
+					'readers.fio as reader_fio',
+					'readers.group as reader_group',
+					'readers.iin as reader_iin'
+				)
+				->join('books', 'books_readers.book_id', '=', 'books.id')
+				->join('readers', 'books_readers.reader_id', '=', 'readers.id')
+				->where('books_readers.date_end_fact', '=', '0000-00-00 00:00:00')
+				//->orderBy('name', 'asc')
+				//->limit($limit)
+				//->offset($start)
+				->get();
+		//}
+		
+		return response()->json([
+			'list' => $list,
+			'count' => $count,
+		], 200);
+	}
+	
+	/**
 	 * Получение проекта задач
-	 " @param	$id			Integer		id проекта задач
+	 * @param	$id			Integer		id проекта задач
 	 * @return	json 	Данные проекта задач
 	 */
 	public function get($id, Request $request)
@@ -82,6 +146,38 @@ class BooksController extends Controller
 			//->select('id', 'name')
 			//->where('virtualspace_id', '=', $virtualspace_id)
 			->where('id', '=', $id)
+			->first();
+		
+		return response()->json($item, 200);
+	}
+	
+	/**
+	 * Получение выданной книги
+	 * @param	$id			Integer		id проекта задач
+	 * @return	json 	Данные книги
+	 */
+	public function getIssued($id, Request $request)
+	{
+		$data = $request->input();
+		//$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
+		
+		$item = DB::table('books_readers')
+			->select(
+				'books_readers.id as id',
+				'books_readers.reader_id',
+				'books_readers.book_id',
+				'books_readers.date_start',
+				'books_readers.date_end_plan',
+				'books_readers.date_end_fact',
+				'books.name as book_name',
+				'books.publishing as book_publishing',
+				'readers.fio as reader_fio',
+				'readers.group as reader_group',
+				'readers.iin as reader_iin'
+			)
+			->join('books', 'books_readers.book_id', '=', 'books.id')
+			->join('readers', 'books_readers.reader_id', '=', 'readers.id')
+			->where('books_readers.id', '=', $id)
 			->first();
 		
 		return response()->json($item, 200);
@@ -112,6 +208,62 @@ class BooksController extends Controller
 			//'virtualspace_id' => $virtualspace_id,
 			'name' => $name,
 			'count' => $count,
+		]);
+		
+		return response()->json([
+			'id' => $id,
+			'success' => (bool)$id,
+		], 200);
+	}
+	
+	/**
+	 * Добавление выданной книги
+	 * @return	json (
+	 *		id			Integer		id проекта задач
+	 *		success		Boolean		Статус операции
+	 * )
+	 */
+	public function addIssue(Request $request)
+	{
+		$data = $request->input();
+		//$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
+		$book_id = isset($data['book_id']) ? $data['book_id'] : '';
+		$reader_id = isset($data['reader_id']) ? $data['reader_id'] : '';
+		$date_start = isset($data['date_start']) ? $data['date_start'] : '';
+		$date_end = isset($data['date_end']) ? $data['date_end'] : '';
+		
+		if($book_id == '')
+		{
+			return response()->json([
+				'error' => 'Не передан id книги',
+			], 400);
+		}
+		
+		if($reader_id == '')
+		{
+			return response()->json([
+				'error' => 'Не передан id читателя',
+			], 400);
+		}
+		
+		if($date_start == '')
+		{
+			$date_start = date('Y-m-d H:i:s');
+		}
+		
+		if($date_end == '')
+		{
+			return response()->json([
+				'error' => 'Не передана дата планируемой сдачи',
+			], 400);
+		}
+		
+		$id = DB::table('books_readers')->insertGetId([
+			//'virtualspace_id' => $virtualspace_id,
+			'book_id' => $book_id,
+			'reader_id' => $reader_id,
+			'date_start' => $date_start,
+			'date_end' => $date_end,
 		]);
 		
 		return response()->json([
@@ -155,6 +307,38 @@ class BooksController extends Controller
 	}
 	
 	/**
+	 * Изменение выданной книги
+	 " @param	$id			Integer		id выдачи
+	 * @return	json (
+	 *		success		Boolean		Статус операции
+	 * )
+	 */
+	public function editIssue($id, Request $request)
+	{
+		$data = $request->input();
+		$date_end = isset($data['date_end']) ? $data['date_end'] : '';
+		
+		if($date_end == '')
+		{
+			return response()->json([
+				'error' => 'Не передана дата фактической сдачи',
+			], 400);
+		}
+		
+		$success = true;
+		$updateData = [
+			'date_end' => $date_end,
+		];
+		$success = DB::table('books_readers')
+			->where('id', '=', $id)
+			->update($updateData);
+		
+		return response()->json([
+			'success' => $success,
+		], 200);
+	}
+	
+	/**
 	 * Удаление проекта задач
 	 " @param	$id			Integer		id проекта задач
 	 * @return	json (
@@ -164,6 +348,24 @@ class BooksController extends Controller
 	public function delete($id, Request $request)
 	{
 		$success = DB::table('books')
+			->where('id', '=', $id)
+			->delete();
+		
+		return response()->json([
+			'success' => $success,
+		], 200);
+	}
+	
+	/**
+	 * Удаление выдачи книги
+	 " @param	$id			Integer		id выдачи
+	 * @return	json (
+	 *		success		Boolean		Статус операции
+	 * )
+	 */
+	public function deleteIssue($id, Request $request)
+	{
+		$success = DB::table('books_readers')
 			->where('id', '=', $id)
 			->delete();
 		
