@@ -162,6 +162,7 @@
         </div>  
           </ul>
         </div>
+        
         <!-- / Menu -->
       <table class="table">
         <thead class="thead">
@@ -196,11 +197,16 @@
       </table>
       
     </div>
-    <form @submit.prevent="onBookAdd" class="form-item">
+        <form @submit.prevent="onBookAdd" class="form-item">
 					<input type="text" class="form-control" v-model="book_name" placeholder="Book name" />
 					<input type="number" class="form-control" v-model.number="book_count" placeholder="Book count" />
 					<input type="submit" class="btn btn-primary" value="Add" />
 				</form>
+        <div class="d-flex2">
+                <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
+                <button class="btn btn-outline-success" type="submit">Поиск</button>
+            </div>
+        
         <!--Footer -->
         <footer class="footer">
           <div class="container-fluid">
