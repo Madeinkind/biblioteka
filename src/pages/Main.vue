@@ -94,10 +94,8 @@
           <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
             <div class="accordion-body">
               <ul class="meni-item">
-                <li><a href=""><router-link :to="{path: '/MainChange'}">Справичник книг</router-link>
-                </a></li>
-                <li><a href=""><router-link :to="{path: '/MainKniga'}">Изменить</router-link>
-                </a></li>
+                <li><router-link :to="{path: '/MainChange'}">Справичник книг</router-link></li>
+                <li><router-link :to="{path: '/MainKniga'}">Изменить</router-link></li>
                 <li><a href="">
                   Добавить
                 </a></li>
@@ -205,24 +203,86 @@ export default {
 		useMeta({title: 'Главная | Biblioteka'});
 	},
 	data: () => ({
+		books: [],
 		
+		book_name: '',
+		book_count: 1,
 	}),
 	methods: {
-		
+		loadBooks(){
+			fetch('/api/books', {
+				method: 'GET',
+				/*body: JSON.stringify({
+					name: 'TestBook1',
+				}),*/
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}).then(stream => stream.json()).then((data) => {
+				//console.log(data);
+				this.books = data.list;
+			}).catch(error => {
+				console.log(error);
+			});
+		},
+		onBookAdd(){
+			fetch('/api/books', {
+				method: 'POST',
+				body: JSON.stringify({
+					name: this.book_name,
+					count: this.book_count,
+				}),
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}).then(stream => stream.json()).then((data) => {
+				//console.log(data);
+				this.loadBooks();
+			}).catch(error => {
+				console.log(error);
+			});
+		},
+		onDeleteBook(id){
+			if(confirm('Вы уверены?')){
+        fetch('/api/books/'+id, {
+				method: 'DELETE',
+				/*body: JSON.stringify({
+					name: this.book_name,
+					count: this.book_count,
+				}),*/
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}).then(stream => stream.json()).then((data) => {
+				//console.log(data);
+        if(data.success){
+          let pos = this.books.findIndex((elem) => elem.id == id);
+          this.books.splice(pos, 1);
+        }
+			}).catch(error => {
+				console.log(error);
+			});  
+      }
+      
+		},
+	},
+	mounted(){
+		//this.loadBooks();
 	},
 	beforeMount(){
 		window.scrollTo(0, 0);
+		this.loadBooks();
 	},
 	beforeRouteUpdate(to, from, next){
 		next();
 		window.scrollTo(0, 0);
+		this.loadBooks();
 	},
 	computed: {},
 	components: {
 		//Navbar,
 	},
 };
-
 
 
 </script>

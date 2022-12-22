@@ -12,7 +12,7 @@
                 <a href="index.html" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
                   </span>
-                  <span class="app-brand-text demo text-body fw-bolder"><router-link :to="{path: '/'}">Главная</router-link></span>
+                  <router-link :to="{path: '/'}" class="app-brand-text demo menu-text fw-bolder ms-2">Главная</router-link>
                 </a>
               </div>
               <!-- /Logo -->
