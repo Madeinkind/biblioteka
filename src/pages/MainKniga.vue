@@ -202,7 +202,7 @@
 					<input type="number" class="form-control" v-model.number="book_count" placeholder="Book count" />
 					<input type="submit" class="btn btn-primary" value="Add" />
 				</form>
-        <div class="d-flex2">
+            <div class="d-flex2">
                 <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
                 <button class="btn btn-outline-success" type="submit">Поиск</button>
             </div>
