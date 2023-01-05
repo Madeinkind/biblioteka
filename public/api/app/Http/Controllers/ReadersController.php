@@ -100,7 +100,6 @@ class ReadersController extends Controller
 		}
 		else
 		{*/
-			// TODO: доделать!!!!
 			$count = DB::table('books_readers')
 				->where('date_end_fact', '=', '0000-00-00 00:00:00')
 				->distinct()
@@ -118,10 +117,9 @@ class ReadersController extends Controller
 				//->orderBy('name', 'asc')
 				//->limit($limit)
 				//->offset($start)
-				->groupBy('reader_id')
+				->groupBy('books_readers.reader_id')
 				//->toSql();
 				->get();
-				//->unique('books_readers.reader_id');
 		//}
 		
 		return response()->json([
