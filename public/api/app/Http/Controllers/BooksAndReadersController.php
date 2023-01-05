@@ -75,11 +75,11 @@ class BooksController extends Controller
 	public function get($id, Request $request)
 	{
 		$data = $request->input();
-		$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
+		//$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
 		
 		$item = DB::table('books')
 			->select('id', 'reader_id', 'book_id', 'date_start', 'date_end_plan','date_end_fact')
-			->where('virtualspace_id', '=', $virtualspace_id)
+			//->where('virtualspace_id', '=', $virtualspace_id)
 			->where('id', '=', $id)
 			->first();
 		
@@ -96,7 +96,7 @@ class BooksController extends Controller
 	public function add(Request $request)
 	{
 		$data = $request->input();
-		$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
+		//$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
 		$id = isset($data['id']) ? $data['id'] : '';
 		$reader_id = isset($data['reader_id']) ? $data['reader_id'] : 1;
 		$book_id = isset($data['book_id']) ? $data['book_id'] : 1;

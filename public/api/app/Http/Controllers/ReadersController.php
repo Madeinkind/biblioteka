@@ -107,7 +107,7 @@ class ReadersController extends Controller
 				->count(['reader_id']);
 			$list = DB::table('books_readers')
 				->select(
-					'books_readers.id as id',
+					'books_readers.id',
 					'books_readers.reader_id',
 					'readers.fio as reader_fio',
 					'readers.group as reader_group',
@@ -118,8 +118,9 @@ class ReadersController extends Controller
 				//->orderBy('name', 'asc')
 				//->limit($limit)
 				//->offset($start)
-				->toSql();
-				//->get()
+				->groupBy('reader_id')
+				//->toSql();
+				->get();
 				//->unique('books_readers.reader_id');
 		//}
 		
