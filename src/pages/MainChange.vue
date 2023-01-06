@@ -1,45 +1,33 @@
 <template>
-        <table class="table">
-        <thead class="thead">
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Название</th>
-            <th scope="col">Кол-во</th>
-            <th scope="col">Издательство</th>
-            <th scope="col">Год выпуска</th>
-          </tr>
-        </thead>
-        <tbody class="table-group-divider">
-          <tr v-for="book in books" :key="book.id">
-            <td>{{book.id}}</td>
-            <td>{{book.name}}</td>
-            <td>{{book.count}}</td>
-            <td>{{book.name}}</td>
-            <td>{{book.date}}</td>
-          </tr>
-		  <tr>
-			<td colspan="3" class="table-item">
-        <form @submit.prevent="onBookAdd">
-					<hr width="800px">
-				</form>
-			</td>
-		  </tr>
-        </tbody>
-      </table>
-     <!--Footer -->
-     <footer class="footer">
-          <div class="container-fluid">
-            <div class="row">
-              <div class="col-sm-6 text-muted">
-                2022☯MadeInKind || MrZulax
-              </div>
-              <div class="col-sm-6 text-sm-end d-none d-sm-block text-muted">
-                Разработал Палагута Д. А. || Гурьянов И. О.
-              </div>
-            </div>
-          </div>
-        </footer>
-     <!--Footer -->
+	 <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Tables /</span> Basic Tables</h4>
+
+              <!-- Basic Bootstrap Table -->
+              <div class="card">
+                <h5 class="card-header">Table Basic</h5>
+                <div class="table-responsive text-nowrap"></div>
+				  <table class="table">
+					<thead class="thead">
+					<tr>
+						<th scope="col">ID</th>
+						<th scope="col">Название</th>
+						<th scope="col">Кол-во</th>
+						<th scope="col">Издательство</th>
+						<th scope="col">Год выпуска</th>
+					</tr>
+					</thead>
+					<tbody class="table-group-divider">
+					<tr v-for="book in books" :key="book.id">
+						<td>{{book.id}}</td>
+						<td>{{book.name}}</td>
+						<td>{{book.count}}</td>
+						<td>{{book.name}}</td>
+						<td>{{book.date}}</td>
+					</tr>
+					</tbody>
+				</table>
+			  </div>
+	 </div>
 </template>
 
 <style lang="css" scoped>

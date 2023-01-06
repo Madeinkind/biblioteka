@@ -10,8 +10,8 @@ import { createMetaManager, plugin as metaPlugin } from 'vue-meta';
 import app_mixin from "./mixin.js";
 import lib from '@/lib';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap';
+//import 'bootstrap/dist/css/bootstrap.min.css';
+//import 'bootstrap';
 //import '@/assets/css/bootstrap.min.css';
 //import '@/assets/css/icons.min.css';
 //import '@/assets/css/app.min.css';

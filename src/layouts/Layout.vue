@@ -1,31 +1,20 @@
 <template>
-	<div class="container">
-  <!-- header-->
-    <div class="header row">
-			<div class="col-12">
-				<div class=" page-title-box d-flex align-items-center justify-content-between">
-					<h4 class="mb-0"><img src="/assets/images/icons8-закладка-120 (1).png" alt=""> Главная</h4>
-					<div class="page-title-right">
-						<ol class=" breadcrumb m-3">
-							<li ><router-link :to="{path: '/login'}" class="btn1">Log in</router-link></li>
-							<li ><router-link :to="{path: '/'}" class="btn1">Log out</router-link></li>
-						</ol>
-					</div>
-				</div>
-			</div>
-		</div>
-      <!-- header-->
-    <div class="layout-container">
-      <div class="layout-menu menu-vertical menu bg-menu-theme">
+    <!-- Layout wrapper -->
+    <div class="layout-wrapper layout-content-navbar">
+      <div class="layout-container">
+        <!-- Menu -->
+
+        <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
           <div class="app-brand demo">
-            <a class="app-brand-link">
+            <a href="index.html" class="app-brand-link">
               <span class="app-brand-logo demo">
                 <svg
                   width="25"
                   viewBox="0 0 25 42"
                   version="1.1"
                   xmlns="http://www.w3.org/2000/svg"
-                  xmlns:xlink="http://www.w3.org/1999/xlink">
+                  xmlns:xlink="http://www.w3.org/1999/xlink"
+                >
                   <defs>
                     <path
                       d="M13.7918663,0.358365126 L3.39788168,7.44174259 C0.566865006,9.69408886 -0.379795268,12.4788597 0.557900856,15.7960551 C0.68998853,16.2305145 1.09562888,17.7872135 3.12357076,19.2293357 C3.8146334,19.7207684 5.32369333,20.3834223 7.65075054,21.2172976 L7.59773219,21.2525164 L2.63468769,24.5493413 C0.445452254,26.3002124 0.0884951797,28.5083815 1.56381646,31.1738486 C2.83770406,32.8170431 5.20850219,33.2640127 7.09180128,32.5391577 C8.347334,32.0559211 11.4559176,30.0011079 16.4175519,26.3747182 C18.0338572,24.4997857 18.6973423,22.4544883 18.4080071,20.2388261 C17.963753,17.5346866 16.1776345,15.5799961 13.0496516,14.3747546 L10.9194936,13.4715819 L18.6192054,7.984237 L13.7918663,0.358365126 Z"
@@ -63,7 +52,8 @@
                         </g>
                         <g
                           id="Triangle"
-                          transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) ">
+                          transform="translate(19.000000, 11.000000) rotate(-300.000000) translate(-19.000000, -11.000000) "
+                        >
                           <use fill="#696cff" xlink:href="#path-5"></use>
                           <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-5"></use>
                         </g>
@@ -72,117 +62,100 @@
                   </g>
                 </svg>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Библиотека</span>
+              <span class="app-brand-text demo menu-text fw-bolder ms-2">Sneat</span>
+            </a>
+
+            <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+              <i class="bx bx-chevron-left bx-sm align-middle"></i>
             </a>
           </div>
-          <div class="menu-inner-shadow"></div>
-          <ul class="menu-inner py-1">
-            <!-- Dashboard -->
-            <li class="menu-item active">
-              <a class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div>Главная</div>
-              </a>
-            </li>
-            <!-- Layouts -->
-      <div class="accordion accordion-flush " id="accordionFlushExample">
-        <div class="accordion-item text-secondary">
-          <h2 class="accordion-header" id="flush-headingOne">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
-              Книги
-            </button>
-          </h2>
-          <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">
-              <ul class="meni-item">
-                <li><router-link :to="{path: '/MainChange'}">Справичник книг</router-link></li>
-                <li><router-link :to="{path: '/MainKniga'}">Изменить</router-link></li>
-                <li><a href="">
-                  Добавить
-                </a></li>
-                <li><a href="">
-                  Добавить
-                </a></li>
-                <li><a href="">
-                  Добавить
-                </a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="accordion-item text-secondary">
-          <h2 class="accordion-header" id="flush-headingTwo">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
-              Accordion Item #2
-            </button>
-          </h2>
-          <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the second item's accordion body. Let's imagine this being filled with some actual content.</div>
-          </div>
-        </div>
-        <div class="accordion-item text-secondary">
-          <h2 class="accordion-header" id="flush-headingThree">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThree" aria-expanded="false" aria-controls="flush-collapseThree">
-              Accordion Item #3
-            </button>
-          </h2>
-          <div id="flush-collapseThree" class="accordion-collapse collapse" aria-labelledby="flush-headingThree" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body">Placeholder content for this accordion, which is intended to demonstrate the <code>.accordion-flush</code> class. This is the third item's accordion body. Nothing more exciting happening here in terms of content, but just filling up the space to make it look, at least at first glance, a bit more representative of how this would look in a real-world application.</div>
-          </div>
-        </div>
 
-        <li class="menu-item ">
-          <a class="menu-link">
-            <i class="menu-icon tf-icons bx bx-dock-top"></i>
-            <div>Аккаунт</div>
-          </a>
-        </li>
-        <div class="accordion-item text-secondary">
-          <h2 class="accordion-header" id="flush-headingFour">
-            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
-              Профиль
-            </button>
-          </h2>
-          <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
-            <div class="accordion-body"><div class="accordion-body">
-              <ul class="meni-item">
-                <li><router-link :to="{path: '/MainAcc'}">Настройки</router-link></li>
-                <li><a>
-                  Добавить
-                </a></li>
-                <li><a>
-                  Добавить
-                </a></li>
-                <li><a>
-                  Добавить
-                </a></li>
-              </ul>
-            </div></div>
-          </div>
-        </div>
-        </div>       
+          <div class="menu-inner-shadow"></div>
+
+          <ul class="menu-inner py-1">
+
+            <li class="menu-item">
+              <router-link :to="{path: '/'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Главная</div>
+              </router-link>
+            </li>
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">Страницы</span>
+            </li>
+            <li class="menu-item">
+              <router-link :to="{path: '/mainacc'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Профиль</div>
+              </router-link>
+            </li>
+            <li class="menu-item">
+              <router-link :to="{path: '/mainkniga'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Добавить</div>
+              </router-link>
+            </li>
+            <li class="menu-item">
+              <router-link :to="{path: '/mainchange'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Книги</div>
+              </router-link>
+            </li>
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">Аккаунт</span>
+            </li>
+            <li class="menu-item">
+              <router-link :to="{path: '/login'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Войти</div>
+              </router-link>
+            </li>
+            <li class="menu-item">
+              <router-link :to="{path: '/logout'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <div data-i18n="Analytics">Выйти</div>
+              </router-link>
+            </li>
+
+            
           </ul>
-        </div>
+        </aside>
         <!-- / Menu -->
-        <div class="center">
-          <router-view/>
-        </div>
-    </div> 
-      <!--Footer -->
-      <footer class="footer">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-sm-6 text-muted">
-                  2022☯MadeInKind || MrZulax
+
+        <!-- Layout container -->
+        <div class="layout-page">
+
+          <!-- Content wrapper -->
+          <div class="content-wrapper">
+            <!-- Content -->
+            <router-view/>
+
+            <!-- / Content -->
+            <!-- Footer -->
+            <footer class="content-footer footer bg-footer-theme">
+              <div class="container-xxl d-flex flex-wrap justify-content-center py-2 flex-md-row flex-column">
+                <div class="mb-2 mb-md-0">
+                  © made with ❤️ by
+                  MrZulax and Madeinkind
+                  
                 </div>
-                <div class="col-sm-6 text-sm-end d-none d-sm-block text-muted">
-                     Разработал Палагута Д. А. || Гурьянов И. О.
-                </div>
-            </div>
+              </div>
+            </footer>
+            <!-- / Footer -->
+
+  
+
+            <div class="content-backdrop fade"></div>
           </div>
-        </footer>
-          <!--Footer -->
-		</div>
+          <!-- Content wrapper -->
+        </div>
+        <!-- / Layout page -->
+      </div>
+
+      <!-- Overlay -->
+      <div class="layout-overlay layout-menu-toggle"></div>
+    </div>
+    <!-- / Layout wrapper -->
 </template>
 
 <style lang="sass" scoped>

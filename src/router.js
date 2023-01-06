@@ -9,6 +9,7 @@ import Main from '@/pages/Main.vue';
 import MainAcc from '@/pages/MainAcc.vue';
 import MainKniga from '@/pages/MainKniga.vue';
 import MainChange from '@/pages/MainChange.vue';
+import MainAdd from '@/pages/MainAdd.vue';
 import Langs from '@/pages/Langs.vue';
 import Test1 from '@/pages/Test1.vue';
 import Test2 from '@/pages/Test2.vue';
@@ -48,6 +49,13 @@ const routes = [
 			{
 				path: '/mainchange',
 				component: MainChange,
+				meta: {
+					//requiresAuth: true,
+				},
+			},
+			{
+				path: '/mainadd',
+				component: MainAdd,
 				meta: {
 					//requiresAuth: true,
 				},

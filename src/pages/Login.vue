@@ -21,22 +21,19 @@
 
               <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
-                  <label for="email" class="form-label">Электронная почта или имя пользователя</label>
+                  <label for="email" class="form-label">Имя пользователя</label>
                   <input
                     type="text"
                     class="form-control"
                     id="email"
                     name="email-username"
-                    placeholder="Enter your email or username"
+                    placeholder="Enter your username"
                     autofocus
                   />
                 </div>
                 <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
                     <label class="form-label" for="password">Пароль</label>
-                    <a href="auth-forgot-password-basic.html">
-                      <small><router-link :to="{path: '/:pathMatch(.*)*'}">Забыли пароль</router-link></small>
-                    </a>
                   </div>
                   <div class="input-group input-group-merge">
                     <input
@@ -48,12 +45,6 @@
                       aria-describedby="password"
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
-                  </div>
-                </div>
-                <div class="mb-3">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" id="remember-me" />
-                    <label class="form-check-label" for="remember-me"> Запомните меня </label>
                   </div>
                 </div>
                 <div class="mb-3">

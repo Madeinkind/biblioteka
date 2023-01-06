@@ -1,4 +1,38 @@
 <template>
+	 <div class="container-xxl flex-grow-1 container-p-y">
+              <h4 class="fw-bold py-3 mb-4">Книги</h4>
+              <!-- Basic Bootstrap Table -->
+              <div class="card">
+				<router-link :to="{path: '/mainadd'}" class="btn btn-primary">
+					Добавить
+              </router-link>
+			  <nav
+            class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+            id="layout-navbar"
+          >
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                <i class="bx bx-menu bx-sm"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center">
+                <div class="nav-item d-flex align-items-center">
+                  <i class="bx bx-search fs-4 lh-0"></i>
+                  <input
+                    type="text"
+                    class="form-control border-0 shadow-none"
+                    placeholder="Search..."
+                    aria-label="Search..."
+                  />
+                </div>
+              </div>
+              <!-- /Search -->
+			</div>
+			  </nav>
+                <div class="table-responsive text-nowrap"></div>
       <table class="table">
         <thead class="thead">
           <tr>
@@ -21,24 +55,10 @@
               <input type="button" class="btn btn-success" @click="onDeleteBook(book.id)" value="↺" />
             </td>
           </tr>
-		  <tr>
-			<td colspan="3" class="table-item">
-        <form @submit.prevent="onBookAdd">
-					█ ▆ ▅ ▃ ▂ ▂ ▃ ▅ ▆ █ █ ▆ ▅ ▃ ▂ ▂ ▃ ▅ ▆ █ █ ▆ ▅ ▃ ▂ ▂ ▃ ▅ ▆ █
-				</form>
-			</td>
-		  </tr>
         </tbody>
       </table>
-        <form @submit.prevent="onBookAdd" class="form-item">
-					<input type="text" class="form-control" v-model="book_name" placeholder="Book name" />
-					<input type="number" class="form-control" v-model.number="book_count" placeholder="Book count" />
-					<input type="submit" class="btn btn-primary" value="Add" />
-				</form>
-            <div class="d-flex2">
-                <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск">
-                <button class="btn btn-outline-success" type="submit">Поиск</button>
-            </div>
+		</div>
+	 </div>
 </template>
 
 <style lang="css" scoped>
@@ -59,9 +79,6 @@ export default {
 	},
 	data: () => ({
 		books: [],
-		
-		book_name: '',
-		book_count: 1,
 	}),
 	methods: {
 		loadBooks(){
@@ -76,23 +93,6 @@ export default {
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.books = data.list;
-			}).catch(error => {
-				console.log(error);
-			});
-		},
-		onBookAdd(){
-			fetch('/api/books', {
-				method: 'POST',
-				body: JSON.stringify({
-					name: this.book_name,
-					count: this.book_count,
-				}),
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			}).then(stream => stream.json()).then((data) => {
-				//console.log(data);
-				this.loadBooks();
 			}).catch(error => {
 				console.log(error);
 			});
