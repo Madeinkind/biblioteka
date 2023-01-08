@@ -9,6 +9,7 @@ import Main from '@/pages/Main.vue';
 import MainAcc from '@/pages/MainAcc.vue';
 import MainKniga from '@/pages/MainKniga.vue';
 import MainChange from '@/pages/MainChange.vue';
+import SpisokChit from '@/pages/SpisokChit.vue';
 import MainAdd from '@/pages/MainAdd.vue';
 import Langs from '@/pages/Langs.vue';
 import Test1 from '@/pages/Test1.vue';
@@ -42,6 +43,13 @@ const routes = [
 			{
 				path: '/mainkniga',
 				component: MainKniga,
+				meta: {
+					//requiresAuth: true,
+				},
+			},
+			{
+				path: '/spisokchit',
+				component: SpisokChit,
 				meta: {
 					//requiresAuth: true,
 				},

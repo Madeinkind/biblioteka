@@ -1,17 +1,24 @@
 <template>
         <div class="container-xxl flex-grow-1 container-p-y">
-              <!-- Layout Demo -->
-              <div class="layout-demo-wrapper">
-                <div class="layout-demo-placeholder">
-              
-                </div>
-                <div class="layout-demo-info">
-                  <h4>Layout container</h4>
-                  <p>Container layout sets a <code>max-width</code> at each responsive breakpoint.</p>
-                </div>
-              </div>
-              <!--/ Layout Demo -->
-            </div>
+    		<!--Under Maintenance -->
+    		<div class="container-xxl container-p-y">
+    		  <div class="misc-wrapper">
+    		    <h2 class="mb-2 mx-2">На техобслуживании!</h2>
+    		    <p class="mb-4 mx-2">Приносим извинения за неудобства, но в настоящее время мы проводим техническое обслуживание</p>
+    		    <div class="mt-4">
+    		      <img
+    		        src="/assets/img/illustrations/girl-doing-yoga-light.png"
+    		        alt="girl-doing-yoga-light"
+    		        width="500"
+    		        class="img-fluid"
+    		        data-app-dark-img="illustrations/girl-doing-yoga-dark.png"
+    		        data-app-light-img="illustrations/girl-doing-yoga-light.png"
+    		      />
+    		    </div>
+    		  </div>
+    		</div>
+    		<!-- /Under Maintenance -->
+        </div>
 </template>
 
 

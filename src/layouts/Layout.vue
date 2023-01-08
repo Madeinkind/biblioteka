@@ -85,20 +85,29 @@
             </li>
             <li class="menu-item">
               <router-link :to="{path: '/mainacc'}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bxs-user-account"></i>
                 <div data-i18n="Analytics">Профиль</div>
               </router-link>
             </li>
             <li class="menu-item">
               <router-link :to="{path: '/mainkniga'}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bxs-add-to-queue"></i>
                 <div data-i18n="Analytics">Добавить</div>
               </router-link>
             </li>
             <li class="menu-item">
               <router-link :to="{path: '/mainchange'}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bxs-book  "></i>
                 <div data-i18n="Analytics">Книги</div>
+              </router-link>
+            </li>
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">Люди</span>
+            </li>
+            <li class="menu-item">
+              <router-link :to="{path: '/spisokchit'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-group"></i>
+                <div data-i18n="Analytics">Должники</div>
               </router-link>
             </li>
             <li class="menu-header small text-uppercase">
@@ -106,13 +115,13 @@
             </li>
             <li class="menu-item">
               <router-link :to="{path: '/login'}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bx-log-in"></i>
                 <div data-i18n="Analytics">Войти</div>
               </router-link>
             </li>
             <li class="menu-item">
               <router-link :to="{path: '/logout'}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
+                <i class="menu-icon tf-icons bx bx-log-out"></i>
                 <div data-i18n="Analytics">Выйти</div>
               </router-link>
             </li>

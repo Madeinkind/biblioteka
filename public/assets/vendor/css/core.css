@@ -9324,6 +9324,7 @@ button.list-group-item-gray.active {
 
 .justify-content-center {
   justify-content: center !important;
+  margin-top: 50px;
 }
 
 .justify-content-between {
@@ -16372,6 +16373,14 @@ html:not(.layout-footer-fixed) .content-wrapper {
 .navbar.bg-dark .navbar-nav .nav-link.show,
 .navbar.bg-dark .navbar-nav .nav-link.active {
   color: #fff;
+}
+.misc-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(50vh - (1.625rem * 2));
+  text-align: center;
 }
 .navbar.bg-dark .navbar-toggler {
   color: #e4e6e8;
