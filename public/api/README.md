@@ -273,13 +273,10 @@
 
 Принимает
 
-	data = $request->input();
-	$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
-	$id = isset($data['id']) ? $data['id'] : '';
-	$namestudent = isset($data['namestudent']) ? $data['namestudent'] : 1;
-	$surnamestudent = isset($data['surnamestudent']) ? $data['surnamestudent'] : 1;
+	$data = $request->input();
+	$fio = isset($data['fio']) ? $data['fio'] : '';
+	$group = isset($data['group']) ? $data['group'] : '';
 	$iin = isset($data['iin']) ? $data['iin'] : '';
-	$bookscount = isset($data['bookscount']) ? $data['bookscount'] : '';
 		
 Возвращает
 
@@ -302,11 +299,9 @@
 Принимает
 
 	$data = $request->input();
-	$id = isset($data['id']) ? $data['id'] : '';
-	$namestudent = isset($data['namestudent']) ? $data['namestudent'] : 1;
-	$surnamestudent = isset($data['surnamestudent']) ? $data['surnamestudent'] : 1;
-	$iin = isset($data['iin']) ? $data['iin'] : 1;
-	$bookscount = isset($data['bookscount']) ? $data['bookscount'] : 1;
+	$fio = isset($data['fio']) ? $data['fio'] : '';
+	$group = isset($data['group']) ? $data['group'] : '';
+	$iin = isset($data['iin']) ? $data['iin'] : '';
 	
 Возвращает
 
