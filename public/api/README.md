@@ -1,24 +1,104 @@
-# Lumen PHP Framework
+# API
+<details><summary>AuthController</summary>
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/checkauth)</code></summary>
 
-[![Build Status](https://travis-ci.org/laravel/lumen-framework.svg)](https://travis-ci.org/laravel/lumen-framework)
-[![Total Downloads](https://img.shields.io/packagist/dt/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![Latest Stable Version](https://img.shields.io/packagist/v/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
-[![License](https://img.shields.io/packagist/l/laravel/framework)](https://packagist.org/packages/laravel/lumen-framework)
+get('/auth/checkauth', 'AuthController@checkauth')
 
-Laravel Lumen is a stunningly fast PHP micro-framework for building web applications with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Lumen attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as routing, database abstraction, queueing, and caching.
+Получает
 
-## Official Documentation
+	$jwt_token = JWTToken::create(env('JWT_PUBLIC_KEY'));
+	$arr = DB::table('sessions')
+	$user = DB::table('users')
+	$user_roles = User::getRoles($user->id);
+	$expired = time() + env('JWT_COOKIE_TIMEOUT');
+	$jwt_token->expired = $expired;
+	$jwt_string = $jwt_token->encode(env('JWT_PRIVATE_KEY'));
+	$domain = get_domain();
 
-Documentation for the framework can be found on the [Lumen website](https://lumen.laravel.com/docs).
+Возвращает
 
-## Contributing
+	'auth' => true,
+	'token' => $jwt_string,
+	'session' => $session,
+	'expired' => $expired,
+	'timeout' => env('JWT_COOKIE_TIMEOUT'),
+	'user_data' => [
+	'id' => $user->id,
+	'login' => $user->login,
+	'sname' => $user->sname,
+	'fname' => $user->fname,
+	'lname' => $user->lname,
+	'gender' => $user->gender,
+	'email' => $user->email,
+	'tel' => $user->tel,
+	'about' => $user->about,
+	'iin' => $user->iin,
+	'avatar' => getAvatar($user->login)['fullAvaLink'],
+	'theme' => $user->theme,
+	'lang_code' => $user->lang_code,
+	'user_roles' => $user_roles,
+	
+</details>
 
-Thank you for considering contributing to Lumen! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+<details><summary><code>POST</code> <code><b>/</b></code> <code>(auth/login)</code></summary>
+	
+Получает
+	
+	$data = $request->input();
+	$username = isset($data['username']) ? $data['username'] : '';
+	$password = isset($data['password']) ? $data['password'] : '';
+	$session = '';
+	$jwt_token = JWTToken::create(env('JWT_PUBLIC_KEY'));
+	$user = DB::table('users')
+	$jwt_token = new JWTToken();
+	$jwt_token->user_id = $user->id;
+	$jwt_token->session = $session;
+	$jwt_token->expired = $expired;
+	$jwt_string = $jwt_token->encode(env('JWT_PRIVATE_KEY'));
+	$domain = get_domain();
+	
+Возвращает
+	
+	'token' => $jwt_string,
+	'session' => $session,
+	'expired' => $expired,
+	'timeout' => env('JWT_COOKIE_TIMEOUT'),
+	'user_data' => [
+	'id' => $user->id,
+	'login' => $user->login,
+	'sname' => $user->sname,
+	'fname' => $user->fname,
+	'lname' => $user->lname,
+	'gender' => $user->gender,
+	'email' => $user->email,
+	'tel' => $user->tel,
+	'about' => $user->about,
+	'iin' => $user->iin,
+	'avatar' => getAvatar($user->login)['fullAvaLink'],
+	'theme' => $user->theme,
+	'lang_code' => $user->lang_code,
 
-## Security Vulnerabilities
+</details>
 
-If you discover a security vulnerability within Lumen, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
 
-## License
+Получает
 
-The Lumen framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+	jwt_token = JWTToken::create(env('JWT_PUBLIC_KEY'));
+	$domain = get_domain();
+	
+Возвращает
+	
+	return response()->json([
+	'success' => true,
+	], 200);
+
+</details>
+</details>
+
+<details><summary>BooksController</summary>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+
+</details>
+</details>
