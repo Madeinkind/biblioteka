@@ -55,7 +55,7 @@ class ReadersController extends Controller
 				->count();
 			$list = DB::table('readers')
 				->select('id', 'varchar')
-				->where('virtualspace_id', '=', $virtualspace_id)
+				//->where('virtualspace_id', '=', $virtualspace_id)
 				->orderBy('name', 'asc')
 				->limit($limit)
 				->offset($start)
