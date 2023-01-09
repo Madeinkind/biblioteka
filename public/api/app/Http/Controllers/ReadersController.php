@@ -29,12 +29,12 @@ class ReadersController extends Controller
 		//$login = $jwt_data['login'];
 		//$idUser = $jwt_data['user_id'];
 		
-		/*$data = $request->input();
+		$data = $request->input();
 		$search = isset($data['search']) ? $data['search'] : '';
 		$start = isset($data['start']) ? $data['start'] : 0;
 		$limit = isset($data['limit']) ? $data['limit'] : 10;
 		
-		if($search != '')
+		/*if($search != '')
 		{
 			$count = DB::table('cwt_projects')
 				->where('virtualspace_id', '=', $virtualspace_id)
