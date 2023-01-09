@@ -84,7 +84,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(books)</code></summary>
+<details><summary><code>POST</code> <code><b>/</b></code> <code>(books)</code></summary>
 
 Получает
 
@@ -111,45 +111,84 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+<details><summary><code>POST</code> <code><b>/</b></code> <code>(books/{id})</code></summary>
 
+Получает
 
+	$data = $request->input();
+	$name = isset($data['name']) ? $data['name'] : '';
+	$count = isset($data['count']) ? $data['count'] : 1;
 
-</details>
+Возвращает
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
-
-
-
-</details>
-
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
-
-
+	'success' => $success,
 
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+<details><summary><code>DELETE</code> <code><b>/</b></code> <code>(books/{id})</code></summary>
 
+Возвращает
 
-
-</details>
-
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
-
-
+	'success' => $success,
 
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(books-issued)</code></summary>
 
+Получает
 
+	$data = $request->input();
+
+Возвращает
+
+	'list' => $list,
+	'count' => $count,
 
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+<details><summary><code>POST</code> <code><b>/</b></code> <code>(books-issued)</code></summary>
 
+Получает
 
+	$data = $request->input();
+	$book_id = isset($data['book_id']) ? $data['book_id'] : '';
+	$reader_id = isset($data['reader_id']) ? $data['reader_id'] : '';
+	$date_start = isset($data['date_start']) ? $data['date_start'] : '';
+	$date_end = isset($data['date_end']) ? $data['date_end'] : '';
+
+Возвращает
+
+	'id' => $id,
+	'success' => (bool)$id,
+
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(books-issued)</code></summary>
+
+Получает
+
+	$data = $request->input();
+
+</details>
+
+<details><summary><code>POST</code> <code><b>/</b></code> <code>(books-issued)</code></summary>
+
+Получает
+
+	$data = $request->input();
+	$date_end = isset($data['date_end']) ? $data['date_end'] : '';
+
+Возвращает
+
+	'success' => $success,
+
+</details>
+
+<details><summary><code>DELETE</code> <code><b>/</b></code> <code>(abooks-issued)</code></summary>
+
+Возвращает
+
+	'success' => $success,
 
 </details>
 </details>
