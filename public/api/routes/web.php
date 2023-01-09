@@ -31,7 +31,6 @@ $router->group(['prefix' => ''], function () use ($router)
 	$router->get('/books/{id}', 'BooksController@get'); // получение книги по ее id
 	$router->post('/books/{id}', 'BooksController@edit'); // изменение книги по ее id
 	$router->delete('/books/{id}', 'BooksController@delete'); // удаление книги по ее id
-	
 	$router->get('/books-issued', 'BooksController@listIssued'); // получение списка выданных книг
 	$router->post('/books-issued', 'BooksController@addIssue'); // выдача книги
 	$router->get('/books-issued/{id}', 'BooksController@getIssued'); // получение выданной книги по ее id
@@ -49,7 +48,6 @@ $router->group(['prefix' => ''], function () use ($router)
 	$router->get('/readers/{id}', 'ReadersController@get');  // получение читателя по его id
 	$router->post('/readers/{id}', 'ReadersController@edit'); // изменение данных студента по айди 
 	$router->delete('/readers/{id}', 'ReadersController@delete'); // удаление студента из базы
-	
 	$router->get('/readers-debtors', 'ReadersController@listDebtors'); // получение списка должников
 	$router->get('/readers-debtors/{id}', 'ReadersController@getDebtor');  // получение должника по его id
 	
