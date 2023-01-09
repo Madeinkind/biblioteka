@@ -3,7 +3,7 @@
               <h4 class="fw-bold py-3 mb-4">Книги</h4>
               <!-- Basic Bootstrap Table -->
               <div class="card">
-				<router-link :to="{path: '/mainadd'}" class="btn btn-primary">
+				<router-link :to="{path: '/books/add'}" class="btn btn-primary">
 					Добавить
               </router-link>
                 <div class="table-responsive text-nowrap"></div>
@@ -24,9 +24,11 @@
             <td>{{book.count}}</td>
             <td>{{book.name}}</td>
             <td>{{book.name}}</td>
-            <td>
-              <input type="button" class="btn btn-danger" @click="onDeleteBook(book.id)" value="✖" />
-              <input type="button" class="btn btn-success" @click="onDeleteBook(book.id)" value="↺" />
+            <td class="text-end">
+				<router-link :to="{path: '/books/'+book.id+'/edit'}" class="btn btn-success">
+					<i class='bx bxs-pencil'></i>
+				</router-link>
+				<input type="button" class="btn btn-danger" @click="onDeleteBook(book.id)" value="✖" />
             </td>
           </tr>
         </tbody>
@@ -78,7 +80,7 @@ export default {
 	name: 'Main',
 	mixins: lib.mixins,
 	setup(){
-		useMeta({title: 'Главная | Biblioteka'});
+		useMeta({title: 'Книги | Biblioteka'});
 	},
 	data: () => ({
 		books: [],

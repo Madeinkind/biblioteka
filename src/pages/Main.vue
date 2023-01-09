@@ -5,16 +5,11 @@
     		  <div class="misc-wrapper">
     		    <h2 class="mb-2 mx-2">На техобслуживании!</h2>
     		    <p class="mb-4 mx-2">Приносим извинения за неудобства, но в настоящее время мы проводим техническое обслуживание</p>
-    		    <div class="mt-4">
-    		      <img
-    		        src="/assets/img/illustrations/girl-doing-yoga-light.png"
-    		        alt="girl-doing-yoga-light"
-    		        width="500"
-    		        class="img-fluid"
-    		        data-app-dark-img="illustrations/girl-doing-yoga-dark.png"
-    		        data-app-light-img="illustrations/girl-doing-yoga-light.png"
-    		      />
-    		    </div>
+				<div class="animation">
+    				<div class="one spin-one"></div>
+    				<div class="two spin-two"></div>
+    				<div class="three spin-one"></div>
+				</div>
     		  </div>
     		</div>
     		<!-- /Under Maintenance -->

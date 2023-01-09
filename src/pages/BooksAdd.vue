@@ -4,13 +4,13 @@
 
               <!-- Basic Bootstrap Table -->
             <div class="card">
-				<router-link :to="{path: '/mainkniga'}" class="btn btn-primary">
+				<router-link :to="{path: '/books-issued'}" class="btn btn-primary">
 					Назад
               </router-link>
         <form @submit.prevent="onBookAdd" class="form-item">
-					<input type="text" class="form-control" v-model="book_name" placeholder="Book name" />
-					<input type="number" class="form-control" v-model.number="book_count" placeholder="Book count" />
-					<input type="submit" class="btn btn-primary" value="Add" />
+			<input type="text" class="form-control" v-model="book_name" placeholder="Book name" />
+			<input type="number" class="form-control" v-model.number="book_count" placeholder="Book count" />
+			<input type="submit" class="btn btn-primary" value="Add" />
 		</form>
 		</div>
 	</div>
@@ -48,7 +48,7 @@ export default {
 				},
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
-				this.$router.push('/mainkniga');
+				this.$router.push('/books-issued');
 			}).catch(error => {
 				console.log(error);
 			});

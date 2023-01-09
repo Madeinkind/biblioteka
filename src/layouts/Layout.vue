@@ -84,30 +84,36 @@
               <span class="menu-header-text">Страницы</span>
             </li>
             <li class="menu-item">
-              <router-link :to="{path: '/mainacc'}" class="menu-link">
+              <router-link :to="{path: '/profile'}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-user-account"></i>
                 <div data-i18n="Analytics">Профиль</div>
               </router-link>
             </li>
             <li class="menu-item">
-              <router-link :to="{path: '/mainkniga'}" class="menu-link">
+              <router-link :to="{path: '/books-issued'}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-add-to-queue"></i>
-                <div data-i18n="Analytics">Добавить</div>
+                <div data-i18n="Analytics">Выданные книги</div>
               </router-link>
             </li>
             <li class="menu-item">
-              <router-link :to="{path: '/mainchange'}" class="menu-link">
+              <router-link :to="{path: '/books'}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-book  "></i>
-                <div data-i18n="Analytics">Книги</div>
+                <div data-i18n="Analytics">Список книг</div>
               </router-link>
             </li>
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Люди</span>
             </li>
             <li class="menu-item">
-              <router-link :to="{path: '/spisokchit'}" class="menu-link">
+              <router-link :to="{path: '/readers-debtors'}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-group"></i>
                 <div data-i18n="Analytics">Должники</div>
+              </router-link>
+            </li>
+            <li class="menu-item">
+              <router-link :to="{path: '/readers'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-group"></i>
+                <div data-i18n="Analytics">Список читателей</div>
               </router-link>
             </li>
             <li class="menu-header small text-uppercase">
