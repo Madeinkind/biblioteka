@@ -11,18 +11,17 @@
 					<thead class="thead">
 					<tr>
 						<th scope="col">ID</th>
-						<th scope="col">Имя</th>
-						<th scope="col">Фамилия</th>
+						<th scope="col">ФИО</th>
 						<th scope="col">Группа</th>
+						<th scope="col">ИИН</th>
 					</tr>
 					</thead>
 					<tbody class="table-group-divider">
 					<tr v-for="reader in readers" :key="reader.id">
 						<td>{{reader.id}}</td>
-						<td>{{reader.name}}</td>
-						<td>{{reader.username}}</td>
-						<td>{{reader.count}}</td>
-						<td>{{reader.date}}</td>
+						<td>{{reader.fio}}</td>
+						<td>{{reader.group}}</td>
+						<td>{{reader.iin}}</td>
 						<td class="text-end">
 							<router-link :to="{path: '/readers/'+reader.id+'/edit'}" class="btn btn-success">
 								<i class='bx bxs-pencil'></i>
@@ -105,7 +104,7 @@ export default {
 		},
 		onDeleteReader(id){
 			if(confirm('Вы уверены?')){
-     		   fetch('/api/reads/'+id, {
+     		   fetch('/api/readers/'+id, {
 				method: 'DELETE',
 				/*body: JSON.stringify({
 					name: this.read_name,
@@ -117,8 +116,7 @@ export default {
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
         if(data.success){
-          let pos = this.reads.findIndex((elem) => elem.id == id);
-          this.reads.splice(pos, 1);
+			this.loadReaders();
         }
 			}).catch(error => {
 				console.log(error);

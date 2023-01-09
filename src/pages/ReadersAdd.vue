@@ -8,8 +8,8 @@
 					Назад
               </router-link>
         <form @submit.prevent="onReaderAdd" class="form-item">
-			<input type="text" class="form-control" v-model="reader_namestudent" placeholder="Имя" />
-			<input type="text" class="form-control" v-model="reader_surnamestudent" placeholder="Фамилия" />
+			<input type="text" class="form-control" v-model="reader_fio" placeholder="Имя" />
+			<input type="text" class="form-control" v-model="reader_group" placeholder="Фамилия" />
 			<input type="text" class="form-control" v-model="reader_iin" placeholder="ИИН" />
 			<input type="submit" class="btn btn-primary" value="Add" />
 		</form>
@@ -33,8 +33,8 @@ export default {
 		useMeta({title: 'Главная | Biblioteka'});
 	},
 	data: () => ({
-		reader_namestudent: '',
-		reader_surnamestudent: '',
+		reader_fio: '',
+		reader_group: '',
 		reader_iin: '',
 	}),
 	methods: {
@@ -42,8 +42,8 @@ export default {
 			fetch('/api/readers', {
 				method: 'POST',
 				body: JSON.stringify({
-					namestudent: this.reader_namestudent,
-					surnamestudent: this.reader_surnamestudent,
+					fio: this.reader_fio,
+					group: this.reader_group,
 					iin: this.reader_iin,
 				}),
 				headers: {

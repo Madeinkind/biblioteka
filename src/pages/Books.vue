@@ -14,7 +14,6 @@
             <th scope="col">Название</th>
             <th scope="col">Кол-во</th>
             <th scope="col">Издательство</th>
-            <th scope="col">Год выпуска</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -22,8 +21,7 @@
             <td>{{book.id}}</td>
             <td>{{book.name}}</td>
             <td>{{book.count}}</td>
-            <td>{{book.name}}</td>
-            <td>{{book.name}}</td>
+            <td>{{book.publishing}}</td>
             <td class="text-end">
 				<router-link :to="{path: '/books/'+book.id+'/edit'}" class="btn btn-success">
 					<i class='bx bxs-pencil'></i>
@@ -116,8 +114,7 @@ export default {
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
         if(data.success){
-          let pos = this.books.findIndex((elem) => elem.id == id);
-          this.books.splice(pos, 1);
+			this.loadBooks();
         }
 			}).catch(error => {
 				console.log(error);

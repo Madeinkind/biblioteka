@@ -1,6 +1,6 @@
 <template>
         <div class="container-xxl flex-grow-1 container-p-y">
-    		<h4 class="fw-bold py-3 mb-4">Изменить</h4>
+    		<h4 class="fw-bold py-3 mb-2">Изменить</h4>
 			<!-- Content wrapper -->
 		<div class="content-wrapper">
             <!-- Content -->
@@ -9,7 +9,8 @@
                 <div class="col-md-10">
                   <div class="card mb-4">
                     <!-- Account -->
-                    <div class="card-body">
+					<form @submit.prevent="onBookEdit">
+						<div class="card-body">
 						<div class="row">
 							<div class="col text-center">
                         <img
@@ -39,20 +40,18 @@
                         </div>
 							</div>
 							<div class="col">
-								<form id="formAccountSettings" method="POST" onsubmit="return false">
 							<div class="mb-3">
                             	<label for="firstName" class="form-label">Название</label>
-                            	<input class="form-control" type="text" placeholder="Книги" aria-label="default input example">
+                            	<input class="form-control" type="text"  v-model="book_name" placeholder="Книги" aria-label="default input example">
                           </div>
 							<div class="mb-3">
-                            	<label for="firstName" class="form-label">Издратель</label>
-                            	<input class="form-control" type="text" placeholder="Книги" aria-label="default input example">
+                            	<label for="firstName" class="form-label">Издатель</label>
+							<input class="form-control" type="text" v-model="book_publishing" placeholder="Книги" aria-label="default input example">
                           </div>
 							<div class="mb-3">
-                            	<label for="firstName" class="form-label">Год выпуска</label>
-                            	<input class="form-control" type="text" placeholder="Книги" aria-label="default input example">
+                            	<label for="firstName" class="form-label">Кол-ВО</label>
+                            	<input class="form-control" type="text" v-model="book_count" placeholder="Книги" aria-label="default input example">
                           </div>
-                      </form>
 							</div>
 						</div>
                     </div>
@@ -60,11 +59,13 @@
                     <div class="card-body">
 						<div class="mt-2">
                           <button type="submit" class="btn btn-primary me-2">Сохранить</button>
-						  	<router-link :to="{path: '/books-issued'}" class="btn btn-outline-secondary">
+						  	<router-link :to="{path: '/books'}" class="btn btn-outline-secondary">
 								Назад
               				</router-link>
                         </div>
                     </div>
+					</form>
+
                     <!-- /Account -->
                   </div>
                 </div>
@@ -99,76 +100,54 @@ export default {
 		
 		book_name: '',
 		book_count: 1,
+		book_publishing: '',
 	}),
 	methods: {
-		loadBooks(){
-			fetch('/api/books', {
-				method: 'GET',
-				/*body: JSON.stringify({
-					name: 'TestBook1',
-				}),*/
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			}).then(stream => stream.json()).then((data) => {
-				//console.log(data);
-				this.books = data.list;
-			}).catch(error => {
-				console.log(error);
-			});
-		},
-		onBookAdd(){
+		onBookEdit(){
 			fetch('/api/books', {
 				method: 'POST',
 				body: JSON.stringify({
 					name: this.book_name,
 					count: this.book_count,
+					publishing: this.book_publishing,
 				}),
 				headers: {
 					'Content-Type': 'application/json',
 				},
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
-				this.loadBooks();
+				if(
+					data.success
+				)
+				{
+					this.$router.push('/books');
+				}
 			}).catch(error => {
 				console.log(error);
 			});
 		},
-		onDeleteBook(id){
-			if(confirm('Вы уверены?')){
-        fetch('/api/books/'+id, {
-				method: 'DELETE',
-				/*body: JSON.stringify({
-					name: this.book_name,
-					count: this.book_count,
-				}),*/
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			}).then(stream => stream.json()).then((data) => {
+		onLoad(id){
+			fetch('/api/books/' + id).then(stream => stream.json()).then((data) => {
 				//console.log(data);
-        if(data.success){
-          let pos = this.books.findIndex((elem) => elem.id == id);
-          this.books.splice(pos, 1);
-        }
+				this.book_name = data.name;
+				this.book_count = data.count;
+				this.book_publishing = data.publishing;
 			}).catch(error => {
 				console.log(error);
-			});  
-      }
-      
+			});
 		},
 	},
+
 	mounted(){
 		//this.loadBooks();
+		this.onLoad(this.$route.params.id);
 	},
 	beforeMount(){
 		window.scrollTo(0, 0);
-		this.loadBooks();
 	},
 	beforeRouteUpdate(to, from, next){
 		next();
 		window.scrollTo(0, 0);
-		this.loadBooks();
 	},
 	computed: {},
 	components: {
