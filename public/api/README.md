@@ -4,17 +4,6 @@
 
 get('/auth/checkauth', 'AuthController@checkauth')
 
-Получает
-
-	$jwt_token = JWTToken::create(env('JWT_PUBLIC_KEY'));
-	$arr = DB::table('sessions')
-	$user = DB::table('users')
-	$user_roles = User::getRoles($user->id);
-	$expired = time() + env('JWT_COOKIE_TIMEOUT');
-	$jwt_token->expired = $expired;
-	$jwt_string = $jwt_token->encode(env('JWT_PRIVATE_KEY'));
-	$domain = get_domain();
-
 Возвращает
 
 	'auth' => true,
@@ -23,17 +12,17 @@ get('/auth/checkauth', 'AuthController@checkauth')
 	'expired' => $expired,
 	'timeout' => env('JWT_COOKIE_TIMEOUT'),
 	'user_data' => [
-	'id' => $user->id,
-	'login' => $user->login,
-	'sname' => $user->sname,
-	'fname' => $user->fname,
-	'lname' => $user->lname,
-	'gender' => $user->gender,
-	'email' => $user->email,
-	'tel' => $user->tel,
-	'about' => $user->about,
-	'iin' => $user->iin,
-	'avatar' => getAvatar($user->login)['fullAvaLink'],
+		'id' => $user->id,
+		'login' => $user->login,
+		'sname' => $user->sname,
+		'fname' => $user->fname,
+		'lname' => $user->lname,
+		'gender' => $user->gender,
+		'email' => $user->email,
+		'tel' => $user->tel,
+		'about' => $user->about,
+		'iin' => $user->iin,
+		'avatar' => getAvatar($user->login)['fullAvaLink'],
 	'theme' => $user->theme,
 	'lang_code' => $user->lang_code,
 	'user_roles' => $user_roles,
@@ -47,15 +36,6 @@ get('/auth/checkauth', 'AuthController@checkauth')
 	$data = $request->input();
 	$username = isset($data['username']) ? $data['username'] : '';
 	$password = isset($data['password']) ? $data['password'] : '';
-	$session = '';
-	$jwt_token = JWTToken::create(env('JWT_PUBLIC_KEY'));
-	$user = DB::table('users')
-	$jwt_token = new JWTToken();
-	$jwt_token->user_id = $user->id;
-	$jwt_token->session = $session;
-	$jwt_token->expired = $expired;
-	$jwt_string = $jwt_token->encode(env('JWT_PRIVATE_KEY'));
-	$domain = get_domain();
 	
 Возвращает
 	
@@ -64,17 +44,17 @@ get('/auth/checkauth', 'AuthController@checkauth')
 	'expired' => $expired,
 	'timeout' => env('JWT_COOKIE_TIMEOUT'),
 	'user_data' => [
-	'id' => $user->id,
-	'login' => $user->login,
-	'sname' => $user->sname,
-	'fname' => $user->fname,
-	'lname' => $user->lname,
-	'gender' => $user->gender,
-	'email' => $user->email,
-	'tel' => $user->tel,
-	'about' => $user->about,
-	'iin' => $user->iin,
-	'avatar' => getAvatar($user->login)['fullAvaLink'],
+		'id' => $user->id,
+		'login' => $user->login,
+		'sname' => $user->sname,
+		'fname' => $user->fname,
+		'lname' => $user->lname,
+		'gender' => $user->gender,
+		'email' => $user->email,
+		'tel' => $user->tel,
+		'about' => $user->about,
+		'iin' => $user->iin,
+		'avatar' => getAvatar($user->login)['fullAvaLink'],
 	'theme' => $user->theme,
 	'lang_code' => $user->lang_code,
 
@@ -82,23 +62,94 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
 
-Получает
-
-	jwt_token = JWTToken::create(env('JWT_PUBLIC_KEY'));
-	$domain = get_domain();
-	
 Возвращает
 	
-	return response()->json([
-	'success' => true,
-	], 200);
+	'success' => true, //...\\
 
 </details>
 </details>
 
 <details><summary>BooksController</summary>
 
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(books)</code></summary>
+
+Получает
+
+	$data = $request->input();
+
+Возвращает
+
+	'list' => $list,
+	'count' => $count,
+
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(books)</code></summary>
+
+Получает
+
+	$data = $request->input()
+	$id = isset($data['id']) ? $data['id'] : '';
+	$reader_id = isset($data['reader_id']) ? $data['reader_id'] : 1;
+	$book_id = isset($data['book_id']) ? $data['book_id'] : 1;
+	$date_start = isset($data['date_start']) ? $data['date_start'] : '';
+	$date_end_plan = isset($data['date_end_plan']) ? $data['date_end_plan'] : '';
+	$date_end_fact = isset($data['date_end_fact']) ? $data['date_end_fact'] : '';
+
+Возвращает
+
+	'id' => $id,
+	'success' => (bool)$id,
+
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(books/{id})</code></summary>
+
+Получает
+
+	$data = $request->input();
+
+</details>
+
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+
+
+
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+
+
+
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+
+
+
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+
+
+
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+
+
+
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+
+
+
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+
+
 
 </details>
 </details>
