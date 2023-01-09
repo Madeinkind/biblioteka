@@ -192,3 +192,65 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 </details>
 </details>
+
+<details><summary>AccountController</summary>
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(user)</code></summary>
+
+Получает
+
+	$jwt_data = $request->jwt_data;
+	$login = $jwt_data['login'];
+	$idUser = $jwt_data['user_id'];
+	
+Возвращает
+
+	'list' => $list,
+	'count' => $count,
+
+</details>	
+<details><summary><code>POST</code> <code><b>/</b></code> <code>(user)</code></summary>
+
+Получает
+
+	$data = $request->input();
+	$name = isset($data['name']) ? $data['name'] : '';
+	$count = isset($data['count']) ? $data['count'] : 1;
+	
+Возвращает
+
+	'id' => $id,
+	'success' => (bool)$id,
+	
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(user/{id})</code></summary>
+
+Получает
+
+	$data = $request->input();
+	$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
+	
+</details>
+
+<details><summary><code>POST</code> <code><b>/</b></code> <code>(user/{id})</code></summary>
+
+Получает
+	
+	$data = $request->input();
+	$name = isset($data['username']) ? $data['username'] : '';
+	$count = isset($data['id']) ? $data['id'] : 1;
+	
+Возвращает
+
+	'success' => $success,
+	
+</details>
+	
+<details><summary><code>DELETE</code> <code><b>/</b></code> <code>(user/{id})</code></summary>
+
+Возвращает
+
+	success' => $success,
+	
+</details>
+</details>
