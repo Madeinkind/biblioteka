@@ -3,7 +3,7 @@
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/checkauth)</code></summary>
 
 Возвращает
-	[
+	
 	'auth' => true,
 	'token' => $jwt_string,
 	'session' => $session,
