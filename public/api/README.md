@@ -218,7 +218,7 @@
 	
 Возвращает
 
-	'id' => $id,
+	'id' => $id, \\\\
 	'success' => (bool)$id,
 	
 </details>
@@ -242,7 +242,7 @@
 	
 Возвращает
 
-	'success' => $success,
+	'success' => $success, \\добавление пользователя\\
 	
 </details>
 	
@@ -250,7 +250,7 @@
 
 Возвращает
 
-	success' => $success,
+	success' => $success, \\удаление пользователя по айди\\
 	
 </details>
 </details>
@@ -264,8 +264,8 @@
 	
 Возвращает
 
-	'list' => $list,
-	'count' => $count,
+	'list' => $list, \\выдача список читателей\\
+	'count' => $count, \\кол-во выданных книг\\
 
 </details>
 
@@ -280,8 +280,8 @@
 		
 Возвращает
 
-	'id' => $id,
-	'success' => (bool)$id,
+	'id' => $id, \\айди\\
+	'success' => (bool)$id, \\выдача информации\\
 
 </details>
 
@@ -305,7 +305,7 @@
 	
 Возвращает
 
-	'success' => $success,
+	'success' => $success, \\информация о студенте\\
 	
 </details>
 
@@ -313,7 +313,7 @@
 
 Возвращает
 
-	'success' => $success,
+	'success' => $success, \\получение id читателя\\
 	
 </details>
 
@@ -323,8 +323,8 @@
 	
 Возвращает
 
-	'list' => $list,
-	'count' => $count,
+	'list' => $list, \\выдаёт список читателей должников\\
+	'count' => $count, \\кол-во книг которые они не вернули\\
 	
 </details>
 
@@ -336,7 +336,7 @@
 	
 Возвращает
 
-	'list' => $list,
-	'count' => $count,
+	'list' => $list, \\выдаёт список читателей должников\\
+	'count' => $count, \\кол-во книг которые они не вернули\\
 	
 </details>
