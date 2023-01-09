@@ -345,4 +345,3 @@ get('/auth/checkauth', 'AuthController@checkauth')
 	'count' => $count,
 	
 </details>
-
