@@ -1,10 +1,10 @@
 # API
-
+<details><summary>#  Заголовок первого уровня</summary>
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/checkauth)</code></summary>
 
 get('/auth/checkauth', 'AuthController@checkauth')
 
-Получение
+Получает
 
 	$jwt_token = JWTToken::create(env('JWT_PUBLIC_KEY'));
 	$arr = DB::table('sessions')
@@ -37,11 +37,12 @@ get('/auth/checkauth', 'AuthController@checkauth')
 	'theme' => $user->theme,
 	'lang_code' => $user->lang_code,
 	'user_roles' => $user_roles,
+	
 </details>
 
-<details><summary><code>POST</code> <code><b>/</b></code> <code>(/auth/login)</code></summary>
+<details><summary><code>POST</code> <code><b>/</b></code> <code>(auth/login)</code></summary>
 	
-Получение
+Получает
 	
 	$data = $request->input();
 	$username = isset($data['username']) ? $data['username'] : '';
@@ -76,4 +77,23 @@ get('/auth/checkauth', 'AuthController@checkauth')
 	'avatar' => getAvatar($user->login)['fullAvaLink'],
 	'theme' => $user->theme,
 	'lang_code' => $user->lang_code,
+
 </details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+
+Получает
+
+	jwt_token = JWTToken::create(env('JWT_PUBLIC_KEY'));
+	$domain = get_domain();
+	
+Возвращает
+	
+	return response()->json([
+	'success' => true,
+	], 200);
+
+</details>
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
