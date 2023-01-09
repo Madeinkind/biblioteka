@@ -2,8 +2,6 @@
 <details><summary>AuthController</summary>
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/checkauth)</code></summary>
 
-get('/auth/checkauth', 'AuthController@checkauth')
-
 Возвращает
 
 	'auth' => true,
@@ -12,17 +10,18 @@ get('/auth/checkauth', 'AuthController@checkauth')
 	'expired' => $expired,
 	'timeout' => env('JWT_COOKIE_TIMEOUT'),
 	'user_data' => [
-		'id' => $user->id,
-		'login' => $user->login,
-		'sname' => $user->sname,
-		'fname' => $user->fname,
-		'lname' => $user->lname,
-		'gender' => $user->gender,
-		'email' => $user->email,
-		'tel' => $user->tel,
-		'about' => $user->about,
-		'iin' => $user->iin,
-		'avatar' => getAvatar($user->login)['fullAvaLink'],
+	  'id' => $user->id,
+	  'login' => $user->login,
+	  'sname' => $user->sname,
+	  'fname' => $user->fname,
+	  'lname' => $user->lname,
+	  'gender' => $user->gender,
+	  'email' => $user->email,
+	  'tel' => $user->tel,
+	  'about' => $user->about,
+	  'iin' => $user->iin,
+	  'avatar' => getAvatar($user->login)['fullAvaLink'],
+	],
 	'theme' => $user->theme,
 	'lang_code' => $user->lang_code,
 	'user_roles' => $user_roles,
@@ -44,17 +43,18 @@ get('/auth/checkauth', 'AuthController@checkauth')
 	'expired' => $expired,
 	'timeout' => env('JWT_COOKIE_TIMEOUT'),
 	'user_data' => [
-		'id' => $user->id,
-		'login' => $user->login,
-		'sname' => $user->sname,
-		'fname' => $user->fname,
-		'lname' => $user->lname,
-		'gender' => $user->gender,
-		'email' => $user->email,
-		'tel' => $user->tel,
-		'about' => $user->about,
-		'iin' => $user->iin,
-		'avatar' => getAvatar($user->login)['fullAvaLink'],
+	  'id' => $user->id,
+	  'login' => $user->login,
+	  'sname' => $user->sname,
+	  'fname' => $user->fname,
+	  'lname' => $user->lname,
+	  'gender' => $user->gender,
+	  'email' => $user->email,
+	  'tel' => $user->tel,
+	  'about' => $user->about,
+	  'iin' => $user->iin,
+	  'avatar' => getAvatar($user->login)['fullAvaLink'],
+	],
 	'theme' => $user->theme,
 	'lang_code' => $user->lang_code,
 
