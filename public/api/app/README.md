@@ -1,5 +1,5 @@
 # API
-<details><summary>#  Заголовок первого уровня</summary>
+<details><summary>AuthController</summary>
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/checkauth)</code></summary>
 
 get('/auth/checkauth', 'AuthController@checkauth')
@@ -96,4 +96,9 @@ get('/auth/checkauth', 'AuthController@checkauth')
 </details>
 </details>
 
+<details><summary>BooksController</summary>
+
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+
+</details>
+</details>
