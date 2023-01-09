@@ -11,6 +11,7 @@ import BooksIssued from '@/pages/BooksIssued.vue';
 import Books from '@/pages/Books.vue';
 import BooksEdit from '@/pages/BooksEdit.vue';
 import Readers from '@/pages/Readers.vue';
+import ReadersAdd from '@/pages/ReadersAdd.vue';
 import ReadersDebtors from '@/pages/ReadersDebtors.vue';
 import BooksAdd from '@/pages/BooksAdd.vue';
 import Langs from '@/pages/Langs.vue';
@@ -57,6 +58,13 @@ const routes = [
 			{
 				path: '/readers',
 				component: Readers,
+				meta: {
+					//requiresAuth: true,
+				},
+			},
+			{
+				path: '/readers/add',
+				component: ReadersAdd,
 				meta: {
 					//requiresAuth: true,
 				},

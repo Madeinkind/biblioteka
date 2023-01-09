@@ -4,12 +4,13 @@
 
               <!-- Basic Bootstrap Table -->
             <div class="card">
-				<router-link :to="{path: '/books'}" class="btn btn-primary">
+				<router-link :to="{path: '/reader'}" class="btn btn-primary">
 					Назад
               </router-link>
-        <form @submit.prevent="onBookAdd" class="form-item">
-			<input type="text" class="form-control" v-model="book_name" placeholder="Book name" />
-			<input type="number" class="form-control" v-model.number="book_count" placeholder="Book count" />
+        <form @submit.prevent="onReaderAdd" class="form-item">
+			<input type="text" class="form-control" v-model="reader_namestudent" placeholder="Имя" />
+			<input type="text" class="form-control" v-model="reader_surnamestudent" placeholder="Фамилия" />
+			<input type="text" class="form-control" v-model="reader_iin" placeholder="ИИН" />
 			<input type="submit" class="btn btn-primary" value="Add" />
 		</form>
 		</div>
@@ -32,23 +33,25 @@ export default {
 		useMeta({title: 'Главная | Biblioteka'});
 	},
 	data: () => ({
-		book_name: '',
-		book_count: 1,
+		reader_namestudent: '',
+		reader_surnamestudent: '',
+		reader_iin: '',
 	}),
 	methods: {
-		onBookAdd(){
-			fetch('/api/books', {
+		onReaderAdd(){
+			fetch('/api/readers', {
 				method: 'POST',
 				body: JSON.stringify({
-					name: this.book_name,
-					count: this.book_count,
+					namestudent: this.reader_namestudent,
+					surnamestudent: this.reader_surnamestudent,
+					iin: this.reader_iin,
 				}),
 				headers: {
 					'Content-Type': 'application/json',
 				},
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
-				this.$router.push('/books');
+				this.$router.push('/readers');
 			}).catch(error => {
 				console.log(error);
 			});
