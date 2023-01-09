@@ -254,3 +254,95 @@ get('/auth/checkauth', 'AuthController@checkauth')
 	
 </details>
 </details>
+
+<details><summary>ReadersController</summary>
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(readers})</code></summary>
+
+Получает
+
+	$jwt_data = $request->jwt_data;
+	
+Возвращает
+
+	'list' => $list,
+	'count' => $count,
+
+</details>
+
+<details><summary><code>POST</code> <code><b>/</b></code> <code>(readers})</code></summary>
+
+Получает
+
+	data = $request->input();
+	$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
+	$id = isset($data['id']) ? $data['id'] : '';
+	$namestudent = isset($data['namestudent']) ? $data['namestudent'] : 1;
+	$surnamestudent = isset($data['surnamestudent']) ? $data['surnamestudent'] : 1;
+	$iin = isset($data['iin']) ? $data['iin'] : '';
+	$bookscount = isset($data['bookscount']) ? $data['bookscount'] : '';
+		
+Возвращает
+
+	'id' => $id,
+	'success' => (bool)$id,
+
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(readers/{id})</code></summary>
+
+Получает
+
+	$data = $request->input();
+	$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
+
+</details>
+
+<details><summary><code>POST</code> <code><b>/</b></code> <code>(readers/{id})</code></summary>
+
+Получает
+
+	$data = $request->input();
+	$id = isset($data['id']) ? $data['id'] : '';
+	$namestudent = isset($data['namestudent']) ? $data['namestudent'] : 1;
+	$surnamestudent = isset($data['surnamestudent']) ? $data['surnamestudent'] : 1;
+	$iin = isset($data['iin']) ? $data['iin'] : 1;
+	$bookscount = isset($data['bookscount']) ? $data['bookscount'] : 1;
+	
+Возвращает
+
+	'success' => $success,
+	
+</details>
+
+<details><summary><code>DELETE</code> <code><b>/</b></code> <code>(readers/{id})</code></summary>
+
+Возвращает
+
+	'success' => $success,
+	
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(readers-debtors)</code></summary>
+
+	$jwt_data = $request->jwt_data;
+	
+Возвращает
+
+	'list' => $list,
+	'count' => $count,
+	
+</details>
+
+<details><summary><code>GET</code> <code><b>/</b></code> <code>(readers-debtors)</code></summary>
+
+Получает
+
+	$jwt_data = $request->jwt_data;
+	
+Возвращает
+
+	'list' => $list,
+	'count' => $count,
+	
+</details>
+
