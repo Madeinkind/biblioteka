@@ -44,16 +44,16 @@
 	'timeout' => env('JWT_COOKIE_TIMEOUT'),
 	'user_data' => [
 	  'id' => $user->id,
-	  'login' => $user->login, \\логин\\
-	  'sname' => $user->sname, \\sNamme\\
-	  'fname' => $user->fname, \\логин\\
-	  'lname' => $user->lname, \\логин\\
-	  'gender' => $user->gender, \\логин\\
-	  'email' => $user->email, \\логин\\
-	  'tel' => $user->tel, \\логин\\
-	  'about' => $user->about, \\логин\\
-	  'iin' => $user->iin, \\логин\\
-	  'avatar' => getAvatar($user->login)['fullAvaLink'], \\логин\\
+	  'login' => $user->login, \\Логин\\
+	  'sname' => $user->sname, \\sName\\
+	  'fname' => $user->fname, \\fName\\
+	  'lname' => $user->lname, \\lName\\
+	  'gender' => $user->gender, \\пол\\
+	  'email' => $user->email, \\Электронная почта\\
+	  'tel' => $user->tel, \\Номер телефона\\
+	  'about' => $user->about, \\автор\\
+	  'iin' => $user->iin, \\ИИН\\
+	  'avatar' => getAvatar($user->login)['fullAvaLink'], \\Аватарка\\
 	],
 	'theme' => $user->theme,
 	'lang_code' => $user->lang_code,
@@ -64,7 +64,7 @@
 
 Возвращает
 	
-	'success' => true, \\Выход с аккаунта\\
+	'success' => true, \\Выход с аккаунта, перебрасывает на страницу входа\\
 
 </details>
 </details>
