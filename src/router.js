@@ -6,14 +6,14 @@ import Layout from '@/layouts/Layout.vue';
 
 import Login from '@/pages/Login.vue';
 import Main from '@/pages/Main.vue';
-import MainAcc from '@/pages/MainAcc.vue';
-import MainKniga from '@/pages/MainKniga.vue';
-import MainChange from '@/pages/MainChange.vue';
-import SpisokChit from '@/pages/SpisokChit.vue';
-import MainAdd from '@/pages/MainAdd.vue';
+import Profile from '@/pages/Profile.vue';
+import BooksIssued from '@/pages/BooksIssued.vue';
+import Books from '@/pages/Books.vue';
+import BooksEdit from '@/pages/BooksEdit.vue';
+import Readers from '@/pages/Readers.vue';
+import ReadersDebtors from '@/pages/ReadersDebtors.vue';
+import BooksAdd from '@/pages/BooksAdd.vue';
 import Langs from '@/pages/Langs.vue';
-import Test1 from '@/pages/Test1.vue';
-import Test2 from '@/pages/Test2.vue';
 
 import PageNotFound from '@/pages/PageNotFound.vue';
 
@@ -34,36 +34,50 @@ const routes = [
 				},
 			},
 			{
-				path: '/mainacc',
-				component: MainAcc,
+				path: '/profile',
+				component: Profile,
 				meta: {
 					//requiresAuth: true,
 				},
 			},
 			{
-				path: '/mainkniga',
-				component: MainKniga,
+				path: '/books',
+				component: Books,
 				meta: {
 					//requiresAuth: true,
 				},
 			},
 			{
-				path: '/spisokchit',
-				component: SpisokChit,
+				path: '/readers-debtors',
+				component: ReadersDebtors,
 				meta: {
 					//requiresAuth: true,
 				},
 			},
 			{
-				path: '/mainchange',
-				component: MainChange,
+				path: '/readers',
+				component: Readers,
 				meta: {
 					//requiresAuth: true,
 				},
 			},
 			{
-				path: '/mainadd',
-				component: MainAdd,
+				path: '/books-issued',
+				component: BooksIssued,
+				meta: {
+					//requiresAuth: true,
+				},
+			},
+			{
+				path: '/books/:id/edit',
+				component: BooksEdit,
+				meta: {
+					//requiresAuth: true,
+				},
+			},
+			{
+				path: '/books/add',
+				component: BooksAdd,
 				meta: {
 					//requiresAuth: true,
 				},
@@ -75,15 +89,6 @@ const routes = [
 				meta: {
 					//requiresAuth: true,
 				},
-			},
-			
-			{
-				path: '/test1',
-				component: Test1,
-			},
-			{
-				path: '/test2',
-				component: Test2,
 			},
 		],
 	},
