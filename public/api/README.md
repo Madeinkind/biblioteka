@@ -2,27 +2,26 @@
 <details><summary>AuthController</summary>
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/checkauth)</code></summary>
 
-get('/auth/checkauth', 'AuthController@checkauth')
-
 Возвращает
-
+	
 	'auth' => true,
 	'token' => $jwt_string,
 	'session' => $session,
 	'expired' => $expired,
 	'timeout' => env('JWT_COOKIE_TIMEOUT'),
 	'user_data' => [
-		'id' => $user->id,
-		'login' => $user->login,
-		'sname' => $user->sname,
-		'fname' => $user->fname,
-		'lname' => $user->lname,
-		'gender' => $user->gender,
-		'email' => $user->email,
-		'tel' => $user->tel,
-		'about' => $user->about,
-		'iin' => $user->iin,
-		'avatar' => getAvatar($user->login)['fullAvaLink'],
+	  'id' => $user->id,
+	  'login' => $user->login,
+	  'sname' => $user->sname,
+	  'fname' => $user->fname,
+	  'lname' => $user->lname,
+	  'gender' => $user->gender,
+	  'email' => $user->email,
+	  'tel' => $user->tel,
+	  'about' => $user->about,
+	  'iin' => $user->iin,
+	  'avatar' => getAvatar($user->login)['fullAvaLink'],
+	],
 	'theme' => $user->theme,
 	'lang_code' => $user->lang_code,
 	'user_roles' => $user_roles,
@@ -31,7 +30,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>POST</code> <code><b>/</b></code> <code>(auth/login)</code></summary>
 	
-Получает
+Принимает
 	
 	$data = $request->input();
 	$username = isset($data['username']) ? $data['username'] : '';
@@ -44,17 +43,18 @@ get('/auth/checkauth', 'AuthController@checkauth')
 	'expired' => $expired,
 	'timeout' => env('JWT_COOKIE_TIMEOUT'),
 	'user_data' => [
-		'id' => $user->id,
-		'login' => $user->login,
-		'sname' => $user->sname,
-		'fname' => $user->fname,
-		'lname' => $user->lname,
-		'gender' => $user->gender,
-		'email' => $user->email,
-		'tel' => $user->tel,
-		'about' => $user->about,
-		'iin' => $user->iin,
-		'avatar' => getAvatar($user->login)['fullAvaLink'],
+	  'id' => $user->id,
+	  'login' => $user->login,
+	  'sname' => $user->sname,
+	  'fname' => $user->fname,
+	  'lname' => $user->lname,
+	  'gender' => $user->gender,
+	  'email' => $user->email,
+	  'tel' => $user->tel,
+	  'about' => $user->about,
+	  'iin' => $user->iin,
+	  'avatar' => getAvatar($user->login)['fullAvaLink'],
+	],
 	'theme' => $user->theme,
 	'lang_code' => $user->lang_code,
 
@@ -73,7 +73,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(books)</code></summary>
 
-Получает
+Принимает
 
 	$data = $request->input();
 
@@ -86,7 +86,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>POST</code> <code><b>/</b></code> <code>(books)</code></summary>
 
-Получает
+Принимает
 
 	$data = $request->input()
 	$id = isset($data['id']) ? $data['id'] : '';
@@ -105,7 +105,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(books/{id})</code></summary>
 
-Получает
+Принимает
 
 	$data = $request->input();
 
@@ -113,7 +113,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>POST</code> <code><b>/</b></code> <code>(books/{id})</code></summary>
 
-Получает
+Принимает
 
 	$data = $request->input();
 	$name = isset($data['name']) ? $data['name'] : '';
@@ -135,7 +135,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(books-issued)</code></summary>
 
-Получает
+Принимает
 
 	$data = $request->input();
 
@@ -148,7 +148,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>POST</code> <code><b>/</b></code> <code>(books-issued)</code></summary>
 
-Получает
+Принимает
 
 	$data = $request->input();
 	$book_id = isset($data['book_id']) ? $data['book_id'] : '';
@@ -165,7 +165,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(books-issued)</code></summary>
 
-Получает
+Принимает
 
 	$data = $request->input();
 
@@ -173,7 +173,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>POST</code> <code><b>/</b></code> <code>(books-issued)</code></summary>
 
-Получает
+Принимает
 
 	$data = $request->input();
 	$date_end = isset($data['date_end']) ? $data['date_end'] : '';
@@ -196,7 +196,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 <details><summary>AccountController</summary>
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(user)</code></summary>
 
-Получает
+Принимает
 
 	$jwt_data = $request->jwt_data;
 	$login = $jwt_data['login'];
@@ -210,7 +210,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 </details>	
 <details><summary><code>POST</code> <code><b>/</b></code> <code>(user)</code></summary>
 
-Получает
+Принимает
 
 	$data = $request->input();
 	$name = isset($data['name']) ? $data['name'] : '';
@@ -225,7 +225,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(user/{id})</code></summary>
 
-Получает
+Принимает
 
 	$data = $request->input();
 	$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
@@ -234,7 +234,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>POST</code> <code><b>/</b></code> <code>(user/{id})</code></summary>
 
-Получает
+Принимает
 	
 	$data = $request->input();
 	$name = isset($data['username']) ? $data['username'] : '';
@@ -258,7 +258,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 <details><summary>ReadersController</summary>
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(readers})</code></summary>
 
-Получает
+Принимает
 
 	$jwt_data = $request->jwt_data;
 	
@@ -271,7 +271,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>POST</code> <code><b>/</b></code> <code>(readers})</code></summary>
 
-Получает
+Принимает
 
 	data = $request->input();
 	$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
@@ -290,7 +290,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(readers/{id})</code></summary>
 
-Получает
+Принимает
 
 	$data = $request->input();
 	$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
@@ -299,7 +299,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>POST</code> <code><b>/</b></code> <code>(readers/{id})</code></summary>
 
-Получает
+Принимает
 
 	$data = $request->input();
 	$id = isset($data['id']) ? $data['id'] : '';
@@ -335,7 +335,7 @@ get('/auth/checkauth', 'AuthController@checkauth')
 
 <details><summary><code>GET</code> <code><b>/</b></code> <code>(readers-debtors)</code></summary>
 
-Получает
+Принимает
 
 	$jwt_data = $request->jwt_data;
 	

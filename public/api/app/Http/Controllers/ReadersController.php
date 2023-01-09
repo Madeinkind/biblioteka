@@ -136,11 +136,9 @@ class ReadersController extends Controller
 	public function get($id, Request $request)
 	{
 		$data = $request->input();
-		$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
 		
-		$item = DB::table('books')
-			->select('id', 'namestudent', 'surnamestudent', 'bookscount', 'iin')
-			->where('virtualspace_id', '=', $virtualspace_id)
+		$item = DB::table('readers')
+			->select('id', 'fio', 'group', 'iin')
 			->where('id', '=', $id)
 			->first();
 		
@@ -157,27 +155,33 @@ class ReadersController extends Controller
 	public function add(Request $request)
 	{
 		$data = $request->input();
-		$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
-		$id = isset($data['id']) ? $data['id'] : '';
-		$namestudent = isset($data['namestudent']) ? $data['namestudent'] : 1;
-		$surnamestudent = isset($data['surnamestudent']) ? $data['surnamestudent'] : 1;
+		$fio = isset($data['fio']) ? $data['fio'] : '';
+		$group = isset($data['group']) ? $data['group'] : '';
 		$iin = isset($data['iin']) ? $data['iin'] : '';
-		$bookscount = isset($data['bookscount']) ? $data['bookscount'] : '';
 		
-		if($name == '')
+		if($fio == '')
 		{
 			return response()->json([
-				'error' => 'Ошибка при вводе данных!',
+				'error' => 'Не передано ФИО',
+			], 400);
+		}
+		if($group == '')
+		{
+			return response()->json([
+				'error' => 'Не передана группа',
+			], 400);
+		}
+		if($iin == '')
+		{
+			return response()->json([
+				'error' => 'Не передан ИИН',
 			], 400);
 		}
 		
-		$id = DB::table('books')->insertGetId([
-			//'virtualspace_id' => $virtualspace_id,
-			'id' => $id,
-			'namestudent' => $namestudent,
-			'surnamestudent' => $surnamestudent,
+		$id = DB::table('readers')->insertGetId([
+			'fio' => $fio,
+			'group' => $group,
 			'iin' => $iin,
-			'bookscount' => $bookscount,
 		]);
 		
 		return response()->json([
@@ -196,26 +200,35 @@ class ReadersController extends Controller
 	public function edit($id, Request $request)
 	{
 		$data = $request->input();
-		$id = isset($data['id']) ? $data['id'] : '';
-		$namestudent = isset($data['namestudent']) ? $data['namestudent'] : 1;
-		$surnamestudent = isset($data['surnamestudent']) ? $data['surnamestudent'] : 1;
-		$iin = isset($data['iin']) ? $data['iin'] : 1;
-		$bookscount = isset($data['bookscount']) ? $data['bookscount'] : 1;
+		$fio = isset($data['fio']) ? $data['fio'] : '';
+		$group = isset($data['group']) ? $data['group'] : '';
+		$iin = isset($data['iin']) ? $data['iin'] : '';
 		
-		if($name == '')
+		if($fio == '')
 		{
 			return response()->json([
-				'error' => 'Не передано Название проекта',
+				'error' => 'Не передано ФИО',
+			], 400);
+		}
+		if($group == '')
+		{
+			return response()->json([
+				'error' => 'Не передана группа',
+			], 400);
+		}
+		if($iin == '')
+		{
+			return response()->json([
+				'error' => 'Не передан ИИН',
 			], 400);
 		}
 		
 		$success = true;
 		$updateData = [
 			'id' => $id,
-			'namestudent' => $namestudent,
-			'surnamestudent' => $surnamestudent,
+			'fio' => $fio,
+			'group' => $group,
 			'iin' => $iin,
-			'bookscount' => $bookscount,
 		];
 		$success = DB::table('readers')
 			->where('id', '=', $id)
