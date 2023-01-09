@@ -44,16 +44,16 @@
 	'timeout' => env('JWT_COOKIE_TIMEOUT'),
 	'user_data' => [
 	  'id' => $user->id,
-	  'login' => $user->login,
-	  'sname' => $user->sname,
-	  'fname' => $user->fname,
-	  'lname' => $user->lname,
-	  'gender' => $user->gender,
-	  'email' => $user->email,
-	  'tel' => $user->tel,
-	  'about' => $user->about,
-	  'iin' => $user->iin,
-	  'avatar' => getAvatar($user->login)['fullAvaLink'],
+	  'login' => $user->login, \\логин\\
+	  'sname' => $user->sname, \\sNamme\\
+	  'fname' => $user->fname, \\логин\\
+	  'lname' => $user->lname, \\логин\\
+	  'gender' => $user->gender, \\логин\\
+	  'email' => $user->email, \\логин\\
+	  'tel' => $user->tel, \\логин\\
+	  'about' => $user->about, \\логин\\
+	  'iin' => $user->iin, \\логин\\
+	  'avatar' => getAvatar($user->login)['fullAvaLink'], \\логин\\
 	],
 	'theme' => $user->theme,
 	'lang_code' => $user->lang_code,
@@ -64,7 +64,7 @@
 
 Возвращает
 	
-	'success' => true, //...\\
+	'success' => true, \\Выход с аккаунта\\
 
 </details>
 </details>
@@ -79,8 +79,8 @@
 
 Возвращает
 
-	'list' => $list,
-	'count' => $count,
+	'list' => $list, \\список книг\\
+	'count' => $count, \\кол-во книг\\
 
 </details>
 
@@ -98,7 +98,7 @@
 
 Возвращает
 
-	'id' => $id,
+	'id' => $id, \\\\
 	'success' => (bool)$id,
 
 </details>
