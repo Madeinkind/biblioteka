@@ -71,7 +71,7 @@
 
 <details><summary>BooksController</summary>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(books)</code></summary>
+<details><summary><code>GET</code> <code><b>/api/books</b></code> <code>(Книги)</code></summary>
 
 Принимает
 
@@ -84,7 +84,7 @@
 
 </details>
 
-<details><summary><code>POST</code> <code><b>/</b></code> <code>(books)</code></summary>
+<details><summary><code>POST</code> <code><b>/api/books</b></code> <code>(Книги)</code></summary>
 
 Принимает
 
@@ -103,7 +103,7 @@
 
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(books/{id})</code></summary>
+<details><summary><code>GET</code> <code><b>/api/books/{id}</b></code> <code>(Книги по id)</code></summary>
 
 Принимает
 
@@ -111,7 +111,7 @@
 
 </details>
 
-<details><summary><code>POST</code> <code><b>/</b></code> <code>(books/{id})</code></summary>
+<details><summary><code>POST</code> <code><b>/api/books/{id}</b></code> <code>(Книги по id)</code></summary>
 
 Принимает
 
@@ -125,7 +125,7 @@
 
 </details>
 
-<details><summary><code>DELETE</code> <code><b>/</b></code> <code>(books/{id})</code></summary>
+<details><summary><code>DELETE</code> <code><b>/books/{id}</b></code> <code>(Книги по id)</code></summary>
 
 Возвращает
 
