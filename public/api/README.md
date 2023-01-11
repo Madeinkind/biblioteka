@@ -133,7 +133,7 @@
 
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(books-issued)</code></summary>
+<details><summary><code>GET</code> <code><b>/api/books-issued</b></code> <code>(Выдача книг)</code></summary>
 
 Принимает
 
@@ -146,7 +146,7 @@
 
 </details>
 
-<details><summary><code>POST</code> <code><b>/</b></code> <code>(books-issued)</code></summary>
+<details><summary><code>POST</code> <code><b>/api/books-issued</b></code> <code>(POST параметр Выдача Книги)</code></summary>
 
 Принимает
 
@@ -163,7 +163,7 @@
 
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(books-issued)</code></summary>
+<details><summary><code>GET</code> <code><b>/api/books-issued</b></code> <code>(Выдача Книги)</code></summary>
 
 Принимает
 
@@ -171,7 +171,7 @@
 
 </details>
 
-<details><summary><code>POST</code> <code><b>/</b></code> <code>(books-issued)</code></summary>
+<details><summary><code>POST</code> <code><b>/api/books-issued</b></code> <code>(POST параметр выдача Книги)</code></summary>
 
 Принимает
 
@@ -184,7 +184,7 @@
 
 </details>
 
-<details><summary><code>DELETE</code> <code><b>/</b></code> <code>(abooks-issued)</code></summary>
+<details><summary><code>DELETE</code> <code><b>/api/books-issued</b></code> <code>(Удаление выданной книги)</code></summary>
 
 Возвращает
 
@@ -194,7 +194,7 @@
 </details>
 
 <details><summary>AccountController</summary>
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(user)</code></summary>
+<details><summary><code>GET</code> <code><b>/api/user</b></code> <code>(Пользователь)</code></summary>
 
 Принимает
 
@@ -208,7 +208,7 @@
 	'count' => $count,
 
 </details>	
-<details><summary><code>POST</code> <code><b>/</b></code> <code>(user)</code></summary>
+<details><summary><code>POST</code> <code><b>/api/user</b></code> <code>(POST параметр Пользователя)</code></summary>
 
 Принимает
 
@@ -223,7 +223,7 @@
 	
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(user/{id})</code></summary>
+<details><summary><code>GET</code> <code><b>/api/user{id}</b></code> <code>(Пользователь по id)</code></summary>
 
 Принимает
 
@@ -232,7 +232,7 @@
 	
 </details>
 
-<details><summary><code>POST</code> <code><b>/</b></code> <code>(user/{id})</code></summary>
+<details><summary><code>POST</code> <code><b>/api/user{id}</b></code> <code>(POST параметр Пользователя по id)</code></summary>
 
 Принимает
 	
@@ -246,7 +246,7 @@
 	
 </details>
 	
-<details><summary><code>DELETE</code> <code><b>/</b></code> <code>(user/{id})</code></summary>
+<details><summary><code>DELETE</code> <code><b>/api/user{id}</b></code> <code>(Удаление Пользователя по id)</code></summary>
 
 Возвращает
 
@@ -256,7 +256,7 @@
 </details>
 
 <details><summary>ReadersController</summary>
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(readers})</code></summary>
+<details><summary><code>GET</code> <code><b>/api/readers</b></code> <code>(Читатели)</code></summary>
 
 Принимает
 
@@ -269,7 +269,7 @@
 
 </details>
 
-<details><summary><code>POST</code> <code><b>/</b></code> <code>(readers})</code></summary>
+<details><summary><code>POST</code> <code><b>/api/readers</b></code> <code>(Читатели)</code></summary>
 
 Принимает
 
@@ -285,7 +285,7 @@
 
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(readers/{id})</code></summary>
+<details><summary><code>GET</code> <code><b>/api/readers/{id}</b></code> <code>(Читатель по id)</code></summary>
 
 Принимает
 
@@ -294,7 +294,7 @@
 
 </details>
 
-<details><summary><code>POST</code> <code><b>/</b></code> <code>(readers/{id})</code></summary>
+<details><summary><code>POST</code> <code><b>/api/readers/{id}</b></code> <code>(POST параметр Читатель по id)</code></summary>
 
 Принимает
 
@@ -309,7 +309,7 @@
 	
 </details>
 
-<details><summary><code>DELETE</code> <code><b>/</b></code> <code>(readers/{id})</code></summary>
+<details><summary><code>DELETE</code> <code><b>/api/readers/{id}</b></code> <code>(Удаление Читателя по id)</code></summary>
 
 Возвращает
 
@@ -317,7 +317,7 @@
 	
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(readers-debtors)</code></summary>
+<details><summary><code>GET</code> <code><b>/api/readers-debtors</b></code> <code>(Читатели должники)</code></summary>
 
 	$jwt_data = $request->jwt_data;
 	
@@ -328,7 +328,7 @@
 	
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(readers-debtors)</code></summary>
+<details><summary><code>GET</code> <code><b>/api/readers-debtors</b></code> <code>(Читатели должники)</code></summary>
 
 Принимает
 
