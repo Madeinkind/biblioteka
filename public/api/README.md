@@ -85,17 +85,16 @@
 
 Принимает
 
-	$id = '21312312' //айди//
-	$reader_id = '2121312312' //айди читателя//
-	$book_id = '21312321' //айди книги//
-	$date_start = '1 января 2025' //дата выдачи//
-	$date_end_plan = '10 января 2026' //дата возвращения//
-	$date_end_fact = '15 января 2026' ////
+	$id => '21312312' //айди записи//
+	$reader_id => '2121312312' //айди читателя//
+	$book_id => '21312321' //айди книги//
+	$date_start => '1 января 2025' //дата выдачи//
+	$date_end_plan => '10 января 2026' //дата возвращения//
+	$date_end_fact => '15 января 2026' //дата возвращения по факту//
 
 Возвращает
 
-	'id' => $id, \\\\
-	'success' => (bool)$id,
+{"list":[{"id":3,"name":"dsadsa","count":1,"publishing":""},{"id":4,"name":"dsadsa","count":1,"publishing":""},{"id":5,"name":"dsadsa","count":1,"publishing":""},{"id":6,"name":"dsadsa","count":1,"publishing":""},{"id":7,"name":"dsadsa","count":1,"publishing":""},{"id":8,"name":"dsadsa","count":1,"publishing":""}],"count":6}
 
 </details>
 
@@ -146,16 +145,15 @@
 
 Принимает
 
-	$data = $request->input();
-	$book_id = isset($data['book_id']) ? $data['book_id'] : '';
-	$reader_id = isset($data['reader_id']) ? $data['reader_id'] : '';
-	$date_start = isset($data['date_start']) ? $data['date_start'] : '';
-	$date_end = isset($data['date_end']) ? $data['date_end'] : '';
+	$book_id = '32432432';
+	$reader_id = '423432432';
+	$date_start = '1 января 2025';
+	$date_end = '15 января 2026';
 
 Возвращает
 
-	'id' => $id,
-	'success' => (bool)$id,
+	'id' => 1,
+	'success' => true,
 
 </details>
 
@@ -171,8 +169,7 @@
 
 Принимает
 
-	$data = $request->input();
-	$date_end = isset($data['date_end']) ? $data['date_end'] : '';
+	$date_end = '15 января 2026';
 
 Возвращает
 
@@ -194,9 +191,8 @@
 
 Принимает
 
-	$jwt_data = $request->jwt_data;
-	$login = $jwt_data['login'];
-	$idUser = $jwt_data['user_id'];
+	$login = 'Логин'
+	$idUser = 'Айди Пользователя'
 	
 Возвращает
 
@@ -208,9 +204,8 @@
 
 Принимает
 
-	$data = $request->input();
-	$name = isset($data['name']) ? $data['name'] : '';
-	$count = isset($data['count']) ? $data['count'] : 1;
+	$name = 'ivan'
+	$count = '2';
 	
 Возвращает
 
