@@ -110,9 +110,8 @@
 
 Принимает
 
-	$data = $request->input();
-	$name = isset($data['name']) ? $data['name'] : '';
-	$count = isset($data['count']) ? $data['count'] : 1;
+	$name = 'namebook ivana';
+	$count = 1;
 
 Возвращает
 
