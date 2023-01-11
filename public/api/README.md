@@ -227,9 +227,8 @@
 
 Принимает
 	
-	$data = $request->input();
-	$name = isset($data['username']) ? $data['username'] : '';
-	$count = isset($data['id']) ? $data['id'] : 1;
+	$name => 'ivan';
+	$count => 1;
 	
 Возвращает
 
@@ -289,10 +288,9 @@
 
 Принимает
 
-	$data = $request->input();
-	$fio = isset($data['fio']) ? $data['fio'] : '';
-	$group = isset($data['group']) ? $data['group'] : '';
-	$iin = isset($data['iin']) ? $data['iin'] : '';
+	$fio => 'ivanov ivan ivanich'
+	$group => 'POb-42';
+	$iin => '123456789012';
 	
 Возвращает
 
