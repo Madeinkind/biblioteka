@@ -85,13 +85,12 @@
 
 Принимает
 
-	$data = $request->input()
-	$id = isset($data['id']) ? $data['id'] : '';
-	$reader_id = isset($data['reader_id']) ? $data['reader_id'] : 1;
-	$book_id = isset($data['book_id']) ? $data['book_id'] : 1;
-	$date_start = isset($data['date_start']) ? $data['date_start'] : '';
-	$date_end_plan = isset($data['date_end_plan']) ? $data['date_end_plan'] : '';
-	$date_end_fact = isset($data['date_end_fact']) ? $data['date_end_fact'] : '';
+	$id = '21312312' //айди//
+	$reader_id = '2121312312' //айди читателя//
+	$book_id = '21312321' //айди книги//
+	$date_start = '1 января 2025' //дата выдачи//
+	$date_end_plan = '10 января 2026' //дата возвращения//
+	$date_end_fact = '15 января 2026' ////
 
 Возвращает
 
