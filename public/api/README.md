@@ -1,6 +1,6 @@
 # API
 <details><summary>AuthController</summary>
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/checkauth)</code></summary>
+<details><summary><code>GET</code> <code><b>/api/auth/checkauth</b></code> <code>(Проверка)</code></summary>
 
 Возвращает
 	
@@ -28,7 +28,7 @@
 	
 </details>
 
-<details><summary><code>POST</code> <code><b>/</b></code> <code>(auth/login)</code></summary>
+<details><summary><code>POST</code> <code><b>/api/auth/login</b></code> <code>(Логин, авторизация)</code></summary>
 	
 Принимает
 	
@@ -60,7 +60,7 @@
 
 </details>
 
-<details><summary><code>GET</code> <code><b>/</b></code> <code>(auth/logout)</code></summary>
+<details><summary><code>GET</code> <code><b>/api/auth/logout</b></code> <code>(Деавторизация)</code></summary>
 
 Возвращает
 	
