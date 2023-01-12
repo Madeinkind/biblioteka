@@ -69,7 +69,7 @@
 Возвращает
 ```json
 {
-	"success" : "true", \\Выход с аккаунта, перебрасывает на страницу входа\\
+	"success" : "true", \\Выход с аккаунта, перебрасывает на страницу входа
 }
 ```
 </details>
@@ -84,16 +84,16 @@
 {
   "list": [
     {
-      "id": 3,
-      "name": "dsadsa",
-      "count": 1,
-      "publishing": ""
+      "id": 3, //айди
+      "name": "dsadsa", //имя
+      "count": 1, //кол-во
+      "publishing": "" //издательство
     },
     {
-      "id": 8,
-      "name": "dsadsa",
-      "count": 1,
-      "publishing": ""
+      "id": 8, //айди
+      "name": "dsadsa", //имя
+      "count": 1, //кол-во
+      "publishing": "" //издательство
     }
   ],
   "count": 2
@@ -122,19 +122,19 @@
 {
   "list": [
     {
-      "id": 1,
-      "fio": "test student",
-      "group": "vtipob-42",
-      "iin": "4294967295"
+      "id": 1, //айди
+      "fio": "test student", //фио
+      "group": "vtipob-42", //группа
+      "iin": "4294967295" //иин
     },
     {
-      "id": 2,
-      "fio": "test student 2",
-      "group": "vtipob-42",
-      "iin": "4294967294"
+      "id": 2, //айди
+      "fio": "test student 2", //фио
+      "group": "vtipob-42", //группа
+      "iin": "4294967294" //иин
     }
   ],
-  "count": 2
+  "count": 2 //кол-во
 }
 ```
 
@@ -144,7 +144,7 @@
 
 Принимает
 ```json
-	\\КНИГА ПО АЙДИ\\
+	api/books/3 \\КНИГА ПО АЙДИ (3 айди	- пример)
 ```
 Возвращает
 ```json
@@ -162,7 +162,7 @@
 Принимает
 ```json
 {
-	"name": "namebook ivana",
+	"name": "namebook ivana", 
 	"count": "1",
 }
 ```
