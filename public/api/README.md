@@ -36,22 +36,22 @@
 Возвращает
 ```json
 {	
-	"token" : 'xsfsgrddgrge454etre6ytgrfy45',
-	"session" : '35435trdgd5ed4trt4g',
-	"expired" : 86400,
-	"timeout" : 86400,
+	"token" : "xsfsgrddgrge454etre6ytgrfy45",
+	"session" : "35435trdgd5ed4trt4g",
+	"expired" : "86400",
+	"timeout" : "86400",
 	"user_data" :  [
-	  "id" : 1,
-	  "login" : 'user', //имя//
-	  "sname" : 'ivanov', // фамилия //
-	  "fname" : 'ivan', //имя//
-	  "lname" : 'ivanich', //отчество//
+	  "id" : "1",
+	  "login" : "user", "//имя//"
+	  "sname" : "ivanov", "// фамилия //"
+	  "fname" : "ivan", "//имя//"
+	  "lname" : "ivanich", "//отчество//"
 	  "gender" : 1,
-	  "email" : 'user@example.com',
-	  "tel" : '87011234567',
-	  "about" : 'i am proger',
+	  "email" : "user@example.com",
+	  "tel" : "87011234567",
+	  "about" : "i am proger",
 	  "iin" : "123456789012",
-	  "avatar" : 'img.png', \\Аватарка\\
+	  "avatar" : "img.png", "\\Аватарка\\"
 	],
 }
 ```
