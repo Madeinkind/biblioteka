@@ -172,7 +172,7 @@
 
 Возвращает
 
-	'success' => $success,
+	'success' => $success, \\ВЫДАЧА КНИГИ С ДАТОЙ\\\\
 
 </details>
 
@@ -180,7 +180,7 @@
 
 Возвращает
 
-	'success' => $success,
+	'success' => $success, \\УДАЛЕНИЕ КНИГИ\\
 
 </details>
 </details>
@@ -217,8 +217,7 @@
 
 Принимает
 
-	$data = $request->input();
-	$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
+\\ПОИСК ПОЛЬЗОВАТЕЛЯ ПО АЙДИ\\
 	
 </details>
 
@@ -262,10 +261,9 @@
 
 Принимает
 
-	$data = $request->input();
-	$fio = isset($data['fio']) ? $data['fio'] : '';
-	$group = isset($data['group']) ? $data['group'] : '';
-	$iin = isset($data['iin']) ? $data['iin'] : '';
+	$fio = 'Ivan Ivanov Ivanovih'
+	$group = 'POb-42';
+	$iin = '123456789012';
 		
 Возвращает
 
@@ -276,10 +274,7 @@
 
 <details><summary><code>GET</code> <code><b>/api/readers/{id}</b></code> <code>(Читатель по id)</code></summary>
 
-Принимает
-
-	$data = $request->input();
-	$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
+\\ ПОИСК ЧИТАТЕЛЯ ПО АЙДИ \\
 
 </details>
 
