@@ -12,10 +12,10 @@
 	"timeout" : 86400,
 	"user_data" : [
 	  "id" : 1,
-	  "login" : "user", //имя//
-	  "sname" : "ivanov", // фамилия //
-	  "fname" : "ivan", //имя//
-	  "lname" : "ivanich", //отчество//
+	  "login" : "user", //имя 
+	  "sname" : "ivanov", // фамилия 
+	  "fname" : "ivan", //имя 
+	  "lname" : "ivanich", //отчество 
 	  "gender" : 1,
 	  "email" : "user@example.com",
 	  "tel" : "87011234567",
@@ -78,10 +78,25 @@
 <details><summary><code>GET</code> <code><b>/api/books</b></code> <code>(Книги)</code></summary>
 
 Возвращает
-
-	"list": "list" "\\список книг\\"
-	"count": "count" "\\кол-во книг\\"
-
+```json
+{
+  "list": [
+    {
+      "id": 3,
+      "name": "dsadsa",
+      "count": 1,
+      "publishing": ""
+    },
+    {
+      "id": 8,
+      "name": "dsadsa",
+      "count": 1,
+      "publishing": ""
+    }
+  ],
+  "count": 2
+}
+```
 </details>
 
 <details><summary><code>POST</code> <code><b>/api/books</b></code> <code>(Книги)</code></summary>
@@ -130,14 +145,14 @@
 	\\КНИГА ПО АЙДИ\\
 	
 Возвращает
-
+```
 	{
 	"id": 3,
 	"name": "dsadsa",
 	"count": 1,
 	"publishing": ""
 	}
-
+```
 </details>
 
 <details><summary><code>POST</code> <code><b>/api/books/{id}</b></code> <code>(Книги по id)</code></summary>
