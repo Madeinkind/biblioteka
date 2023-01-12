@@ -94,8 +94,8 @@
 
 
 	"list": [
-	{
-	"id": 1,
+  {
+    "id": 1,
 	"fio": "test student",
 	"group": "vtipob-42",
 	"iin": "4294967295"
