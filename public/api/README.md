@@ -160,14 +160,14 @@
 Принимает
 ```json
 {
-	$name = 'namebook ivana';
-	$count = 1;
+	"name": "namebook ivana",
+	"count": "1",
 }
 ```
 Возвращает
 ```json
 {
-   'success' => $success,
+   "success": "success",
 }
 ```
 </details>
@@ -177,7 +177,7 @@
 Возвращает
 ```json
 {
-	'success' => $success,
+	"success": "success",
 }
 ```
 </details>
