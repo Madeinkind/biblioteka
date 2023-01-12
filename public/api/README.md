@@ -92,12 +92,23 @@
 
 Возвращает
 
-{"list":[{"id":3,"name":"dsadsa","count":1,"publishing":""},
-{"id":4,"name":"dsadsa","count":1,"publishing":""},
-{"id":5,"name":"dsadsa","count":1,"publishing":""},
-{"id":6,"name":"dsadsa","count":1,"publishing":""},
-{"id":7,"name":"dsadsa","count":1,"publishing":""},
-{"id":8,"name":"dsadsa","count":1,"publishing":""}],"count":6}
+	{
+  "list": [
+    {
+      "id": 1,
+      "fio": "test student",
+      "group": "vtipob-42",
+      "iin": "4294967295"
+    },
+    {
+      "id": 2,
+      "fio": "test student 2",
+      "group": "vtipob-42",
+      "iin": "4294967294"
+    }
+  ],
+  "count": 2
+	}
 
 </details>
 
@@ -106,6 +117,15 @@
 Принимает
 
 	\\КНИГА ПО АЙДИ\\
+	
+Возвращает
+
+	{
+	"id": 3,
+	"name": "dsadsa",
+	"count": 1,
+	"publishing": ""
+	}
 
 </details>
 
