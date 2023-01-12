@@ -204,10 +204,10 @@
 Принимает
 ```json
 {
-	"book_id" : "32432432";
-	"reader_id" : "423432432";
-	"date_start" : "1 января 2025";
-	"date_end" : "15 января 2026";
+	"book_id" : "32432432",
+	"reader_id" : "423432432",
+	"date_start" : "1 января 2025",
+	"date_end" : "15 января 2026",
 }
 ```
 Возвращает
@@ -230,9 +230,11 @@
 <details><summary><code>POST</code> <code><b>/api/books-issued</b></code> <code>(POST параметр выдача Книги)</code></summary>
 
 Принимает
-
+```json
+{
 	$date_end = '15 января 2026';
-
+}
+```
 Возвращает
 ```json
 {
@@ -271,10 +273,12 @@
 <details><summary><code>GET</code> <code><b>/api/user</b></code> <code>(Пользователь)</code></summary>
 
 Принимает
-
-	$login = 'Логин'
-	$idUser = 'Айди Пользователя'
-	
+```json
+{
+	"login": "Логин"
+	"idUser": "Айди Пользователя"
+}	
+```
 Возвращает
 
 	'list' => $list,
