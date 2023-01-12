@@ -28,10 +28,14 @@
 <details><summary><code>POST</code> <code><b>/api/auth/login</b></code> <code>(Логин, авторизация)</code></summary>
 	
 Принимает
-	
-	$data = $request->input();
-	$username = 'login' //имя//
-	$password = 'qwerty12345' //пароль//
+
+```json
+{
+	"username" : "login", //имя//
+	"password" : "qwerty12345", //пароль//
+}
+```
+
 	
 Возвращает
 ```json
@@ -42,16 +46,16 @@
 	"timeout" : "86400",
 	"user_data" :  [
 	  "id" : "1",
-	  "login" : "user", "//имя//"
-	  "sname" : "ivanov", "// фамилия //"
-	  "fname" : "ivan", "//имя//"
-	  "lname" : "ivanich", "//отчество//"
+	  "login" : "user", //имя 
+	  "sname" : "ivanov", // фамилия
+	  "fname" : "ivan", //имя 
+	  "lname" : "ivanich", //отчество
 	  "gender" : 1,
 	  "email" : "user@example.com",
 	  "tel" : "87011234567",
 	  "about" : "i am proger",
 	  "iin" : "123456789012",
-	  "avatar" : "img.png", "\\Аватарка\\"
+	  "avatar" : "img.png", \\Аватарка 
 	],
 }
 ```
