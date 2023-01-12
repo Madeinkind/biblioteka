@@ -176,9 +176,9 @@
 
 Возвращает
 ```json
-}
-	'success' => $success,
 {
+	'success' => $success,
+}
 ```
 </details>
 
@@ -192,10 +192,10 @@
 ```
 Возвращает
 ```json
-}
+{
 	"list" : "list",
 	"count" : "count",
-{
+}
 ```
 </details>
 
@@ -204,10 +204,10 @@
 Принимает
 ```json
 {
-	"book_id" = "32432432";
-	"reader_id" = "423432432";
-	"date_start" = "1 января 2025";
-	"date_end" = "15 января 2026";
+	"book_id" : "32432432";
+	"reader_id" : "423432432";
+	"date_start" : "1 января 2025";
+	"date_end" : "15 января 2026";
 }
 ```
 Возвращает
@@ -259,9 +259,11 @@
 <details><summary><code>DELETE</code> <code><b>/api/books-issued</b></code> <code>(Удаление выданной книги)</code></summary>
 
 Возвращает
-
-	'success' => $success, \\УДАЛЕНИЕ КНИГИ\\
-
+```json
+{	
+	"success": "success", \\УДАЛЕНИЕ КНИГИ\\
+}
+```
 </details>
 </details>
 
