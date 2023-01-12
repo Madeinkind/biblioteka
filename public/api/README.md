@@ -377,11 +377,9 @@
 </details>
 
 <details><summary><code>GET</code> <code><b>/api/readers/{id}</b></code> <code>(Читатель по id)</code></summary>
-```json
 
-\\ ПОИСК ЧИТАТЕЛЯ ПО АЙДИ
+ ПОИСК ЧИТАТЕЛЯ ПО АЙДИ
 
-```
 </details>
 
 <details><summary><code>POST</code> <code><b>/api/readers/{id}</b></code> <code>(POST параметр Читатель по id)</code></summary>
