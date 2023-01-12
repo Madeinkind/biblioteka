@@ -34,24 +34,28 @@
 	$password = 'qwerty12345' //пароль//
 	
 Возвращает
-	
-	'token' => 'xsfsgrddgrge454etre6ytgrfy45',
-	'session' => '35435trdgd5ed4trt4g',
-	'expired' => 86400,
-	'timeout' => 86400,
-	'user_data' =>  [
-	  'id' => 1,
-	  'login' => 'user', //имя//
-	  'sname' => 'ivanov', // фамилия //
-	  'fname' => 'ivan', //имя//
-	  'lname' => 'ivanich', //отчество//
-	  'gender' => 1,
-	  'email' => 'user@example.com',
-	  'tel' => '87011234567',
-	  'about' => 'i am proger',
-	  'iin' => '123456789012',
-	  'avatar' => 'img.png', \\Аватарка\\
+```json
+{	
+	"token" : 'xsfsgrddgrge454etre6ytgrfy45',
+	"session" : '35435trdgd5ed4trt4g',
+	"expired" : 86400,
+	"timeout" : 86400,
+	"user_data" :  [
+	  "id" : 1,
+	  "login" : 'user', //имя//
+	  "sname" : 'ivanov', // фамилия //
+	  "fname" : 'ivan', //имя//
+	  "lname" : 'ivanich', //отчество//
+	  "gender" : 1,
+	  "email" : 'user@example.com',
+	  "tel" : '87011234567',
+	  "about" : 'i am proger',
+	  "iin" : "123456789012",
+	  "avatar" : 'img.png', \\Аватарка\\
 	],
+}
+```
+
 
 </details>
 
@@ -68,14 +72,10 @@
 
 <details><summary><code>GET</code> <code><b>/api/books</b></code> <code>(Книги)</code></summary>
 
-Принимает
-
-	$data = $request->input();
-
 Возвращает
 
-	'list' => $list, \\список книг\\
-	'count' => $count, \\кол-во книг\\
+	"list": "list" "\\список книг\\"
+	"count": "count" "\\кол-во книг\\"
 
 </details>
 
@@ -89,7 +89,7 @@
   "reader_id": "2121312312", "//айди читателя//"
   "book_id": "21312321", "//айди книги//"
   "date_start": "1 января 2025", "//дата выдачи//"
-  "date_end_plan": "10 января 2026", //дата возвращения//
+  "date_end_plan": "10 января 2026", "//дата возвращения//"
   "date_end_fact": "15 января 2026", "//дата возвращения по факту//"
 }
 ```
