@@ -93,21 +93,21 @@
 Возвращает
 
 
-  "list": [
-    {
+	"list": [
+		{
       "id": 1,
       "fio": "test student",
       "group": "vtipob-42",
       "iin": "4294967295"
-    },
-    {
-      "id": 2,
-      "fio": "test student 2",
-      "group": "vtipob-42",
-      "iin": "4294967294"
-    }
-  ],
-  "count": 2
+		},
+		{
+		"id": 2,
+		"fio": "test student 2",
+		"group": "vtipob-42",
+		"iin": "4294967294"
+		}
+	],
+	"count": 2
 	
 
 </details>
