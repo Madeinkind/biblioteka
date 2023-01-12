@@ -67,9 +67,11 @@
 <details><summary><code>GET</code> <code><b>/api/auth/logout</b></code> <code>(Деавторизация)</code></summary>
 
 Возвращает
-	
+```json
+{
 	'success' : true, \\Выход с аккаунта, перебрасывает на страницу входа\\
-
+}
+```
 </details>
 </details>
 
