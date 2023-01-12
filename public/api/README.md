@@ -52,8 +52,6 @@
 	  'iin' => '123456789012',
 	  'avatar' => 'img.png', \\Аватарка\\
 	],
-	'theme' => $user->theme,
-	'lang_code' => $user->lang_code,
 
 </details>
 
@@ -94,7 +92,12 @@
 
 Возвращает
 
-{"list":[{"id":3,"name":"dsadsa","count":1,"publishing":""},{"id":4,"name":"dsadsa","count":1,"publishing":""},{"id":5,"name":"dsadsa","count":1,"publishing":""},{"id":6,"name":"dsadsa","count":1,"publishing":""},{"id":7,"name":"dsadsa","count":1,"publishing":""},{"id":8,"name":"dsadsa","count":1,"publishing":""}],"count":6}
+{"list":[{"id":3,"name":"dsadsa","count":1,"publishing":""},
+{"id":4,"name":"dsadsa","count":1,"publishing":""},
+{"id":5,"name":"dsadsa","count":1,"publishing":""},
+{"id":6,"name":"dsadsa","count":1,"publishing":""},
+{"id":7,"name":"dsadsa","count":1,"publishing":""},
+{"id":8,"name":"dsadsa","count":1,"publishing":""}],"count":6}
 
 </details>
 
@@ -102,7 +105,7 @@
 
 Принимает
 
-	$data = $request->input();
+	\\КНИГА ПО АЙДИ\\
 
 </details>
 
@@ -160,7 +163,7 @@
 
 Принимает
 
-	$data = $request->input();
+	\\ВЫДАЧА КНИГИ\\
 
 </details>
 
@@ -245,10 +248,6 @@
 
 <details><summary>ReadersController</summary>
 <details><summary><code>GET</code> <code><b>/api/readers</b></code> <code>(Читатели)</code></summary>
-
-Принимает
-
-	$jwt_data = $request->jwt_data;
 	
 Возвращает
 
@@ -301,8 +300,6 @@
 </details>
 
 <details><summary><code>GET</code> <code><b>/api/readers-debtors</b></code> <code>(Читатели должники)</code></summary>
-
-	$jwt_data = $request->jwt_data;
 	
 Возвращает
 
@@ -312,10 +309,6 @@
 </details>
 
 <details><summary><code>GET</code> <code><b>/api/readers-debtors</b></code> <code>(Читатели должники)</code></summary>
-
-Принимает
-
-	$jwt_data = $request->jwt_data;
 	
 Возвращает
 
