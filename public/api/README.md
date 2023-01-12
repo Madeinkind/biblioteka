@@ -69,7 +69,7 @@
 Возвращает
 ```json
 {
-	'success' : true, \\Выход с аккаунта, перебрасывает на страницу входа\\
+	"success" : "true", \\Выход с аккаунта, перебрасывает на страницу входа\\
 }
 ```
 </details>
@@ -143,9 +143,9 @@
 <details><summary><code>GET</code> <code><b>/api/books/{id}</b></code> <code>(Книги по id)</code></summary>
 
 Принимает
-
+```json
 	\\КНИГА ПО АЙДИ\\
-	
+```
 Возвращает
 ```json
 {
@@ -224,9 +224,9 @@
 <details><summary><code>GET</code> <code><b>/api/books-issued</b></code> <code>(Выдача Книги)</code></summary>
 
 Принимает
-
+```json
 	\\ВЫДАЧА КНИГИ\\
-
+```
 </details>
 
 <details><summary><code>POST</code> <code><b>/api/books-issued</b></code> <code>(POST параметр выдача Книги)</code></summary>
