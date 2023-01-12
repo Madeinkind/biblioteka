@@ -145,13 +145,13 @@
 	\\КНИГА ПО АЙДИ\\
 	
 Возвращает
-```
-	{
+```json
+{
 	"id": 3,
 	"name": "dsadsa",
 	"count": 1,
 	"publishing": ""
-	}
+}
 ```
 </details>
 
