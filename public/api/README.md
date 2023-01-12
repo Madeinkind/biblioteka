@@ -282,8 +282,8 @@
 Возвращает
 ```json
 {
-	'list' : "list,
-	'count' : "count,
+	"list" : "list",
+	"count" : "count",
 }
 ```
 </details>	
@@ -291,9 +291,10 @@
 
 Принимает
 ```json
-
-	"name : 'ivan'
-	"count : '2',
+{
+	"name" : "ivan"
+	"count" : "2",
+}
 ```
 Возвращает
 ```json
@@ -307,9 +308,9 @@
 <details><summary><code>GET</code> <code><b>/api/user{id}</b></code> <code>(Пользователь по id)</code></summary>
 
 Принимает
-
+```json
 \\ПОИСК ПОЛЬЗОВАТЕЛЯ ПО АЙДИ
-	
+```
 </details>
 
 <details><summary><code>POST</code> <code><b>/api/user{id}</b></code> <code>(POST параметр Пользователя по id)</code></summary>
@@ -334,7 +335,7 @@
 Возвращает
 ```json
 {
-	"success" : "success, \\удаление пользователя по айди
+	"success" : "success", \\удаление пользователя по айди
 }
 ```
 </details>
