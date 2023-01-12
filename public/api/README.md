@@ -33,8 +33,8 @@
 Принимает
 ```json
 {
-	"username" : "login", //имя//
-	"password" : "qwerty12345", //пароль//
+	"username" : "login", //имя
+	"password" : "qwerty12345", //пароль
 }
 ```
 	
@@ -68,7 +68,7 @@
 
 Возвращает
 	
-	'success' => true, \\Выход с аккаунта, перебрасывает на страницу входа\\
+	'success' : true, \\Выход с аккаунта, перебрасывает на страницу входа\\
 
 </details>
 </details>
@@ -105,12 +105,12 @@
 
 ```json
 {
-  "id": "21312312", "//айди записи//"
-  "reader_id": "2121312312", "//айди читателя//"
-  "book_id": "21312321", "//айди книги//"
-  "date_start": "1 января 2025", "//дата выдачи//"
-  "date_end_plan": "10 января 2026", "//дата возвращения//"
-  "date_end_fact": "15 января 2026", "//дата возвращения по факту//"
+  "id": "21312312", //айди записи
+  "reader_id": "2121312312", //айди читателя
+  "book_id": "21312321", //айди книги
+  "date_start": "1 января 2025", //дата выдачи
+  "date_end_plan": "10 января 2026", //дата возвращения
+  "date_end_fact": "15 января 2026", //дата возвращения по факту
 }
 ```
 
@@ -263,7 +263,7 @@
 Возвращает
 ```json
 {	
-	"success": "success", \\УДАЛЕНИЕ КНИГИ\\
+	"success": "success", \\УДАЛЕНИЕ КНИГИ
 }
 ```
 </details>
@@ -280,52 +280,63 @@
 }	
 ```
 Возвращает
-
-	'list' => $list,
-	'count' => $count,
-
+```json
+{
+	'list' : "list,
+	'count' : "count,
+}
+```
 </details>	
 <details><summary><code>POST</code> <code><b>/api/user</b></code> <code>(POST параметр Пользователя)</code></summary>
 
 Принимает
+```json
 
-	$name = 'ivan'
-	$count = '2';
-	
+	"name = 'ivan'
+	"count = '2',
+```
 Возвращает
-
-	'id' => $id, \\\\
-	'success' => (bool)$id,
-	
+```json
+{
+	"id" : "id", \\\\
+	"success" : "(bool)""id",
+}
+```	
 </details>
 
 <details><summary><code>GET</code> <code><b>/api/user{id}</b></code> <code>(Пользователь по id)</code></summary>
 
 Принимает
 
-\\ПОИСК ПОЛЬЗОВАТЕЛЯ ПО АЙДИ\\
+\\ПОИСК ПОЛЬЗОВАТЕЛЯ ПО АЙДИ
 	
 </details>
 
 <details><summary><code>POST</code> <code><b>/api/user{id}</b></code> <code>(POST параметр Пользователя по id)</code></summary>
 
 Принимает
-	
-	$name => 'ivan';
-	$count => 1;
-	
+```json
+{
+	"name" : "ivan",
+	"count" : "1",
+}
+```	
 Возвращает
-
-	'success' => $success, \\добавление пользователя\\
-	
+```json
+{
+	"success" : "success", \\добавление пользователя
+}
+```	
 </details>
 	
 <details><summary><code>DELETE</code> <code><b>/api/user{id}</b></code> <code>(Удаление Пользователя по id)</code></summary>
 
 Возвращает
-
-	success' => $success, \\удаление пользователя по айди\\
-	
+```json
+{
+	"success" : "success, \\удаление пользователя по айди
+}
+```
 </details>
 </details>
 
@@ -333,25 +344,31 @@
 <details><summary><code>GET</code> <code><b>/api/readers</b></code> <code>(Читатели)</code></summary>
 	
 Возвращает
-
-	'list' => $list, \\выдача список читателей\\
-	'count' => $count, \\кол-во выданных книг\\
-
+```json
+{
+	"list" : "list", \\выдача список читателей
+	"count" : "count", \\кол-во выданных книг
+}
+```
 </details>
 
 <details><summary><code>POST</code> <code><b>/api/readers</b></code> <code>(Читатели)</code></summary>
 
 Принимает
-
-	$fio = 'Ivan Ivanov Ivanovih'
-	$group = 'POb-42';
-	$iin = '123456789012';
-		
+```json
+{
+	"fio = "Ivan Ivanov Ivanovih",
+	"group = "POb-42",
+	"iin = "123456789012",
+}
+```		
 Возвращает
-
-	'id' => $id, \\айди\\
-	'success' => (bool)$id, \\выдача информации\\
-
+```json
+{
+	"id" : "id, \\айди\\
+	"success" : (bool)"id, \\выдача информации\\
+}
+```
 </details>
 
 <details><summary><code>GET</code> <code><b>/api/readers/{id}</b></code> <code>(Читатель по id)</code></summary>
@@ -363,39 +380,49 @@
 <details><summary><code>POST</code> <code><b>/api/readers/{id}</b></code> <code>(POST параметр Читатель по id)</code></summary>
 
 Принимает
-
-	$fio => 'ivanov ivan ivanich'
-	$group => 'POb-42';
-	$iin => '123456789012';
-	
+```json
+{
+	"fio" : "ivanov ivan ivanich"
+	"group" : "POb-42",
+	"iin" : "123456789012",
+}
+```	
 Возвращает
-
-	'success' => $success, \\информация о студенте\\
-	
+```json
+{
+	"success" : "success, \\информация о студенте
+}
+```	
 </details>
 
 <details><summary><code>DELETE</code> <code><b>/api/readers/{id}</b></code> <code>(Удаление Читателя по id)</code></summary>
 
 Возвращает
-
-	'success' => $success, \\получение id читателя\\
-	
+```json
+{
+	"success" : "success, \\получение id читателя\\
+}
+```	
 </details>
 
 <details><summary><code>GET</code> <code><b>/api/readers-debtors</b></code> <code>(Читатели должники)</code></summary>
 	
 Возвращает
-
-	'list' => $list, \\выдаёт список читателей должников\\
-	'count' => $count, \\кол-во книг которые они не вернули\\
-	
+```json
+{
+	"list" : "list, \\выдаёт список читателей должников\\
+	"count" : "count, \\кол-во книг которые они не вернули\\
+}
+```	
 </details>
 
 <details><summary><code>GET</code> <code><b>/api/readers-debtors</b></code> <code>(Читатели должники)</code></summary>
 	
 Возвращает
-
-	'list' => $list, \\выдаёт список читателей должников\\
-	'count' => $count, \\кол-во книг которые они не вернули\\
-	
+```json
+{
+	"list" : "list, \\выдаёт список читателей должников
+	"count" : "count, \\кол-во книг которые они не вернули
+}
+```	
 </details>
