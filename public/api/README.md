@@ -147,10 +147,10 @@
 Возвращает
 ```json
 {
-	"id": 3,
-	"name": "dsadsa",
-	"count": 1,
-	"publishing": ""
+   "id": 3,
+   "name": "dsadsa",
+   "count": 1,
+   "publishing": ""
 }
 ```
 </details>
@@ -158,51 +158,65 @@
 <details><summary><code>POST</code> <code><b>/api/books/{id}</b></code> <code>(Книги по id)</code></summary>
 
 Принимает
-
+```json
+{
 	$name = 'namebook ivana';
 	$count = 1;
-
+}
+```
 Возвращает
-
-	'success' => $success,
-
+```json
+{
+   'success' => $success,
+}
+```
 </details>
 
 <details><summary><code>DELETE</code> <code><b>/books/{id}</b></code> <code>(Книги по id)</code></summary>
 
 Возвращает
-
+```json
+}
 	'success' => $success,
-
+{
+```
 </details>
 
 <details><summary><code>GET</code> <code><b>/api/books-issued</b></code> <code>(Выдача книг)</code></summary>
 
 Принимает
-
-	$data = $request->input();
-
+```json
+{
+	"data": "request->input()",
+}
+```
 Возвращает
-
-	'list' => $list,
-	'count' => $count,
-
+```json
+}
+	"list" : "list",
+	"count" : "count",
+{
+```
 </details>
 
 <details><summary><code>POST</code> <code><b>/api/books-issued</b></code> <code>(POST параметр Выдача Книги)</code></summary>
 
 Принимает
-
-	$book_id = '32432432';
-	$reader_id = '423432432';
-	$date_start = '1 января 2025';
-	$date_end = '15 января 2026';
-
+```json
+{
+	"book_id" = "32432432";
+	"reader_id" = "423432432";
+	"date_start" = "1 января 2025";
+	"date_end" = "15 января 2026";
+}
+```
 Возвращает
-
-	'id' => 1,
-	'success' => true,
-
+```json
+{
+	"id" : "1",
+	"success" : "true",
+}
+```
 </details>
 
 <details><summary><code>GET</code> <code><b>/api/books-issued</b></code> <code>(Выдача Книги)</code></summary>
@@ -220,9 +234,26 @@
 	$date_end = '15 января 2026';
 
 Возвращает
-
-	'success' => $success, \\ВЫДАЧА КНИГИ С ДАТОЙ\\\\
-
+```json
+{
+  "list": [
+    {
+      "id": 3,
+      "reader_id": 2,
+      "book_id": 3,
+      "date_start": "2022-12-22 05:34:56",
+      "date_end_plan": "2022-12-22 05:34:56",
+      "date_end_fact": "0000-00-00 00:00:00",
+      "book_name": "dsadsa",
+      "book_publishing": "",
+      "reader_fio": "test student 2",
+      "reader_group": "vtipob-42",
+      "reader_iin": "4294967294"
+    }
+  ],
+  "count": 1
+}
+```
 </details>
 
 <details><summary><code>DELETE</code> <code><b>/api/books-issued</b></code> <code>(Удаление выданной книги)</code></summary>
