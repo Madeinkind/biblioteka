@@ -288,98 +288,6 @@
 </details>
 </details>
 
-<details><summary>AccountController</summary>
-<details><summary><code>GET</code> <code><b>/api/user</b></code> <code>(Пользователь)</code></summary>
-
-Принимает
-```json
-{
-	"login": "Логин"
-	"idUser": "Айди Пользователя"
-}	
-```
-Возвращает
-```json
-{
-  "meta": {
-    "code": 500,
-    "message": "Target class [App\\Http\\Controllers\\AccountController] does not exist." //НЕ РАБОТАЕТ ДОДЕЛАТЬ
-  }
-}
-```
-</details>	
-<details><summary><code>POST</code> <code><b>/api/user</b></code> <code>(POST параметр Пользователя)</code></summary>
-
-Принимает
-```json
-{
-	"name" : "ivan"
-	"count" : "2",
-}
-```
-Возвращает
-```json
-{
-  "meta": {
-    "code": 500,
-    "message": "Target class [App\\Http\\Controllers\\AccountController] does not exist." //НЕ РАБОТАЕТ ДОДЕЛАТЬ
-  }
-}
-```	
-</details>
-
-<details><summary><code>GET</code> <code><b>/api/user{id}</b></code> <code>(Пользователь по id)</code></summary>
-
-Принимает
-```json
-	
-	\\ПОИСК ПОЛЬЗОВАТЕЛЯ ПО АЙДИ
-
-```
-
-Возвращает 
-```json
-	
-{
-  "meta": {
-    "code": 500,
-    "message": "Target class [App\\Http\\Controllers\\AccountController] does not exist." //ДОДЕЛАТЬ НЕ РАБОТАЕТ
-  }
-}
-	
-```
-</details>
-
-<details><summary><code>POST</code> <code><b>/api/user{id}</b></code> <code>(POST параметр Пользователя по id)</code></summary>
-
-Принимает
-```json
-{
-	"name" : "ivan",
-	"count" : "1",
-}
-```	
-Возвращает
-```json
-{
-  "meta": {
-    "code": 500,
-    "message": "Target class [App\\Http\\Controllers\\AccountController] does not exist." //НЕ РАБОТАЕТ ДОДЕЛАТЬ
-  }
-}
-```	
-</details>
-	
-<details><summary><code>DELETE</code> <code><b>/api/user{id}</b></code> <code>(Удаление Пользователя по id)</code></summary>
-
-Возвращает
-```json
-{
-	"success" : "success", \\удаление пользователя по айди
-}
-```
-</details>
-</details>
 
 <details><summary>ReadersController</summary>
 <details><summary><code>GET</code> <code><b>/api/readers</b></code> <code>(Читатели)</code></summary>
@@ -406,8 +314,8 @@
 Возвращает
 ```json
 {
-	"id" : "id", \\айди
-	"success" : "(bool)""id", \\выдача информации
+	"id" : 1, \\айди
+	"success" : "true", \\выдача информации
 }
 ```
 </details>
