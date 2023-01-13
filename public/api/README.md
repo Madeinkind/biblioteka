@@ -144,7 +144,7 @@
 
 Принимает
 ```json
-	api/books/3 \\КНИГА ПО АЙДИ (3 айди	- пример)
+	//api/books/3 \\КНИГА ПО АЙДИ (3 айди	- пример)
 ```
 Возвращает
 ```json
@@ -416,6 +416,15 @@
 
  ПОИСК ЧИТАТЕЛЯ ПО АЙДИ
 
+Возвращает
+```json
+{
+  "id": 1,
+  "fio": "test student",
+  "group": "vtipob-42",
+  "iin": "4294967295"
+}
+```
 </details>
 
 <details><summary><code>POST</code> <code><b>/api/readers/{id}</b></code> <code>(POST параметр Читатель по id)</code></summary>
@@ -431,7 +440,10 @@
 Возвращает
 ```json
 {
-	"success" : "success", \\информация о студенте
+  "id": 7,
+  "fio": "ivanov ivan ivanich",
+  "group": "POb-42",
+  "iin": "12345678901"
 }
 ```	
 </details>
@@ -441,7 +453,7 @@
 Возвращает
 ```json
 {
-	"success" : "success", \\получение id читателя\\
+	"success" : "success", //УДАЛЕНИЕ ЧИТАТЕЛЯ ПО ID 
 }
 ```	
 </details>
