@@ -162,14 +162,17 @@
 Принимает
 ```json
 {
-	"name": "namebook ivana", 
-	"count": "1",
+	"name": "dsadsa", // НАЗВАНИЕ КНИГИ
+	"count": "", // КОЛ-ВО
 }
 ```
 Возвращает
 ```json
 {
-   "success": "success",
+  "id": 3,
+  "name": "dsadsa",
+  "count": 1,
+  "publishing": ""
 }
 ```
 </details>
@@ -179,7 +182,7 @@
 Возвращает
 ```json
 {
-	"success": "success",
+	"success": "success", // УДАЛЕНИЕ КНИГИ ИЗ БАЗЫ
 }
 ```
 </details>
@@ -195,8 +198,22 @@
 Возвращает
 ```json
 {
-	"list" : "list",
-	"count" : "count",
+  "list": [
+    {
+      "id": 3,
+      "reader_id": 2,
+      "book_id": 3,
+      "date_start": "2022-12-22 05:34:56",
+      "date_end_plan": "2022-12-22 05:34:56",
+      "date_end_fact": "0000-00-00 00:00:00",
+      "book_name": "dsadsa",
+      "book_publishing": "",
+      "reader_fio": "test student 2",
+      "reader_group": "vtipob-42",
+      "reader_iin": "4294967294"
+    }
+  ],
+  "count": 1
 }
 ```
 </details>
@@ -234,7 +251,7 @@
 Принимает
 ```json
 {
-	"date_end": "15 января 2026",
+	"date_end": "2022-12-22", //ДАТА СДАЧИ КНИГИ
 }
 ```
 Возвращает
@@ -265,7 +282,7 @@
 Возвращает
 ```json
 {	
-	"success": "success", \\УДАЛЕНИЕ КНИГИ
+	"success": "success", \\УДАЛЕНИЕ ВЫДАННОЙ КНИГИ ИЗ БАЗЫ
 }
 ```
 </details>
@@ -284,8 +301,10 @@
 Возвращает
 ```json
 {
-	"list" : "list",
-	"count" : "count",
+  "meta": {
+    "code": 500,
+    "message": "Target class [App\\Http\\Controllers\\AccountController] does not exist." //НЕ РАБОТАЕТ ДОДЕЛАТЬ
+  }
 }
 ```
 </details>	
@@ -301,8 +320,10 @@
 Возвращает
 ```json
 {
-	"id" : "id", \\\\
-	"success" : "(bool)""id",
+  "meta": {
+    "code": 500,
+    "message": "Target class [App\\Http\\Controllers\\AccountController] does not exist." //НЕ РАБОТАЕТ ДОДЕЛАТЬ
+  }
 }
 ```	
 </details>
@@ -314,6 +335,18 @@
 	
 	\\ПОИСК ПОЛЬЗОВАТЕЛЯ ПО АЙДИ
 
+```
+
+Возвращает 
+```json
+	
+{
+  "meta": {
+    "code": 500,
+    "message": "Target class [App\\Http\\Controllers\\AccountController] does not exist." //ДОДЕЛАТЬ НЕ РАБОТАЕТ
+  }
+}
+	
 ```
 </details>
 
@@ -329,7 +362,10 @@
 Возвращает
 ```json
 {
-	"success" : "success", \\добавление пользователя
+  "meta": {
+    "code": 500,
+    "message": "Target class [App\\Http\\Controllers\\AccountController] does not exist." //НЕ РАБОТАЕТ ДОДЕЛАТЬ
+  }
 }
 ```	
 </details>
