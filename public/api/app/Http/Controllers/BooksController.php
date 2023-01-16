@@ -319,7 +319,7 @@ class BooksController extends Controller
 			'inventory_number' => $inventory_number,
 			'year_publishing' => $year_publishing,
 			'img' => $img,
-			'aut' => $author,
+			'author' => $author,
 		];
 		$success = DB::table('books')
 			->where('id', '=', $id)
