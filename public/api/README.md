@@ -110,6 +110,15 @@
 Принимает
 
 ```json
+	
+	$data = $request->input();
+	$name = isset($data['name']) ? $data['name'] : '';
+	$count = isset($data['count']) ? $data['count'] : 1;
+	$publishing = isset($data['publishing']) ? $data['publishing'] : '';
+	$about = isset($data['about']) ? $data['about'] : '';
+	$inventory_number = isset($data['inventory_number']) ? $data['inventory_number'] : '';
+	$year_publishing = isset($data['year_publishing']) ? $data['year_publishing'] : '';
+	$img = isset($data['img']) ? $data['img'] : '';
 {
   "id": "21312312", //айди записи
   "reader_id": "2121312312", //айди читателя
