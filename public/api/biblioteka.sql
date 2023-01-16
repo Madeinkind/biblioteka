@@ -15,19 +15,23 @@ CREATE TABLE `books` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'айди',
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'название книги',
   `count` int(10) unsigned NOT NULL DEFAULT '1' COMMENT 'кол-во',
-  `publishing` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '' COMMENT 'издатель',
+  `publishing` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'издатель',
+  `about` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'автор',
+  `inventory_number` int(255) unsigned NOT NULL COMMENT 'инвентарь номер',
+  `year_publishing` int(4) unsigned NOT NULL COMMENT 'год издательства',
+  `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'картинка (ссылка',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Книги';
 
-INSERT INTO `books` (`id`, `name`, `count`, `publishing`) VALUES
-(1,	'dsadsa',	1,	''),
-(2,	'dsadsa',	1,	''),
-(3,	'dsadsa',	1,	''),
-(4,	'dsadsa',	1,	''),
-(5,	'dsadsa',	1,	''),
-(6,	'dsadsa',	1,	''),
-(7,	'dsadsa',	1,	''),
-(8,	'dsadsa',	1,	'');
+INSERT INTO `books` (`id`, `name`, `count`, `publishing`, `about`, `inventory_number`, `year_publishing`, `img`) VALUES
+(3,	'dsadsa',	1,	'abai',	'',	0,	0,	''),
+(4,	'dsadsa',	1,	'',	'',	0,	0,	''),
+(5,	'dsadsa',	1,	'',	'',	0,	0,	''),
+(6,	'dsadsa',	1,	'',	'',	0,	0,	''),
+(7,	'dsadsa',	1,	'',	'',	0,	0,	''),
+(8,	'dsadsa',	1,	'',	'',	0,	0,	''),
+(9,	'Books One',	1,	'Abaiding',	'Abai',	0,	0,	''),
+(10,	'loloshka',	1,	'shoping',	'abain',	4294967295,	0,	'');
 
 DROP TABLE IF EXISTS `books_readers`;
 CREATE TABLE `books_readers` (
@@ -45,8 +49,6 @@ CREATE TABLE `books_readers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='связи таблиц - books + readers';
 
 INSERT INTO `books_readers` (`id`, `reader_id`, `book_id`, `date_start`, `date_end_plan`, `date_end_fact`) VALUES
-(1,	1,	1,	'2022-12-22 05:34:56',	'2022-12-22 05:34:56',	'0000-00-00 00:00:00'),
-(2,	1,	2,	'2022-12-22 05:34:56',	'2022-12-22 05:34:56',	'0000-00-00 00:00:00'),
 (3,	2,	3,	'2022-12-22 05:34:56',	'2022-12-22 05:34:56',	'0000-00-00 00:00:00');
 
 DROP TABLE IF EXISTS `readers`;
@@ -60,8 +62,8 @@ CREATE TABLE `readers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `readers` (`id`, `fio`, `group`, `iin`) VALUES
-(1,	'test student',	'vtipob-42',	'4294967295'),
-(2,	'test student 2',	'vtipob-42',	'4294967294');
+(2,	'Палагута Данил',	'vtipob-42',	'4294967294'),
+(3,	'MrZulax',	'https://www.youtube.com/@MrZulax',	'222222');
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
@@ -72,6 +74,8 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Таблица Пользователей';
 
 INSERT INTO `user` (`id`, `username`, `password`) VALUES
-(1,	'admin',	'admin');
+(1,	'admin',	'admin'),
+(2,	'93d4554c-9230-11ed-9054-d85ed3a48331',	'*7C0AF5FB327EEB77757AC592EB3A0551550478CF'),
+(3,	'9441a255-92e3-11ed-9643-d85ed3a48331',	'*00A51F3F48415C7D4E8908980D443C29C69B60C9');
 
--- 2022-12-22 05:03:41
+-- 2023-01-16 04:16:19
