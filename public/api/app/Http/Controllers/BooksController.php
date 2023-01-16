@@ -30,37 +30,40 @@ class BooksController extends Controller
 		//$idUser = $jwt_data['user_id'];
 		
 		$data = $request->input();
-		//$search = isset($data['search']) ? $data['search'] : '';
-		//$start = isset($data['start']) ? $data['start'] : 0;
-		//$limit = isset($data['limit']) ? $data['limit'] : 10;
+		$search = isset($data['search']) ? $data['search'] : '';
+		$start = isset($data['start']) ? $data['start'] : 0;
+		$limit = isset($data['limit']) ? $data['limit'] : 10;
 		
-		/*if($search != '')
+		if($search != '')
 		{
-			$count = DB::table('cwt_projects')
-				->where('virtualspace_id', '=', $virtualspace_id)
-				->where('name', 'like', '%'.$search.'%')
+			$count = DB::table('books')
+				->orWhere('name', 'like', '%'.$search.'%')
+				->orWhere('publishing', 'like', '%'.$search.'%')
+				->orWhere('about', 'like', '%'.$search.'%')
+				->orWhere('inventory_number', 'like', '%'.$search.'%')
+				->orWhere('year_publishing', 'like', '%'.$search.'%')
+				->orWhere('author', 'like', '%'.$search.'%')
 				->count();
-			$list = DB::table('cwt_projects')
-				->select('id', 'name')
-				->where('virtualspace_id', '=', $virtualspace_id)
-				->where('name', 'like', '%'.$search.'%')
+			$list = DB::table('books')
+				->orWhere('name', 'like', '%'.$search.'%')
+				->orWhere('publishing', 'like', '%'.$search.'%')
+				->orWhere('about', 'like', '%'.$search.'%')
+				->orWhere('inventory_number', 'like', '%'.$search.'%')
+				->orWhere('year_publishing', 'like', '%'.$search.'%')
+				->orWhere('author', 'like', '%'.$search.'%')
 				->limit($limit)
 				->offset($start)
-				->orderBy('name', 'asc')
 				->get();
 		}
 		else
-		{*/
+		{
 			$count = DB::table('books')
 				->count();
 			$list = DB::table('books')
-				//->select('id', 'name')
-				//->where('virtualspace_id', '=', $virtualspace_id)
-				//->orderBy('name', 'asc')
-				//->limit($limit)
-				//->offset($start)
+				->limit($limit)
+				->offset($start)
 				->get();
-		//}
+		}
 		
 		return response()->json([
 			'list' => $list,

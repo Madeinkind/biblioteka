@@ -24,13 +24,7 @@
 									<label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
 										<span class="d-none d-sm-block">Загрузить новое фото</span>
 										<i class="bx bx-upload d-block d-sm-none"></i>
-										<input
-										type="file"
-										id="upload"
-										class="account-file-input"
-										hidden
-										accept="image/png, image/jpeg"
-										/>
+										<input type="file" id="upload" class="account-file-input" hidden accept="image/png, image/jpeg" />
 									</label>
 									<button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
 										<i class="bx bx-reset d-block d-sm-none"></i>
@@ -51,6 +45,18 @@
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Автор</label>
 									<input class="form-control" type="text" v-model="book_author">
+								</div>
+								<div class="mb-3">
+									<label for="firstName" class="form-label">Год выпуска</label>
+									<input class="form-control" type="number" v-model="book_year_publishing" max="99999">
+								</div>
+								<div class="mb-3">
+									<label for="firstName" class="form-label">Кол-во</label>
+									<input class="form-control" type="number" v-model="book_count">
+								</div>
+								<div class="mb-3">
+									<label for="firstName" class="form-label">Инвентарный номер</label>
+									<input class="form-control" type="text" v-model="book_inventory_number">
 								</div>
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Описание</label>
@@ -101,8 +107,6 @@ export default {
 		useMeta({title: 'Главная | Biblioteka'});
 	},
 	data: () => ({
-		books: [],
-		
 		book_name: '',
 		book_count: 1,
 		book_publishing: '',

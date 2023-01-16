@@ -1,4 +1,32 @@
 <template>
+	<!-- Navbar -->
+
+		<nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                <i class="bx bx-menu bx-sm"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center w-100" >
+                <form class="nav-item d-flex align-items-center w-100" @submit.prevent="loadBooks()">
+                  <i class="bx bx-search fs-4 lh-0"></i>
+                  <input
+                    type="text"
+                    class="form-control border-0 shadow-none"
+                    placeholder="Search..."
+                    aria-label="Search..."
+					v-model="search"
+					@keyup="loadBooks()"
+                  />
+				</form>
+              </div>
+              <!-- /Search -->
+            </div>
+          </nav>
+          <!-- / Navbar -->
 	 <div class="container-xxl flex-grow-1 container-p-y">
               <h4 class="fw-bold py-3 mb-4">Книги</h4>
               <!-- Basic Bootstrap Table -->
@@ -14,6 +42,9 @@
             <th scope="col">Название</th>
             <th scope="col">Кол-во</th>
             <th scope="col">Автор</th>
+            <th scope="col">Год выпуска</th>
+            <th scope="col">Инвентарный номер</th>
+            <th scope="col">Издатель</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -22,6 +53,9 @@
             <td>{{book.name}}</td>
             <td>{{book.count}}</td>
             <td>{{book.author}}</td>
+            <td>{{book.year_publishing}}</td>
+            <td>{{book.inventory_number}}</td>
+            <td>{{book.publishing}}</td>
             <td class="text-end">
 				<router-link :to="{path: '/books/'+book.id+'/edit'}" class="btn btn-success">
 					<i class='bx bxs-pencil'></i>
@@ -34,31 +68,9 @@
 		</div>
 		<nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
-              <li class="page-item prev">
-                <a class="page-link" href="javascript:void(0);"
-                  ><i class="tf-icon bx bx-chevrons-left"></i
-                ></a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="javascript:void(0);">1</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="javascript:void(0);">2</a>
-              </li>
-              <li class="page-item active">
-                <a class="page-link" href="javascript:void(0);">3</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="javascript:void(0);">4</a>
-              </li>
-              <li class="page-item">
-                <a class="page-link" href="javascript:void(0);">5</a>
-              </li>
-              <li class="page-item next">
-                <a class="page-link" href="javascript:void(0);"
-                  ><i class="tf-icon bx bx-chevrons-right"></i
-                ></a>
-              </li>
+				<li class="page-item" v-for="p in getPagesCount()">
+					<a class="page-link" href="javascript://" @click="page = p; loadBooks();">{{p}}</a>
+				</li>
             </ul>
         </nav>
 	 </div>
@@ -81,46 +93,51 @@ export default {
 		useMeta({title: 'Книги | Biblioteka'});
 	},
 	data: () => ({
+		search: '',
+		page: 1,
+		limit: 10,
+		
 		books: [],
+		books_count: 0,
 	}),
 	methods: {
 		loadBooks(){
-			fetch('/api/books', {
-				method: 'GET',
-				/*body: JSON.stringify({
-					name: 'TestBook1',
-				}),*/
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			}).then(stream => stream.json()).then((data) => {
+			fetch('/api/books?' + new URLSearchParams({
+				search: this.search,
+				start: (this.page - 1) * this.limit,
+				limit: this.limit,
+			})).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.books = data.list;
+				this.books_count = data.count;
 			}).catch(error => {
 				console.log(error);
 			});
 		},
 		onDeleteBook(id){
 			if(confirm('Вы уверены?')){
-        fetch('/api/books/'+id, {
-				method: 'DELETE',
-				/*body: JSON.stringify({
-					name: this.book_name,
-					count: this.book_count,
-				}),*/
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			}).then(stream => stream.json()).then((data) => {
-				//console.log(data);
-        if(data.success){
-			this.loadBooks();
-        }
-			}).catch(error => {
-				console.log(error);
-			});  
-      }
-      
+				fetch('/api/books/'+id, {
+					method: 'DELETE',
+					/*body: JSON.stringify({
+						name: this.book_name,
+						count: this.book_count,
+					}),*/
+					headers: {
+						'Content-Type': 'application/json',
+					},
+				}).then(stream => stream.json()).then((data) => {
+					//console.log(data);
+					if(data.success){
+						this.loadBooks();
+					}
+				}).catch(error => {
+					console.log(error);
+				});  
+     		}
+		},
+		// получение количества страниц для списка новостей
+		getPagesCount(){
+			return Math.ceil(this.books_count / this.limit);
 		},
 	},
 	mounted(){

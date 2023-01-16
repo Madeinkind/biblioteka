@@ -1,4 +1,32 @@
 <template>
+		<!-- Navbar -->
+
+		<nav class="layout-navbar container-xxl navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme" id="layout-navbar">
+            <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+              <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+                <i class="bx bx-menu bx-sm"></i>
+              </a>
+            </div>
+
+            <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+              <!-- Search -->
+              <div class="navbar-nav align-items-center w-100" >
+                <form class="nav-item d-flex align-items-center w-100" @submit.prevent="loadBooks()">
+                  <i class="bx bx-search fs-4 lh-0"></i>
+                  <input
+                    type="text"
+                    class="form-control border-0 shadow-none"
+                    placeholder="Search..."
+                    aria-label="Search..."
+					v-model="search"
+					@keyup="loadBooks()"
+                  />
+				</form>
+              </div>
+              <!-- /Search -->
+            </div>
+          </nav>
+          <!-- / Navbar -->
         <div class="container-xxl flex-grow-1 container-p-y">
     		<h4 class="fw-bold py-3 mb-4">Список читателей</h4>
 			<!-- Basic Bootstrap Table -->
@@ -82,26 +110,30 @@ export default {
 	setup(){
 		useMeta({title: 'Список читателей | Biblioteka'});
 	},
-	data: () => ({
+	data: () => ({	
+		search: '',
+		page: 1,
+		limit: 10,
+		
 		readers: [],
+		readers_count: 0,
 	}),
 	methods: {
 		loadReaders(){
-			fetch('/api/readers', {
-				method: 'GET',
-				/*body: JSON.stringify({
-					name: 'TestBook1',
-				}),*/
-				headers: {
-					'Content-Type': 'application/json',
-				},
-			}).then(stream => stream.json()).then((data) => {
+			fetch('/api/readers?' + new URLSearchParams({
+				search: this.search,
+				start: (this.page - 1) * this.limit,
+				limit: this.limit,
+			})).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.readers = data.list;
+				this.readers_count = data.count;
 			}).catch(error => {
 				console.log(error);
 			});
 		},
+		
+
 		onDeleteReader(id){
 			if(confirm('Вы уверены?')){
      		   fetch('/api/readers/'+id, {
@@ -124,6 +156,10 @@ export default {
       }
       
 		},
+				// получение количества страниц для списка новостей
+				getPagesCount(){
+			return Math.ceil(this.books_count / this.limit);
+		},
 	},
 	mounted(){
 		//this.loadreads();
@@ -141,7 +177,11 @@ export default {
 	components: {
 		//Navbar,
 	},
+	
+	
 };
+
+
 
 
 </script>
