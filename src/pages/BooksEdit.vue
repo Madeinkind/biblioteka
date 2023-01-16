@@ -9,49 +9,54 @@
                 <div class="col-md-10">
                   <div class="card mb-4">
                     <!-- Account -->
-					<form @submit.prevent="onBookEdit">
+					<form @submit.prevent="onBookEdit($route.params.id)">
 						<div class="card-body">
 						<div class="row">
 							<div class="col text-center">
-                        <img
-                          src="/assets/images/book.png "
-                          alt="user-avatar"
-                          class="rounded mb-3"
-                          width="300"
-                          id="uploadedAvatar"
-                        />
-                        <div class="button-wrapper">
-                          <label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
-                            <span class="d-none d-sm-block">Загрузить новое фото</span>
-                            <i class="bx bx-upload d-block d-sm-none"></i>
-                            <input
-                              type="file"
-                              id="upload"
-                              class="account-file-input"
-                              hidden
-                              accept="image/png, image/jpeg"
-                            />
-                          </label>
-                          <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
-                            <i class="bx bx-reset d-block d-sm-none"></i>
-                            <span class="d-none d-sm-block">Сброс</span>
-                          </button>
-                          <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
-                        </div>
+								<img
+									src="/assets/images/book.png "
+									alt="user-avatar"
+									class="rounded mb-3"
+									width="300"
+									id="uploadedAvatar"
+								/>
+								<div class="button-wrapper">
+									<label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
+										<span class="d-none d-sm-block">Загрузить новое фото</span>
+										<i class="bx bx-upload d-block d-sm-none"></i>
+										<input
+										type="file"
+										id="upload"
+										class="account-file-input"
+										hidden
+										accept="image/png, image/jpeg"
+										/>
+									</label>
+									<button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+										<i class="bx bx-reset d-block d-sm-none"></i>
+										<span class="d-none d-sm-block">Сброс</span>
+									</button>
+									<p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+								</div>
 							</div>
 							<div class="col">
-							<div class="mb-3">
-                            	<label for="firstName" class="form-label">Название</label>
-                            	<input class="form-control" type="text"  v-model="book_name" placeholder="Книги" aria-label="default input example">
-                          </div>
-							<div class="mb-3">
-                            	<label for="firstName" class="form-label">Издатель</label>
-							<input class="form-control" type="text" v-model="book_publishing" placeholder="Книги" aria-label="default input example">
-                          </div>
-							<div class="mb-3">
-                            	<label for="firstName" class="form-label">Кол-ВО</label>
-                            	<input class="form-control" type="text" v-model="book_count" placeholder="Книги" aria-label="default input example">
-                          </div>
+								<div class="mb-3">
+									<label for="firstName" class="form-label">Название</label>
+									<input class="form-control" type="text"  v-model="book_name">
+								</div>
+								<div class="mb-3">
+									<label for="firstName" class="form-label">Издатель</label>
+									<input class="form-control" type="text" v-model="book_publishing">
+								</div>
+								<div class="mb-3">
+									<label for="firstName" class="form-label">Автор</label>
+									<input class="form-control" type="text" v-model="book_author">
+								</div>
+								<div class="mb-3">
+									<label for="firstName" class="form-label">Описание</label>
+									<textarea rows="5" class="form-control" v-model="book_about"></textarea>
+								</div>
+							
 							</div>
 						</div>
                     </div>
@@ -101,15 +106,25 @@ export default {
 		book_name: '',
 		book_count: 1,
 		book_publishing: '',
+		book_about: '',
+		book_inventory_number: '',
+		book_year_publishing: '',
+		book_img: '',
+		book_author: '',
 	}),
 	methods: {
-		onBookEdit(){
-			fetch('/api/books', {
+		onBookEdit(id){
+			fetch('/api/books/' + id, {
 				method: 'POST',
 				body: JSON.stringify({
 					name: this.book_name,
 					count: this.book_count,
 					publishing: this.book_publishing,
+					about: this.book_about,
+					inventory_number: this.book_inventory_number,
+					year_publishing: this.book_year_publishing,
+					img: this.book_img,
+					author: this.book_author,
 				}),
 				headers: {
 					'Content-Type': 'application/json',
@@ -132,6 +147,11 @@ export default {
 				this.book_name = data.name;
 				this.book_count = data.count;
 				this.book_publishing = data.publishing;
+				this.book_about = data.about;
+				this.book_inventory_number = data.inventory_number;
+				this.book_year_publishing = data.year_publishing;
+				this.book_img = data.img;
+				this.book_author = data.author;
 			}).catch(error => {
 				console.log(error);
 			});

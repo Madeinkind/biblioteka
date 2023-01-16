@@ -13,7 +13,7 @@
             <th scope="col">ID</th>
             <th scope="col">Название</th>
             <th scope="col">Кол-во</th>
-            <th scope="col">Издательство</th>
+            <th scope="col">Автор</th>
           </tr>
         </thead>
         <tbody class="table-group-divider">
@@ -21,7 +21,7 @@
             <td>{{book.id}}</td>
             <td>{{book.name}}</td>
             <td>{{book.count}}</td>
-            <td>{{book.publishing}}</td>
+            <td>{{book.author}}</td>
             <td class="text-end">
 				<router-link :to="{path: '/books/'+book.id+'/edit'}" class="btn btn-success">
 					<i class='bx bxs-pencil'></i>

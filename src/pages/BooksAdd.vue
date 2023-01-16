@@ -9,6 +9,7 @@
               </router-link>
         <form @submit.prevent="onBookAdd" class="form-item">
 			<input type="text" class="form-control" v-model="book_name" placeholder="Book name" />
+			<input type="text" class="form-control" v-model="book_author" placeholder="Author" />
 			<input type="number" class="form-control" v-model.number="book_count" placeholder="Book count" />
 			<input type="submit" class="btn btn-primary" value="Add" />
 		</form>
