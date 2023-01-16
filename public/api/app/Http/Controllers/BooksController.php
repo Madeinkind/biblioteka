@@ -196,6 +196,11 @@ class BooksController extends Controller
 		//$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
 		$name = isset($data['name']) ? $data['name'] : '';
 		$count = isset($data['count']) ? $data['count'] : 1;
+		$publishing = isset($data['publishing']) ? $data['publishing'] : '';
+		$about = isset($data['about']) ? $data['about'] : '';
+		$inventory_number = isset($data['inventory_number']) ? $data['inventory_number'] : '';
+		$year_publishing = isset($data['year_publishing']) ? $data['year_publishing'] : '';
+		$img = isset($data['img']) ? $data['img'] : '';
 		
 		if($name == '')
 		{
@@ -284,6 +289,11 @@ class BooksController extends Controller
 		$data = $request->input();
 		$name = isset($data['name']) ? $data['name'] : '';
 		$count = isset($data['count']) ? $data['count'] : 1;
+		$publishing = isset($data['publishing']) ? $data['publishing'] : '';
+		$about = isset($data['about']) ? $data['about'] : '';
+		$inventory_number = isset($data['inventory_number']) ? $data['inventory_number'] : '';
+		$year_publishing = isset($data['year_publishing']) ? $data['year_publishing'] : '';
+		$img = isset($data['img']) ? $data['img'] : '';
 		
 		if($name == '')
 		{
@@ -296,6 +306,11 @@ class BooksController extends Controller
 		$updateData = [
 			'name' => $name,
 			'count' => $count,
+			'publishing' => $publishing,
+			'about' => $about,
+			'inventory_number' => $inventory_number,
+			'year_publishing' => $year_publishing,
+			'img' => $img,
 		];
 		$success = DB::table('books')
 			->where('id', '=', $id)

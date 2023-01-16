@@ -94,6 +94,10 @@
       "name": "dsadsa", //имя
       "count": 1, //кол-во
       "publishing": "" //издательство
+	  "about": "" //автор
+	  "inventory_number": "" //инвентарь номер
+	  "year_publishing": "" //год издательства
+	  "img": "" //картинка (ссылка)
     }
   ],
   "count": 2
