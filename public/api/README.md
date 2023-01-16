@@ -166,13 +166,15 @@
 Принимает
 ```json
 {
-	"name" : isset("data['name']) ? "data['name'] : '',
-	"count" : isset("data['count']) ? "data['count'] : 1,
-	"publishing" : isset("data['publishing']) ? "data['publishing'] : '',
-	"about" : isset("data['about']) ? "data['about'] : '',
-	"inventory_number" : isset("data['inventory_number']) ? "data['inventory_number'] : '',
-	"year_publishing" : isset("data['year_publishing']) ? "data['year_publishing'] : '',
-	"img" : isset("data['img']) ? "data['img'] : '',
+	"name" : '', //название книги
+	"count" : 1, //кол-во
+	"publishing" : '', //издательство
+	"about" : '', //о книге
+	"inventory_number": '', //инвентарь номер
+	"year_publishing": '', //год издательства
+	"img" : '', //год издательства
+	"author" : '', //автор
+	
 }
 ```
 Возвращает

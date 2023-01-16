@@ -201,6 +201,7 @@ class BooksController extends Controller
 		$inventory_number = isset($data['inventory_number']) ? $data['inventory_number'] : '';
 		$year_publishing = isset($data['year_publishing']) ? $data['year_publishing'] : '';
 		$img = isset($data['img']) ? $data['img'] : '';
+		$author = isset($data['author']) ? $data['author'] : '';
 		
 		if($name == '')
 		{
@@ -213,6 +214,12 @@ class BooksController extends Controller
 			//'virtualspace_id' => $virtualspace_id,
 			'name' => $name,
 			'count' => $count,
+			'publishing' => $publishing,
+			'about' => $about,
+			'inventory_number' => $inventory_number,
+			'year_publishing' => $year_publishing,
+			'img' => $img,
+			'author' => $author,
 		]);
 		
 		return response()->json([
@@ -294,6 +301,7 @@ class BooksController extends Controller
 		$inventory_number = isset($data['inventory_number']) ? $data['inventory_number'] : '';
 		$year_publishing = isset($data['year_publishing']) ? $data['year_publishing'] : '';
 		$img = isset($data['img']) ? $data['img'] : '';
+		$author = isset($data['author']) ? $data['author'] : '';
 		
 		if($name == '')
 		{
@@ -311,6 +319,7 @@ class BooksController extends Controller
 			'inventory_number' => $inventory_number,
 			'year_publishing' => $year_publishing,
 			'img' => $img,
+			'aut' => $author,
 		];
 		$success = DB::table('books')
 			->where('id', '=', $id)
