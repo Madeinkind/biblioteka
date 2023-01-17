@@ -11,7 +11,7 @@
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
               <div class="navbar-nav align-items-center w-100" >
-                <form class="nav-item d-flex align-items-center w-100" @submit.prevent="loadBooks()">
+                <form class="nav-item d-flex align-items-center w-100" @submit.prevent="loadReadersDebtors()">
                   <i class="bx bx-search fs-4 lh-0"></i>
                   <input
                     type="text"
@@ -19,6 +19,7 @@
                     placeholder="Search..."
                     aria-label="Search..."
 					v-model="search"
+					@keyup="loadReadersDebtors()"
                   />
 				</form>
               </div>
@@ -53,7 +54,7 @@
 			  <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
 				<li class="page-item" v-for="p in getPagesCount()">
-					<a class="page-link" href="javascript://" @click="page = p; loadBooks();">{{p}}</a>
+					<a class="page-link" href="javascript://" @click="page = p; loadReadersDebtors();">{{p}}</a>
 				</li>
             </ul>
         </nav>
