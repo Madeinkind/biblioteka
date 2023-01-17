@@ -66,37 +66,62 @@ class ReadersController extends Controller
 	}
 	
 	/**
-	 * Получение олжников книг
+	 * Получение должников книг
 	 * @return	json 	Список должников книг
 	 */
 	public function listDebtors(Request $request)
 	{
-		$jwt_data = $request->jwt_data;
+		//$jwt_data = $request->jwt_data;
 		//$login = $jwt_data['login'];
 		//$idUser = $jwt_data['user_id'];
 		
-		/*$data = $request->input();
+		$data = $request->input();
 		$search = isset($data['search']) ? $data['search'] : '';
 		$start = isset($data['start']) ? $data['start'] : 0;
 		$limit = isset($data['limit']) ? $data['limit'] : 10;
 		
 		if($search != '')
 		{
-			$count = DB::table('cwt_projects')
-				->where('virtualspace_id', '=', $virtualspace_id)
-				->where('name', 'like', '%'.$search.'%')
-				->count();
-			$list = DB::table('cwt_projects')
-				->select('id', 'name')
-				->where('virtualspace_id', '=', $virtualspace_id)
-				->where('name', 'like', '%'.$search.'%')
+			$count = DB::table('books_readers')
+				->select(
+					'books_readers.id',
+					'books_readers.reader_id',
+					'readers.fio as reader_fio',
+					'readers.group as reader_group',
+					'readers.iin as reader_iin'
+				)
+				->join('readers', 'books_readers.reader_id', '=', 'readers.id')
+				->where('books_readers.date_end_fact', '=', '0000-00-00 00:00:00')
+				->where(function ($query) use ($search){
+					$query
+						->orWhere('readers.fio', 'like', '%'.$search.'%')
+						->orWhere('readers.group', 'like', '%'.$search.'%')
+						->orWhere('readers.iin', 'like', '%'.$search.'%');
+				})
+				->count(['reader_id']);
+			$list = DB::table('books_readers')
+				->select(
+					'books_readers.id',
+					'books_readers.reader_id',
+					'readers.fio as reader_fio',
+					'readers.group as reader_group',
+					'readers.iin as reader_iin'
+				)
+				->join('readers', 'books_readers.reader_id', '=', 'readers.id')
+				->where('books_readers.date_end_fact', '=', '0000-00-00 00:00:00')
+				->where(function ($query) use ($search){
+					$query
+						->orWhere('readers.fio', 'like', '%'.$search.'%')
+						->orWhere('readers.group', 'like', '%'.$search.'%')
+						->orWhere('readers.iin', 'like', '%'.$search.'%');
+				})
 				->limit($limit)
 				->offset($start)
-				->orderBy('name', 'asc')
+				->groupBy('books_readers.reader_id')
 				->get();
 		}
 		else
-		{*/
+		{
 			$count = DB::table('books_readers')
 				->where('date_end_fact', '=', '0000-00-00 00:00:00')
 				->distinct()
@@ -111,13 +136,11 @@ class ReadersController extends Controller
 				)
 				->join('readers', 'books_readers.reader_id', '=', 'readers.id')
 				->where('books_readers.date_end_fact', '=', '0000-00-00 00:00:00')
-				//->orderBy('name', 'asc')
-				//->limit($limit)
-				//->offset($start)
+				->limit($limit)
+				->offset($start)
 				->groupBy('books_readers.reader_id')
-				//->toSql();
 				->get();
-		//}
+		}
 		
 		return response()->json([
 			'list' => $list,
