@@ -11,7 +11,7 @@
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
               <div class="navbar-nav align-items-center w-100" >
-                <form class="nav-item d-flex align-items-center w-100" @submit.prevent="loadBooks()">
+                <form class="nav-item d-flex align-items-center w-100" @submit.prevent="loadReaders()">
                   <i class="bx bx-search fs-4 lh-0"></i>
                   <input
                     type="text"
@@ -19,7 +19,7 @@
                     placeholder="Search..."
                     aria-label="Search..."
 					v-model="search"
-					@keyup="loadBooks()"
+					@keyup="loadReaders()"
                   />
 				</form>
               </div>
@@ -62,34 +62,12 @@
 				</table>
 			  </div>
 			  <nav aria-label="Page navigation">
-                	<ul class="pagination justify-content-center">
-                	  <li class="page-item prev">
-                	    <a class="page-link" href="javascript:void(0);"
-                	      ><i class="tf-icon bx bx-chevrons-left"></i
-                	    ></a>
-                	  </li>
-                	  <li class="page-item">
-                	    <a class="page-link" href="javascript:void(0);">1</a>
-                	  </li>
-                	  <li class="page-item">
-                	    <a class="page-link" href="javascript:void(0);">2</a>
-                	  </li>
-                	  <li class="page-item active">
-                	    <a class="page-link" href="javascript:void(0);">3</a>
-                	  </li>
-                	  <li class="page-item">
-                	    <a class="page-link" href="javascript:void(0);">4</a>
-                	  </li>
-                	  <li class="page-item">
-                	    <a class="page-link" href="javascript:void(0);">5</a>
-                	  </li>
-                	  <li class="page-item next">
-                	    <a class="page-link" href="javascript:void(0);"
-                	      ><i class="tf-icon bx bx-chevrons-right"></i
-                	    ></a>
-                	  </li>
-                	</ul>
-                </nav>
+            <ul class="pagination justify-content-center">
+				<li class="page-item" v-for="p in getPagesCount()">
+					<a class="page-link" href="javascript://" @click="page = p; loadReaders();">{{p}}</a>
+				</li>
+            </ul>
+        </nav>
         </div>
 </template>
 
@@ -157,8 +135,8 @@ export default {
       
 		},
 				// получение количества страниц для списка новостей
-				getPagesCount(){
-			return Math.ceil(this.books_count / this.limit);
+		getPagesCount(){
+			return Math.ceil(this.readers_count / this.limit);
 		},
 	},
 	mounted(){
