@@ -123,9 +123,6 @@ class BooksController extends Controller
 				->join('books', 'books_readers.book_id', '=', 'books.id')
 				->join('readers', 'books_readers.reader_id', '=', 'readers.id')
 				->where('books_readers.date_end_fact', '=', '0000-00-00 00:00:00')
-				//->orderBy('name', 'asc')
-				//->limit($limit)
-				//->offset($start)
 				->get();
 		//}
 		

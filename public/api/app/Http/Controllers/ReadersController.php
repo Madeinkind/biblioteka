@@ -25,7 +25,7 @@ class ReadersController extends Controller
 	 */
 	public function list(Request $request)
 	{
-		$jwt_data = $request->jwt_data;
+		//$jwt_data = $request->jwt_data;
 		//$login = $jwt_data['login'];
 		//$idUser = $jwt_data['user_id'];
 		
@@ -34,32 +34,30 @@ class ReadersController extends Controller
 		$start = isset($data['start']) ? $data['start'] : 0;
 		$limit = isset($data['limit']) ? $data['limit'] : 10;
 		
-		/*if($search != '')
+		if($search != '')
 		{
-			$count = DB::table('cwt_projects')
-				->where('virtualspace_id', '=', $virtualspace_id)
-				->where('name', 'like', '%'.$search.'%')
+			$count = DB::table('readers')
+				->orWhere('fio', 'like', '%'.$search.'%')
+				->orWhere('group', 'like', '%'.$search.'%')
+				->orWhere('iin', 'like', '%'.$search.'%')
 				->count();
-			$list = DB::table('cwt_projects')
-				->select('id', 'name')
-				->where('virtualspace_id', '=', $virtualspace_id)
-				->where('name', 'like', '%'.$search.'%')
+			$list = DB::table('readers')
+				->orWhere('fio', 'like', '%'.$search.'%')
+				->orWhere('group', 'like', '%'.$search.'%')
+				->orWhere('iin', 'like', '%'.$search.'%')
 				->limit($limit)
 				->offset($start)
-				->orderBy('name', 'asc')
 				->get();
 		}
 		else
-		{*/
+		{
 			$count = DB::table('readers')
 				->count();
 			$list = DB::table('readers')
-				//->where('virtualspace_id', '=', $virtualspace_id)
-				->orderBy('fio', 'asc')
 				->limit($limit)
 				->offset($start)
 				->get();
-		//}
+		}
 		
 		return response()->json([
 			'list' => $list,

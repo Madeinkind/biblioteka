@@ -200,12 +200,6 @@
 
 <details><summary><code>GET</code> <code><b>/api/books-issued</b></code> <code>(Выдача книг)</code></summary>
 
-Принимает
-```json
-{
-	"data": "request->input()",
-}
-```
 Возвращает
 ```json
 {
