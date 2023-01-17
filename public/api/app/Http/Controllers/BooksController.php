@@ -82,27 +82,67 @@ class BooksController extends Controller
 		//$idUser = $jwt_data['user_id'];
 		
 		$data = $request->input();
-		//$search = isset($data['search']) ? $data['search'] : '';
-		//$start = isset($data['start']) ? $data['start'] : 0;
-		//$limit = isset($data['limit']) ? $data['limit'] : 10;
+		$search = isset($data['search']) ? $data['search'] : '';
+		$start = isset($data['start']) ? $data['start'] : 0;
+		$limit = isset($data['limit']) ? $data['limit'] : 10;
 		
-		/*if($search != '')
+		if($search != '')
 		{
-			$count = DB::table('cwt_projects')
-				->where('virtualspace_id', '=', $virtualspace_id)
-				->where('name', 'like', '%'.$search.'%')
+			$count = DB::table('books_readers')
+				->select(
+					'books_readers.id as id',
+					'books_readers.reader_id',
+					'books_readers.book_id',
+					'books_readers.date_start',
+					'books_readers.date_end_plan',
+					'books_readers.date_end_fact',
+					'books.name as book_name',
+					'books.publishing as book_publishing',
+					'readers.fio as reader_fio',
+					'readers.group as reader_group',
+					'readers.iin as reader_iin'
+				)
+				->join('books', 'books_readers.book_id', '=', 'books.id')
+				->join('readers', 'books_readers.reader_id', '=', 'readers.id')
+				->where('books_readers.date_end_fact', '=', '0000-00-00 00:00:00')
+				->where(function ($query) use ($search){
+					$query
+						->orWhere('books.name', 'like', '%'.$search.'%')
+						->orWhere('books.publishing', 'like', '%'.$search.'%')
+						->orWhere('readers.fio', 'like', '%'.$search.'%')
+						->orWhere('readers.group', 'like', '%'.$search.'%')
+						->orWhere('readers.iin', 'like', '%'.$search.'%');
+				})
 				->count();
-			$list = DB::table('cwt_projects')
-				->select('id', 'name')
-				->where('virtualspace_id', '=', $virtualspace_id)
-				->where('name', 'like', '%'.$search.'%')
-				->limit($limit)
-				->offset($start)
-				->orderBy('name', 'asc')
+			$list = DB::table('books_readers')
+				->select(
+					'books_readers.id as id',
+					'books_readers.reader_id',
+					'books_readers.book_id',
+					'books_readers.date_start',
+					'books_readers.date_end_plan',
+					'books_readers.date_end_fact',
+					'books.name as book_name',
+					'books.publishing as book_publishing',
+					'readers.fio as reader_fio',
+					'readers.group as reader_group',
+					'readers.iin as reader_iin'
+				)
+				->join('books', 'books_readers.book_id', '=', 'books.id')
+				->join('readers', 'books_readers.reader_id', '=', 'readers.id')
+				->where('books_readers.date_end_fact', '=', '0000-00-00 00:00:00')
+				->where(function ($query) use ($search){
+					$query
+						->orWhere('books.name', 'like', '%'.$search.'%')
+						->orWhere('books.publishing', 'like', '%'.$search.'%')
+						->orWhere('readers.fio', 'like', '%'.$search.'%')
+						->orWhere('readers.group', 'like', '%'.$search.'%')
+						->orWhere('readers.iin', 'like', '%'.$search.'%');
+				})
 				->get();
 		}
 		else
-		{*/
+		{
 			$count = DB::table('books_readers')
 				->where('date_end_fact', '=', '0000-00-00 00:00:00')
 				->count();
@@ -124,7 +164,7 @@ class BooksController extends Controller
 				->join('readers', 'books_readers.reader_id', '=', 'readers.id')
 				->where('books_readers.date_end_fact', '=', '0000-00-00 00:00:00')
 				->get();
-		//}
+		}
 		
 		return response()->json([
 			'list' => $list,
