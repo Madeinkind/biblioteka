@@ -47,7 +47,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Card title</h5>
 					  <p class="card-text">Автор</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Go somewhere</a>
+					  <router-link :to="{path: '/books-extradition-add'}" class="btn btn-outline-primary">Выдать</router-link>
                     </div>
                   </div>
                 </div>
@@ -57,7 +57,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Card title</h5>
 					  <p class="card-text">Автор</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Go somewhere</a>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">Выдать</a>
                     </div>
                   </div>
                 </div>
@@ -67,7 +67,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Card title</h5>
 					  <p class="card-text">Автор</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Go somewhere</a>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">Выдать</a>
                     </div>
                   </div>
                 </div>
@@ -77,7 +77,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Card title</h5>
 					  <p class="card-text">Автор</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Go somewhere</a>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">Выдать</a>
                     </div>
                   </div>
                 </div>
@@ -87,7 +87,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Card title</h5>
 					  <p class="card-text">Автор</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Go somewhere</a>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">Выдать</a>
                     </div>
                   </div>
                 </div>
@@ -97,7 +97,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Card title</h5>
 					  <p class="card-text">Автор</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Go somewhere</a>
+                      <a href="javascript:void(0)" class="btn btn-outline-primary">Выдать</a>
                     </div>
                   </div>
                 </div>

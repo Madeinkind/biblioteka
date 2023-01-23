@@ -10,6 +10,7 @@ import Profile from '@/pages/Profile.vue';
 import BooksIssued from '@/pages/BooksIssued.vue';
 import BooksIssuedHistory from '@/pages/BooksIssuedHistory.vue';
 import BooksExtradition from '@/pages/BooksExtradition.vue';
+import BooksExtraditionAdd from '@/pages/BooksExtraditionAdd.vue';
 import Books from '@/pages/Books.vue';
 import BooksEdit from '@/pages/BooksEdit.vue';
 import ReadersEdit from '@/pages/ReadersEdit.vue';
@@ -89,6 +90,13 @@ const routes = [
 			{
 				path: '/books-extradition',
 				component: BooksExtradition,
+				meta: {
+					//requiresAuth: true,
+				},
+			},
+			{
+				path: '/books-extradition-add',
+				component: BooksExtraditionAdd,
 				meta: {
 					//requiresAuth: true,
 				},
