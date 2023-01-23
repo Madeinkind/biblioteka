@@ -96,6 +96,12 @@
               </router-link>
             </li>
             <li class="menu-item">
+              <router-link :to="{path: '/books-issued-history'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-history"></i>
+                <div data-i18n="Analytics">История</div>
+              </router-link>
+            </li>
+            <li class="menu-item">
               <router-link :to="{path: '/books'}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-book  "></i>
                 <div data-i18n="Analytics">Список книг</div>
