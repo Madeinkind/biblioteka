@@ -105,6 +105,12 @@
               <span class="menu-header-text">Люди</span>
             </li>
             <li class="menu-item">
+              <router-link :to="{path: '/books-extradition'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-book-content"></i>
+                <div data-i18n="Analytics">Выдача книг</div>
+              </router-link>
+            </li>
+            <li class="menu-item">
               <router-link :to="{path: '/readers-debtors'}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-group"></i>
                 <div data-i18n="Analytics">Должники</div>

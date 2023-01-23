@@ -1,5 +1,18 @@
 <template>
   <div class="container-xxl flex-grow-1 container-p-y">
+					<!-- Basic Breadcrumb -->
+                  <!-- Custom style1 Breadcrumb -->
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-style1">
+                      <li class="breadcrumb-item">
+                        <router-link :to="{path: '/'}" class="menu-link">Главная</router-link>
+                      </li>
+					  <li class="breadcrumb-item">
+                        <router-link :to="{path: '/books'}" class="menu-link">Книги</router-link>
+                      </li>
+                      <li class="breadcrumb-item active">Добавить</li>
+                    </ol>
+                  </nav>
     		<h4 class="fw-bold py-3 mb-2">Добавить</h4>
 			<!-- Content wrapper -->
 		<div class="content-wrapper">
