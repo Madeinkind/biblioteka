@@ -51,7 +51,9 @@ $router->group(['prefix' => ''], function () use ($router)
 	$router->get('/readers-debtors', 'ReadersController@listDebtors'); // получение списка должников
 	$router->get('/readers-debtors/{id}', 'ReadersController@getDebtor');  // получение должника по его id
 	
-	
+	$router->get('/books-readers', 'BooksAndReadersController@list');  // список выданных книг
+	$router->post('/books-readers', 'BooksAndReadersController@release');  // выдача книги
+	$router->post('/books-readers/{id}', 'BooksAndReadersController@return');  // возврат книги
 	
 	
 	

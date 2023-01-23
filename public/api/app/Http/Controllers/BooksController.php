@@ -437,4 +437,28 @@ class BooksController extends Controller
 			'success' => $success,
 		], 200);
 	}
+	public function editIssue($id, Request $request)
+	{
+		$data = $request->input();
+		$date_end = isset($data['date_end']) ? $data['date_end'] : '';
+		
+		if($date_end == '')
+		{
+			return response()->json([
+				'error' => 'Не передана дата фактической сдачи',
+			], 400);
+		}
+		
+		$success = true;
+		$updateData = [
+			'date_end' => $date_end,
+		];
+		$success = DB::table('books_readers')
+			->where('id', '=', $id)
+			->update($updateData);
+		
+		return response()->json([
+			'success' => $success,
+		], 200);
+	}
 }

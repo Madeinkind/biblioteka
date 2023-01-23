@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 
-class BooksController extends Controller
+class BooksAndReadersController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -18,54 +18,6 @@ class BooksController extends Controller
     {
         //$this->middleware('jwt.auth');
     }
-	
-	/**
-	 * Получение проектов задач
-	 * @return	json 	Список проектов задач
-	 */
-	public function list(Request $request)
-	{
-		$jwt_data = $request->jwt_data;
-		$login = $jwt_data['login'];
-		$idUser = $jwt_data['user_id'];
-		
-		$data = $request->input();
-		$search = isset($data['search']) ? $data['search'] : '';
-		$start = isset($data['start']) ? $data['start'] : 0;
-		$limit = isset($data['limit']) ? $data['limit'] : 10;
-		
-		if($search != '')
-		{
-			$count = DB::table('cwt_projects')
-				->where('virtualspace_id', '=', $virtualspace_id)
-				->where('name', 'like', '%'.$search.'%')
-				->count();
-			$list = DB::table('cwt_projects')
-				->select('id', 'name')
-				->where('virtualspace_id', '=', $virtualspace_id)
-				->where('name', 'like', '%'.$search.'%')
-				->limit($limit)
-				->offset($start)
-				->orderBy('name', 'asc')
-				->get();
-		}
-		else
-			$count = DB::table('books_readers')
-				->count();
-			$list = DB::table('books_readers')
-				->select('id', 'varchar')
-				->where('virtualspace_id', '=', $virtualspace_id)
-				->orderBy('name', 'asc')
-				->limit($limit)
-				->offset($start)
-				->get();
-		//}
-		
-		return response()->json([
-			'list' => $list,
-			'count' => $count,
-		], 200);
-	}
 	
 	/**
 	 * Получение проекта задач
@@ -128,49 +80,7 @@ class BooksController extends Controller
 	}
 	
 	/**
-	 * Изменение проекта задач
-	 " @param	$id			Integer		id проекта задач
-	 * @return	json (
-	 *		success		Boolean		Статус операции
-	 * )
-	 */
-	public function edit($id, Request $request)
-	{
-		$data = $request->input();
-		$id = isset($data['id']) ? $data['id'] : '';
-		$reader_id = isset($data['reader_id']) ? $data['reader_id'] : 1;
-		$book_id = isset($data['book_id']) ? $data['book_id'] : 1;
-		$date_start = isset($data['date_start']) ? $data['date_start'] : 1;
-		$date_end_plan = isset($data['date_end_plan']) ? $data['date_end_plan'] : 1;
-		$bookscount = isset($data['date_end_fact']) ? $data['date_end_fact'] : 1;
-		
-		if($name == '')
-		{
-			return response()->json([
-				'error' => 'Ошибка',
-			], 400);
-		}
-		
-		$success = true;
-		$updateData = [
-			'id' => $id,
-			'reader_id' => $reader_id,
-			'book_id' => $book_id,
-			'date_start' => $date_start,
-			'date_end_plan' => $date_end_plan,
-			'date_end_fact' => $date_end_fact,
-		];
-		$success = DB::table('books_readers')
-			->where('id', '=', $id)
-			->update($updateData);
-		
-		return response()->json([
-			'success' => $success,
-		], 200);
-	}
-	
-	/**
-	 * Удаление проекта задач
+	 * Удаление книги
 	 " @param	$id			Integer		id проекта задач
 	 * @return	json (
 	 *		success		Boolean		Статус операции
@@ -186,4 +96,186 @@ class BooksController extends Controller
 			'success' => $success,
 		], 200);
 	}
-} 5
+	
+	/*
+	 * Выдача книги
+	 * @return	json (
+	 *		id			Integer		id записи в истории
+	 *		success		Boolean		Статус операции
+	 * )
+	 */
+	public function release(Request $request)
+	{
+		$data = $request->input();
+		$reader_id = isset($data['reader_id']) ? $data['reader_id'] : null;
+		$book_id = isset($data['book_id']) ? $data['book_id'] : null;
+		$date_start = isset($data['date_start']) ? $data['date_start'] : null;
+		$date_end_plan = isset($data['date_end_plan']) ? $data['date_end_plan'] : null;
+		
+		if(!$reader_id)
+		{
+			return response()->json([
+				'error' => 'Не указан id читателя',
+			], 400);
+		}
+		if(!$book_id)
+		{
+			return response()->json([
+				'error' => 'Не указан id книги',
+			], 400);
+		}
+		if(!$date_start)
+		{
+			return response()->json([
+				'error' => 'Не указана дата выдачи книги',
+			], 400);
+		}
+		if(!$date_end_plan)
+		{
+			return response()->json([
+				'error' => 'Не указана дата планируемого возврата книги',
+			], 400);
+		}
+		
+		$id = DB::table('books_readers')->insertGetId([
+			'reader_id' => $reader_id,
+			'book_id' => $book_id,
+			'date_start' => $date_start,
+			'date_end_plan' => $date_end_plan,
+		]);
+		
+		return response()->json([
+			'id' => $id,
+			'success' => (bool)$id,
+		], 200);
+	}
+	
+	/*
+	 * Возврат книги
+	 * @param	$id			Integer		id записи в истории
+	 * @return	json (
+	 *		success		Boolean		Статус операции
+	 * )
+	 */
+	public function return($id, Request $request)
+	{
+		$data = $request->input();
+		$date_end_fact = isset($data['date_end_fact']) ? $data['date_end_fact'] : null;
+		
+		if(!$date_end_fact)
+		{
+			return response()->json([
+				'error' => 'Не указана дата фактического возврата книги',
+			], 400);
+		}
+		
+		$success = true;
+		$updateData = [
+			'date_end_fact' => $date_end_fact,
+		];
+		$success = DB::table('books_readers')
+			->where('id', '=', $id)
+			->update($updateData); 
+		
+		return response()->json([
+			'success' => $success,
+		], 200);
+	}
+	
+	/**
+	 * Получение истории выданных книг
+	 * @return	json 	Данные проекта задач
+	 */
+	public function list(Request $request)
+	{
+		//$jwt_data = $request->jwt_data;
+		//$login = $jwt_data['login'];
+		//$idUser = $jwt_data['user_id'];
+		
+		$data = $request->input();
+		$search = isset($data['search']) ? $data['search'] : '';
+		$start = isset($data['start']) ? $data['start'] : 0;
+		$limit = isset($data['limit']) ? $data['limit'] : 10;
+		
+		if($search != '')
+		{
+			$count = DB::table('books_readers')
+				->select(
+					'books_readers.id as id',
+					'books_readers.reader_id',
+					'books_readers.book_id',
+					'books_readers.date_start',
+					'books_readers.date_end_plan',
+					'books_readers.date_end_fact',
+					'books.name as book_name',
+					'books.publishing as book_publishing',
+					'readers.fio as reader_fio',
+					'readers.group as reader_group',
+					'readers.iin as reader_iin'
+				)
+				->join('books', 'books_readers.book_id', '=', 'books.id')
+				->join('readers', 'books_readers.reader_id', '=', 'readers.id')
+				->where(function ($query) use ($search){
+					$query
+						->orWhere('books.name', 'like', '%'.$search.'%')
+						->orWhere('books.publishing', 'like', '%'.$search.'%')
+						->orWhere('readers.fio', 'like', '%'.$search.'%')
+						->orWhere('readers.group', 'like', '%'.$search.'%')
+						->orWhere('readers.iin', 'like', '%'.$search.'%');
+				})
+				->count();
+			$list = DB::table('books_readers')
+				->select(
+					'books_readers.id as id',
+					'books_readers.reader_id',
+					'books_readers.book_id',
+					'books_readers.date_start',
+					'books_readers.date_end_plan',
+					'books_readers.date_end_fact',
+					'books.name as book_name',
+					'books.publishing as book_publishing',
+					'readers.fio as reader_fio',
+					'readers.group as reader_group',
+					'readers.iin as reader_iin'
+				)
+				->join('books', 'books_readers.book_id', '=', 'books.id')
+				->join('readers', 'books_readers.reader_id', '=', 'readers.id')
+				->where(function ($query) use ($search){
+					$query
+						->orWhere('books.name', 'like', '%'.$search.'%')
+						->orWhere('books.publishing', 'like', '%'.$search.'%')
+						->orWhere('readers.fio', 'like', '%'.$search.'%')
+						->orWhere('readers.group', 'like', '%'.$search.'%')
+						->orWhere('readers.iin', 'like', '%'.$search.'%');
+				})
+				->get();
+		}
+		else
+		{
+			$count = DB::table('books_readers')
+				->count();
+			$list = DB::table('books_readers')
+				->select(
+					'books_readers.id as id',
+					'books_readers.reader_id',
+					'books_readers.book_id',
+					'books_readers.date_start',
+					'books_readers.date_end_plan',
+					'books_readers.date_end_fact',
+					'books.name as book_name',
+					'books.publishing as book_publishing',
+					'readers.fio as reader_fio',
+					'readers.group as reader_group',
+					'readers.iin as reader_iin'
+				)
+				->join('books', 'books_readers.book_id', '=', 'books.id')
+				->join('readers', 'books_readers.reader_id', '=', 'readers.id')
+				->get();
+		}
+		
+		return response()->json([
+			'list' => $list,
+			'count' => $count,
+		], 200);
+	}
+}
