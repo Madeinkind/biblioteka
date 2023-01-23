@@ -95,7 +95,7 @@ export default {
 	data: () => ({
 		search: '',
 		page: 1,
-		limit: 10,
+		limit: 5,
 		
 		books: [],
 		books_count: 0,
