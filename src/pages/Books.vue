@@ -28,6 +28,16 @@
           </nav>
           <!-- / Navbar -->
 	 <div class="container-xxl flex-grow-1 container-p-y">
+				<!-- Basic Breadcrumb -->
+                  <!-- Custom style1 Breadcrumb -->
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-style1">
+                      <li class="breadcrumb-item">
+                        <router-link :to="{path: '/'}" class="menu-link">Главная</router-link>
+                      </li>
+                      <li class="breadcrumb-item active">Книги</li>
+                    </ol>
+                  </nav>
               <h4 class="fw-bold py-3 mb-4">Книги</h4>
               <!-- Basic Bootstrap Table -->
               <div class="card">
@@ -95,7 +105,7 @@ export default {
 	data: () => ({
 		search: '',
 		page: 1,
-		limit: 10,
+		limit: 5,
 		
 		books: [],
 		books_count: 0,

@@ -8,6 +8,7 @@ import Login from '@/pages/Login.vue';
 import Main from '@/pages/Main.vue';
 import Profile from '@/pages/Profile.vue';
 import BooksIssued from '@/pages/BooksIssued.vue';
+import BooksExtradition from '@/pages/BooksExtradition.vue';
 import Books from '@/pages/Books.vue';
 import BooksEdit from '@/pages/BooksEdit.vue';
 import ReadersEdit from '@/pages/ReadersEdit.vue';
@@ -73,6 +74,13 @@ const routes = [
 			{
 				path: '/books-issued',
 				component: BooksIssued,
+				meta: {
+					//requiresAuth: true,
+				},
+			},
+			{
+				path: '/books-extradition',
+				component: BooksExtradition,
 				meta: {
 					//requiresAuth: true,
 				},
