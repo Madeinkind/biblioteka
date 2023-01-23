@@ -427,11 +427,10 @@ details><summary>ReadersAndReadersController</summary>
 ```json
   "list": [
     {
-    "data": ,
-	"reader_id": ,
-	"book_id": ,
-	"date_start": ,
-	"date_end_plan": ,
+	"reader_id": , \\ айди читателя
+	"book_id": , \\ айди книги
+	"date_start": , \\ дата выдачи
+	"date_end_plan": , \\ дата сдачи по плану
     }
   ],
   "count": 1
