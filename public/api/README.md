@@ -456,3 +456,5 @@ details><summary>ReadersAndReadersController</summary>
   "count": 1
 }
 ```	
+<details><summary><code>POST</code> <code><b>/books-readers</b></code> <code>(POST параметр выдача книг)</code></summary>"
+Принимает
