@@ -38,9 +38,9 @@
 					<tr>
 						<th scope="col">ID</th>
             			<th scope="col">Название</th>
-            			<th scope="col">date_start</th>
-            			<th scope="col">date_end_plan</th>
-            			<th scope="col">date_end_fact</th>
+            			<th scope="col">Дата выдачи</th>
+            			<th scope="col">Дата плановой сдачи</th>
+            			<th scope="col">Дата фактической сдачи</th>
             			<th scope="col">Издатель</th>
             			<th scope="col">ФИО</th>
             			<th scope="col">Группа</th>

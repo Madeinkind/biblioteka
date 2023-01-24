@@ -18,10 +18,10 @@
                     class="form-control border-0 shadow-none"
                     placeholder="Search..."
                     aria-label="Search..."
-					v-model="search"
-					@keyup="loadBooks()"
+				          	v-model="search"
+				          	@keyup="loadBooks()"
                   />
-				</form>
+			      	</form>
               </div>
               <!-- /Search -->
             </div>
@@ -38,71 +38,136 @@
                       <li class="breadcrumb-item active">Выдача книг</li>
                     </ol>
                   </nav>
-              <h4 class="fw-bold py-3 mb-4">Список</h4>
+              
               <!-- Examples -->
-              <div class="row mb-5">
-                <div class="col-md-6 col-lg-2 mb-3">
-                  <div class="card h-100">
-                    <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Автор</p>
-					  <router-link :to="{path: '/books-extradition-add'}" class="btn btn-outline-primary">Выдать</router-link>
+              <div v-if="page_name == 'select-book'">
+                <h4 class="fw-bold py-3 mb-4">Список</h4>
+                <!-- Examples -->
+                <div class="row mb-5">
+                  <div class="col-md-6 col-lg-2 mb-3">
+                    <div class="card h-100">
+                      <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Автор</p>
+                        <div class="btn btn-outline-primary" @click="page_name = 'select-reader'; book_id = 1;">Выдать</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-6 col-lg-2 mb-3">
-                  <div class="card h-100">
-                    <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Автор</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Выдать</a>
+                  <div class="col-md-6 col-lg-2 mb-3">
+                    <div class="card h-100">
+                      <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Автор</p>
+                        <div class="btn btn-outline-primary" @click="page_name = 'select-reader'; book_id = 1;">Выдать</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-6 col-lg-2 mb-3">
-                  <div class="card h-100">
-                    <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Автор</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Выдать</a>
+                  <div class="col-md-6 col-lg-2 mb-3">
+                    <div class="card h-100">
+                      <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Автор</p>
+                        <div class="btn btn-outline-primary" @click="page_name = 'select-reader'; book_id = 1;">Выдать</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-6 col-lg-2 mb-3">
-                  <div class="card h-100">
-                    <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Автор</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Выдать</a>
+                  <div class="col-md-6 col-lg-2 mb-3">
+                    <div class="card h-100">
+                      <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Автор</p>
+                        <div class="btn btn-outline-primary" @click="page_name = 'select-reader'; book_id = 1;">Выдать</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-6 col-lg-2 mb-3">
-                  <div class="card h-100">
-                    <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Автор</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Выдать</a>
+                  <div class="col-md-6 col-lg-2 mb-3">
+                    <div class="card h-100">
+                      <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Автор</p>
+                        <div class="btn btn-outline-primary" @click="page_name = 'select-reader'; book_id = 1;">Выдать</div>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-md-6 col-lg-2 mb-3">
-                  <div class="card h-100">
-                    <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-					  <p class="card-text">Автор</p>
-                      <a href="javascript:void(0)" class="btn btn-outline-primary">Выдать</a>
+                  <div class="col-md-6 col-lg-2 mb-3">
+                    <div class="card h-100">
+                      <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
+                      <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Автор</p>
+                        <div class="btn btn-outline-primary" @click="page_name = 'select-reader'; book_id = 1;">Выдать</div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- Examples -->
+              <div v-if="page_name == 'select-reader'">
+                <!-- Content wrapper -->
+		            <div class="content-wrapper">
+                        <!-- Content -->
+                        <div class="container-xxl flex-grow-1 container-p-y">
+                          <div class="row">
+                            <div class="col-md-10">
+                              <div class="card mb-4">
+                                <!-- Account -->
+		            			<form @submit.prevent="onBookExtradition()">
+		            				<div class="card-body">
+		            				<div class="row">
+		            					<div class="col-md-6 col-lg-3 mb-3">
+                            <div class="card h-100">
+                            <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
+                              	<div class="card-body">
+                              	  <h5 class="card-title">Card title</h5>
+		            						      <p for="firstName" class="card-text">Автор</p>
+                              	</div>
+                            </div>
+                          </div>
+		            					<div class="col">
+		            						<div class="mb-3">
+		            							<label for="firstName" class="form-label">ФИО</label>
+		            							<input class="form-control" type="text"  v-model=" reader_fio">
+		            						</div>
+		            						<div class="mb-3">
+		            							<label for="firstName" class="form-label">ИНН</label>
+		            							<input class="form-control" type="number"  v-model="reader_iin">
+		            						</div>
+		            						<div class="mb-3">
+		            							<label for="firstName" class="form-label">Группа</label>
+		            							<input class="form-control" type="text"  v-model="reader_group">
+		            						</div>
+		            						<div class="mb-3">
+		            							<label for="firstName" class="form-label">Дата плановой сдачи</label>
+		            							<input class="form-control" type="date"  v-model="date_end_fact">
+		            						</div>
+		            					</div>
+		            				</div>
+                      </div>
+                        <hr class="my-0" />
+                      <div class="card-body">
+		            				<div class="mt-2">
+                            <button type="submit" class="btn btn-primary me-2">Выдать</button>
+                            <div class="btn btn-outline-primary" @click="page_name = 'select-book'; book_id = 1;">Назад</div>
+                        </div>
+                      </div>
+		            			</form>
+                        <!-- /Account -->
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <!-- / Content -->
+                  <div class="content-backdrop fade"></div>
+                </div>
+                      <!-- Content wrapper -->
+              </div>
+              <div v-if="page_name == 'select-date'">
+
+              </div>
 	 </div>
 </template>
 
@@ -129,6 +194,17 @@ export default {
 		
 		books: [],
 		books_count: 0,
+
+    page_name: 'select-book',
+    book_id: '',
+    reader_id: '',
+    date: '',
+
+
+    reader_fio:'',
+    reader_group:'',
+    reader_iin:'',
+    date_end_fact:'',
 	}),
 	methods: {
 		loadBooks(){
@@ -140,6 +216,25 @@ export default {
 				//console.log(data);
 				this.books = data.list;
 				this.books_count = data.count;
+			}).catch(error => {
+				console.log(error);
+			});
+		},
+    onBookExtradition(){
+			fetch('/api/books-extradition', {
+				method: 'POST',
+				body: JSON.stringify({
+					fio: this.reader_fio,
+					group: this.reader_group,
+					iin: this.reader_iin,
+					fact: this.date_end_fact,
+				}),
+				headers: {
+					'Content-Type': 'application/json',
+				},
+			}).then(stream => stream.json()).then((data) => {
+				//console.log(data);
+				this.$router.push('/books-issued');
 			}).catch(error => {
 				console.log(error);
 			});
