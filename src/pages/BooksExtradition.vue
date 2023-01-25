@@ -56,8 +56,8 @@
           <div class="card h-100">
             <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
             <div class="card-body">
-              <h5 class="card-title">{{book.name}}</h5>
-              <p class="card-text">Автор</p>
+              <h5 class="card-title">Название: {{book.name}}</h5>
+              <p class="card-text"> Автор: {{book.author}}</p>
               <div class="btn btn-outline-primary" @click="search = ''; if(reader_id == ''){page_name = 'select-reader'; loadReaders();} else {page_name = 'select-date';} book_id = book.id;">Выбрать</div>
             </div>
           </div>
