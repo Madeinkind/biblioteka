@@ -458,3 +458,30 @@ details><summary>ReadersAndReadersController</summary>
 ```	
 <details><summary><code>POST</code> <code><b>/books-readers</b></code> <code>(POST параметр выдача книг)</code></summary>"
 Принимает
+```json
+
+	"reader_id": , \\ айди читателя
+	"book_id": , \\ айди книги
+	"date_start": , \\ дата выдачи
+	"date_end_plan": , \\ дата сдачи по плану
+
+```
+Возвращает
+```json
+
+	"success" : "true",
+
+```
+<details><summary><code>POST</code> <code><b>/books-readers/{id}</b></code> <code>(POST параметр выдача книг)</code></summary>"
+Принимает
+```json
+
+"date_end_fact": , \\ дата сдачи по факту
+
+```
+Возвращает
+```json
+ \\Обновление в базе, возврат книги
+"success" : "true",
+
+```
