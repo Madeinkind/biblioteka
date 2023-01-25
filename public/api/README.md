@@ -472,6 +472,7 @@
 	"success" : "true",
 
 ```
+</details>
 <details><summary><code>POST</code> <code><b>/books-readers/{id}</b></code> <code>(POST параметр выдача книг)</code></summary>"
 Принимает
 ```json
