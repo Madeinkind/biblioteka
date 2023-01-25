@@ -16,6 +16,7 @@
 			<div class="card-body">
 				<div class="mt-2">
 					<button type="submit" class="btn btn-primary me-2">Сдать</button>
+					<router-link :to="{path: '/books-issued'}" class="btn btn-outline-secondary">Назад</router-link>
 				</div>
 			</div>
 		</form>

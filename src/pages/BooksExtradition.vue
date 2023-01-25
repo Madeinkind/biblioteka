@@ -49,7 +49,7 @@
       </div>
     </div>
     <div v-if="page_name == 'select-book'">
-      <h4 class="fw-bold py-3 mb-4">Список</h4>
+      <h4 class="fw-bold py-3 mb-4">Выберите книгу</h4>
       <!-- Examples -->
       <div class="row mb-5">
         <div class="col-md-6 col-lg-2 mb-3" v-for="book in books" :key="book.id">
@@ -65,6 +65,7 @@
       </div>
     </div>
     <div v-if="page_name == 'select-reader'">
+      <h4 class="fw-bold py-3 mb-4">Выберите читателя</h4>
       <div class="container-xxl flex-grow-1 container-p-y">
         <!-- Basic Bootstrap Table -->
         <div class="card">
@@ -73,10 +74,10 @@
           <table class="table">
             <thead class="thead">
               <tr>
-                <th scope="col">ID</th>
-                <th scope="col">ФИО</th>
-                <th scope="col">Группа</th>
-                <th scope="col">ИИН</th>
+                <th width="50">ID</th>
+                <th>ФИО</th>
+                <th width="30%">Группа</th>
+                <th width="20%">ИИН</th>
               </tr>
             </thead>
             <tbody class="table-group-divider">
@@ -85,16 +86,38 @@
                 <td>{{reader.fio}}</td>
                 <td>{{reader.group}}</td>
                 <td>{{reader.iin}}</td>
-                <td class="text-end">
+                <td class="text-end" width="200">
                   <div class="btn btn-outline-primary" @click="book_id == '' ? page_name='select-book' : page_name='select-date';  reader_id = reader.id;">Выбрать</div>
                 </td>
               </tr>
             </tbody>
           </table>
+          <form @submit.prevent="onReaderAddSelect()">
+            <table class="table">
+              <tbody class="table-group-divider">
+                <tr>
+                  <td width="50">#</td>
+                  <td>
+                    <input type="text" class="form-control" placeholder="ФИО" v-model="reader_fio" required>
+                  </td>
+                  <td width="30%">
+                    <input type="text" class="form-control" placeholder="Группа" v-model="reader_group" required>
+                  </td>
+                  <td width="20%">
+                    <input type="text" class="form-control" placeholder="ИИН" v-model="reader_iin" required>
+                  </td>
+                  <td class="text-end" width="200">
+                    <button type="submit" class="btn btn-outline-primary">Добавить и выбрать</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
         </div>
       </div>
     </div>
     <div v-if="page_name == 'select-date'">
+      <h4 class="fw-bold py-3 mb-4">Укажите дополнительные параметры</h4>
       <form @submit.prevent="onBookExtradition()">
         <div class="card-body">
           <div class="row">
@@ -187,6 +210,36 @@ export default {
 			});
 		},
 
+    onReaderAddSelect(){
+      if(confirm('Вы уверены?')){
+				fetch('/api/readers', {
+          method: 'POST',
+          body: JSON.stringify({
+            fio: this.reader_fio,
+            group: this.reader_group,
+            iin: this.reader_iin,
+          }),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }).then(stream => stream.json()).then(async (data) => {
+          //console.log(data);
+          if(data.success){
+            await this.loadReaders();
+            this.reader_id = data.id;
+            if(this.book_id == ''){
+              this.page_name = 'select-book';
+            } else {
+              this.page_name = 'select-date';
+            }
+            
+          }
+        }).catch(error => {
+          console.log(error);
+        });
+     	}
+    },
+
     onBookExtradition(){
       if(confirm('Вы уверены?')){
 				fetch('/api/books-readers', {
@@ -208,7 +261,7 @@ export default {
 				}).catch(error => {
 					console.log(error);
 				});  
-     		}
+     	}
     },
 
     getBook(id){
