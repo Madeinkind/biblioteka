@@ -101,7 +101,7 @@
           <div class="col col-md-3">
             <div class="mb-3">
              <label for="firstName" class="form-label">Дата выдачи книги</label>
-             <input class="form-control" type="date" v-model="date_start">
+             <input class="form-control" type="date" required v-model="date_start">
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@
           <div class="col col-md-3">
             <div class="mb-3">
              <label for="firstName" class="form-label">Дата планируемого возврата книги</label>
-             <input class="form-control" type="date" v-model="date_end_fact">
+             <input class="form-control" type="date" required v-model="date_end_plan">
             </div>
           </div>
         </div>
@@ -155,7 +155,7 @@ export default {
     book_id: '',
     reader_id: '',
     date_start: '',
-    date_end_fact:'',
+    date_end_plan:'',
 
     reader_fio:'',
     reader_group:'',
@@ -189,13 +189,13 @@ export default {
 
     onBookExtradition(){
       if(confirm('Вы уверены?')){
-				fetch('/api/books-readers/', {
+				fetch('/api/books-readers', {
 					method: 'POST',
 					body: JSON.stringify({
 						book_id: this.book_id,
 						reader_id: this.reader_id,
             date_start: this.date_start,
-            date_end_fact: this.date_end_fact,
+            date_end_plan: this.date_end_plan,
 					}),
 					headers: {
 						'Content-Type': 'application/json',
