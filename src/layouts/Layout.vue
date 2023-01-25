@@ -84,12 +84,6 @@
               <span class="menu-header-text">Страницы</span>
             </li>
             <li class="menu-item">
-              <router-link :to="{path: '/profile'}" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-user-account"></i>
-                <div data-i18n="Analytics">Профиль</div>
-              </router-link>
-            </li>
-            <li class="menu-item">
               <router-link :to="{path: '/books-issued'}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-add-to-queue"></i>
                 <div data-i18n="Analytics">Выданные книги</div>

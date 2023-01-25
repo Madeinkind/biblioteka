@@ -35,30 +35,35 @@
                 <div class="table-responsive text-nowrap"></div>
 				  <table class="table">
 					<thead class="thead">
-					<tr>
-						<th scope="col">ID</th>
-            			<th scope="col">Название</th>
-            			<th scope="col">Дата выдачи</th>
-            			<th scope="col">Дата плановой сдачи</th>
-            			<th scope="col">Дата фактической сдачи</th>
-            			<th scope="col">Издатель</th>
-            			<th scope="col">ФИО</th>
-            			<th scope="col">Группа</th>
-            			<th scope="col">IIN</th>
-					</tr>
+						<tr>
+							<th scope="col">ID</th>
+							<th scope="col">Название</th>
+							<th scope="col">Дата выдачи</th>
+							<th scope="col">Дата плановой сдачи</th>
+							<th scope="col">Дата фактической сдачи</th>
+							<th scope="col">Издатель</th>
+							<th scope="col">ФИО</th>
+							<th scope="col">Группа</th>
+							<th scope="col">ИИН</th>
+						</tr>
 					</thead>
 					<tbody class="table-group-divider">
-					<tr v-for="book in books" :key="book.id">
-						<td>{{book.id}}</td>
-            			<td>{{book.book_name}}</td>
-            			<td>{{book.date_start}}</td>
-            			<td>{{book.date_end_plan}}</td>
-            			<td>{{book.date_end_fact}}</td>
-            			<td>{{book.book_publishing}}</td>
-            			<td>{{book.reader_fio}}</td>
-            			<td>{{book.reader_group}}</td>
-            			<td>{{book.reader_iin}}</td>
-					</tr>
+						<tr v-for="book in books" :key="book.id">
+							<td>{{book.id}}</td>
+							<td>{{book.book_name}}</td>
+							<td>{{book.date_start}}</td>
+							<td>{{book.date_end_plan}}</td>
+							<td>{{book.date_end_fact}}</td>
+							<td>{{book.book_publishing}}</td>
+							<td>{{book.reader_fio}}</td>
+							<td>{{book.reader_group}}</td>
+							<td>{{book.reader_iin}}</td>
+							<td>
+								<div class="mt-2">
+									<router-link class="btn btn-primary me-2" :to="{path: '/books-issued-return/' + book.id}">Сдать</router-link>
+								</div>
+							</td>
+						</tr>
 					</tbody>
 				</table>
 			  </div>

@@ -6,8 +6,8 @@ import Layout from '@/layouts/Layout.vue';
 
 import Login from '@/pages/Login.vue';
 import Main from '@/pages/Main.vue';
-import Profile from '@/pages/Profile.vue';
 import BooksIssued from '@/pages/BooksIssued.vue';
+import BooksIssuedReturn from '@/pages/BooksIssuedReturn.vue';
 import BooksIssuedHistory from '@/pages/BooksIssuedHistory.vue';
 import BooksExtradition from '@/pages/BooksExtradition.vue';
 import BooksExtraditionAdd from '@/pages/BooksExtraditionAdd.vue';
@@ -34,13 +34,6 @@ const routes = [
 			{
 				path: '/',
 				component: Main,
-				meta: {
-					//requiresAuth: true,
-				},
-			},
-			{
-				path: '/profile',
-				component: Profile,
 				meta: {
 					//requiresAuth: true,
 				},
@@ -76,6 +69,13 @@ const routes = [
 			{
 				path: '/books-issued',
 				component: BooksIssued,
+				meta: {
+					//requiresAuth: true,
+				},
+			},
+			{
+				path: '/books-issued-return/:id',
+				component: BooksIssuedReturn,
 				meta: {
 					//requiresAuth: true,
 				},

@@ -96,30 +96,30 @@
     </div>
     <div v-if="page_name == 'select-date'">
       <form @submit.prevent="onBookExtradition()">
-      <div class="card-body">
-        <div class="row">
-          <div class="col col-md-3">
-            <div class="mb-3">
-             <label for="firstName" class="form-label">Дата выдачи книги</label>
-             <input class="form-control" type="date" required v-model="date_start">
+        <div class="card-body">
+          <div class="row">
+            <div class="col col-md-3">
+              <div class="mb-3">
+               <label for="firstName" class="form-label">Дата выдачи книги</label>
+               <input class="form-control" type="date" required v-model="date_start">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col col-md-3">
+              <div class="mb-3">
+               <label for="firstName" class="form-label">Дата планируемого возврата книги</label>
+               <input class="form-control" type="date" required v-model="date_end_plan">
+              </div>
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col col-md-3">
-            <div class="mb-3">
-             <label for="firstName" class="form-label">Дата планируемого возврата книги</label>
-             <input class="form-control" type="date" required v-model="date_end_plan">
-            </div>
+        <hr class="my-0" />
+        <div class="card-body">
+          <div class="mt-2">
+            <button type="submit" class="btn btn-primary me-2">Выдать</button>
           </div>
         </div>
-      </div>
-      <hr class="my-0" />
-      <div class="card-body">
-        <div class="mt-2">
-          <button type="submit" class="btn btn-primary me-2">Выдать</button>
-        </div>
-      </div>
       </form>
     </div>
 	 </div>
@@ -140,7 +140,7 @@ export default {
 	name: 'Main',
 	mixins: lib.mixins,
 	setup(){
-		useMeta({title: 'Выданные книги | Biblioteka'});
+		useMeta({title: 'Выдача книги | Biblioteka'});
 	},
 	data: () => ({
 		search: '',
