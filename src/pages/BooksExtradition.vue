@@ -17,7 +17,7 @@
               placeholder="Search..."
               aria-label="Search..."
               v-model="search"
-              @keyup="loadBooks()"
+              @keyup="page_name == 'select-book' ? loadBooks() : (page_name == 'select-reader' ? loadReaders() : null)"
             />
           </form>
         </div>
@@ -38,13 +38,13 @@
     </nav>
     <div class="card mb-3" v-if="book_id != ''">
       <div class="card-body">
-        <div @click="page_name = 'select-book'; book_id = '';" class="btn btn-primary float-end">Выбрать другую</div>
+        <div @click="page_name = 'select-book'; book_id = ''; search = ''; loadBooks();" class="btn btn-primary float-end">Выбрать другую</div>
         <h4 class="card-title mt-2 mb-n2">Выбрана книга: {{ getBook(book_id).name }}</h4>
       </div>
     </div>
     <div class="card mb-3" v-if="reader_id != ''">
       <div class="card-body">
-        <div @click="page_name = 'select-reader'; reader_id = '';" class="btn btn-primary float-end">Выбрать другого</div>
+        <div @click="page_name = 'select-reader'; reader_id = ''; search = ''; loadReaders();" class="btn btn-primary float-end">Выбрать другого</div>
         <h4 class="card-title mt-2 mb-n2">Выбран читатель: {{ getReader(reader_id).fio }} (группа: {{ getReader(reader_id).group }})</h4>
       </div>
     </div>
@@ -58,7 +58,7 @@
             <div class="card-body">
               <h5 class="card-title">{{book.name}}</h5>
               <p class="card-text">Автор</p>
-              <div class="btn btn-outline-primary" @click="reader_id == '' ? page_name='select-reader' : page_name='select-date'; book_id = book.id;">Выбрать</div>
+              <div class="btn btn-outline-primary" @click="search = ''; if(reader_id == ''){page_name = 'select-reader'; loadReaders();} else {page_name = 'select-date';} book_id = book.id;">Выбрать</div>
             </div>
           </div>
         </div>
@@ -69,7 +69,6 @@
       <div class="container-xxl flex-grow-1 container-p-y">
         <!-- Basic Bootstrap Table -->
         <div class="card">
-          <router-link :to="{path: '/readers/add'}" class="btn btn-primary">Добавить</router-link>
           <div class="table-responsive text-nowrap"></div>
           <table class="table">
             <thead class="thead">
@@ -87,7 +86,7 @@
                 <td>{{reader.group}}</td>
                 <td>{{reader.iin}}</td>
                 <td class="text-end" width="200">
-                  <div class="btn btn-outline-primary" @click="book_id == '' ? page_name='select-book' : page_name='select-date';  reader_id = reader.id;">Выбрать</div>
+                  <div class="btn btn-outline-primary" @click="search = ''; if(book_id == ''){page_name = 'select-book'; loadReaders();} else {page_name = 'select-date';} reader_id = reader.id;">Выбрать</div>
                 </td>
               </tr>
             </tbody>
@@ -189,6 +188,7 @@ export default {
 		async loadBooks(){
 			await fetch('/api/books?' + new URLSearchParams({
 				search: this.search,
+        limit: 1000,
 			})).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.books = data.list;
@@ -201,6 +201,7 @@ export default {
     async loadReaders(){
 		  await fetch('/api/readers?' + new URLSearchParams({
 				search: this.search,
+        limit: 1000,
 			})).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.readers = data.list;
@@ -227,6 +228,7 @@ export default {
           if(data.success){
             await this.loadReaders();
             this.reader_id = data.id;
+            this.search = '';
             if(this.book_id == ''){
               this.page_name = 'select-book';
             } else {
