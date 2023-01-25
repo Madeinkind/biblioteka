@@ -49,23 +49,23 @@
 							<div class="col">
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Название</label>
-									<input class="form-control" type="text"  v-model="book_name">
+									<input class="form-control" type="text"  v-model="book_name" required>
 								</div>
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Издатель</label>
-									<input class="form-control" type="text" v-model="book_publishing">
+									<input class="form-control" type="text" v-model="book_publishing" required>
 								</div>
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Автор</label>
-									<input class="form-control" type="text" v-model="book_author">
+									<input class="form-control" type="text" v-model="book_author" required>
 								</div>
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Год выпуска</label>
-									<input class="form-control" type="number" v-model="book_year_publishing" max="99999">
+									<input class="form-control" type="number" v-model="book_year_publishing" max="99999" required>
 								</div>
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Кол-во</label>
-									<input class="form-control" type="number" v-model="book_count">
+									<input class="form-control" type="number" v-model="book_count" required>
 								</div>
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Инвентарный номер</label>

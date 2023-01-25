@@ -57,8 +57,8 @@
             <img class="card-img-top" src="/assets/img/elements/2.jpg" alt="Card image cap" />
             <div class="card-body">
               <h5 class="card-title">{{book.name}}</h5>
-              <p class="card-text"> Автор: {{book.author}}</p>
-              <p class="card-text"> Год: {{book.year_publishing}}</p>
+              <p class="card-text text-muted"> Автор: {{book.author}}</p>
+              <p class="card-text text-muted"> Год: {{book.year_publishing}}</p>
               <div class="btn btn-outline-primary" @click="search = ''; if(reader_id == ''){page_name = 'select-reader'; loadReaders();} else {page_name = 'select-date';} book_id = book.id;">Выбрать</div>
             </div>
           </div>
@@ -189,7 +189,7 @@ export default {
 		async loadBooks(){
 			await fetch('/api/books?' + new URLSearchParams({
 				search: this.search,
-        limit: 1000,
+        limit: 18,
 			})).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.books = data.list;
@@ -202,7 +202,7 @@ export default {
     async loadReaders(){
 		  await fetch('/api/readers?' + new URLSearchParams({
 				search: this.search,
-        limit: 1000,
+        limit: 18,
 			})).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.readers = data.list;
