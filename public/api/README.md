@@ -455,7 +455,8 @@
   ],
   "count": 1
 }
-```	
+```
+</details>	
 <details><summary><code>POST</code> <code><b>/books-readers</b></code> <code>(POST параметр выдача книг)</code></summary>"
 Принимает
 ```json
@@ -486,4 +487,5 @@
 "success" : "true",
 
 ```
+</details>
 </details>
