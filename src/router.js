@@ -5,7 +5,6 @@ import lib from '@/lib';
 import Layout from '@/layouts/Layout.vue';
 
 import Login from '@/pages/Login.vue';
-import Main from '@/pages/Main.vue';
 import BooksIssued from '@/pages/BooksIssued.vue';
 import BooksIssuedReturn from '@/pages/BooksIssuedReturn.vue';
 import BooksIssuedHistory from '@/pages/BooksIssuedHistory.vue';
@@ -23,21 +22,14 @@ import Langs from '@/pages/Langs.vue';
 import PageNotFound from '@/pages/PageNotFound.vue';
 
 const routes = [
-	/*{
+	{
 		path: '/',
-		redirect: '/index',
-	},*/
+		redirect: '/books',
+	},
 	{
 		path: '/',
 		component: Layout,
 		children: [
-			{
-				path: '/',
-				component: Main,
-				meta: {
-					//requiresAuth: true,
-				},
-			},
 			{
 				path: '/books',
 				component: Books,

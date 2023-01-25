@@ -73,13 +73,6 @@
           <div class="menu-inner-shadow"></div>
 
           <ul class="menu-inner py-1">
-
-            <li class="menu-item">
-              <router-link :to="{path: '/'}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-home-circle"></i>
-                <div data-i18n="Analytics">Главная</div>
-              </router-link>
-            </li>
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Страницы</span>
             </li>
