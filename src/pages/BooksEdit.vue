@@ -62,7 +62,7 @@
 								</div>
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Год выпуска</label>
-									<input class="form-control" type="number" v-model="book_year_publishing" max="99999" required>
+									<input class="form-control" type="text" v-model="book_year_publishing" required>
 								</div>
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Кол-во</label>

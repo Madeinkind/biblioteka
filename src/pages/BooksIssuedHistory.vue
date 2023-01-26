@@ -60,9 +60,9 @@
 					<tr v-for="book in books" :key="book.id">
 						<td>{{book.id}}</td>
             			<td>{{book.book_name}}</td>
-            			<td>{{book.date_start}}</td>
-            			<td>{{book.date_end_plan}}</td>
-            			<td>{{book.date_end_fact}}</td>
+            			<td>{{formatDate(book.date_start)}}</td>
+            			<td>{{formatDate(book.date_end_plan)}}</td>
+            			<td>{{formatDate(book.date_end_fact)}}</td>
             			<td>{{book.book_publishing}}</td>
             			<td>{{book.reader_fio}}</td>
             			<td>{{book.reader_group}}</td>
@@ -119,9 +119,19 @@ export default {
 			});
 		},
 
-	// получение количества страниц для списка новостей
+		// получение количества страниц для списка новостей
 		getPagesCount(){
 			return Math.ceil(this.books_count / this.limit);
+		},
+
+		formatDate(date_str){
+			try {
+				let d = new Date(date_str);
+				let d2 = d.toISOString().split('T')[0];
+				return d2.split('-').reverse().join('.');
+			} catch (e){
+				return '';
+			}
 		},
 	},
 	mounted(){
