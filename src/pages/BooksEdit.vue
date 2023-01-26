@@ -172,7 +172,7 @@ export default {
 				this.book_about = data.about;
 				this.book_inventory_number = data.inventory_number;
 				this.book_year_publishing = data.year_publishing;
-				this.book_img = data.img;
+				this.book_img_poster = data.img ? data.img : '/assets/images/book.png';
 				this.book_author = data.author;
 			}).catch(error => {
 				console.log(error);

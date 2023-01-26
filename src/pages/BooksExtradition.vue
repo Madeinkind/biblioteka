@@ -54,7 +54,7 @@
       <div class="row mb-5">
         <div class="col-md-6 col-lg-2 mb-3" v-for="book in books" :key="book.id">
           <div class="card h-100">
-            <img class="card-img-top" src="/assets/images/book.png"/>
+            <img class="card-img-top" :src="book.img ? book.img : '/assets/images/book.png'"/>
             <div class="card-body">
               <h5 class="card-title">{{book.name}}</h5>
               <p class="card-text text-muted"> Автор: {{book.author}}</p>
