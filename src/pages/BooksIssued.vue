@@ -97,7 +97,6 @@ import lib from '@/lib';
 import { useMeta } from 'vue-meta';
 
 export default {
-	name: 'Main',
 	mixins: lib.mixins,
 	setup(){
 		useMeta({title: 'Выданные книги | Biblioteka'});

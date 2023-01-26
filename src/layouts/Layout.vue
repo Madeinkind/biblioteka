@@ -150,8 +150,7 @@
             <footer class="content-footer footer bg-footer-theme">
               <div class="container-xxl d-flex flex-wrap justify-content-center py-2 flex-md-row flex-column">
                 <div class="mb-2 mb-md-0">
-                  © made with ❤️ by
-                  MrZulax and Madeinkind
+                  2023 © Разработано студентами группы ПОб-42, Палагута Данил и Гурьянов Илья ❤️ 
                   
                 </div>
               </div>
@@ -183,7 +182,6 @@ import { useMeta } from 'vue-meta';
 //import HeaderBlock from '@/components/Header.vue';
 
 export default {
-	name: 'LayoutMain',
 	mixins: lib.mixins,
 	setup(){
 		useMeta({title: 'Biblioteka'});

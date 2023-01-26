@@ -34,8 +34,10 @@ import lib from '@/lib';
 import { useMeta } from 'vue-meta';
 
 export default {
-	name: 'PageNotFound',
 	mixins: lib.mixins,
+	setup(){
+		useMeta({title: 'Страница не найдена (404) | Biblioteka'});
+	},
 	beforeMount(){
 		window.scrollTo(0, 0);
 	},

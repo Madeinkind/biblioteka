@@ -67,7 +67,7 @@
             <td>{{book.inventory_number}}</td>
             <td>{{book.publishing}}</td>
             <td class="text-end">
-				<router-link :to="{path: '/books/'+book.id+'/edit'}" class="btn btn-success">
+				<router-link :to="{path: '/books/'+book.id+'/edit'}" class="btn btn-success me-1 px-3">
 					<i class='bx bxs-pencil'></i>
 				</router-link>
 				<input type="button" class="btn btn-danger" @click="onDeleteBook(book.id)" value="✖" />
@@ -97,10 +97,9 @@ import lib from '@/lib';
 import { useMeta } from 'vue-meta';
 
 export default {
-	name: 'Main',
 	mixins: lib.mixins,
 	setup(){
-		useMeta({title: 'Книги | Biblioteka'});
+		useMeta({title: ' Список книг | Biblioteka'});
 	},
 	data: () => ({
 		search: '',

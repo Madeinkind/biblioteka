@@ -76,7 +76,7 @@ import { useMeta } from 'vue-meta';
 export default {
 	mixins: lib.mixins,
 	setup(){
-		useMeta({title: 'Читатель | Biblioteka'});
+		useMeta({title: 'Добавление читателя | Biblioteka'});
 	},
 	data: () => ({
 		reader_fio: '',

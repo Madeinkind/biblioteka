@@ -17,7 +17,6 @@ import Readers from '@/pages/Readers.vue';
 import ReadersAdd from '@/pages/ReadersAdd.vue';
 import ReadersDebtors from '@/pages/ReadersDebtors.vue';
 import BooksAdd from '@/pages/BooksAdd.vue';
-import Langs from '@/pages/Langs.vue';
 
 import PageNotFound from '@/pages/PageNotFound.vue';
 
@@ -110,14 +109,6 @@ const routes = [
 			{
 				path: '/books/add',
 				component: BooksAdd,
-				meta: {
-					//requiresAuth: true,
-				},
-			},
-			
-			{
-				path: '/langs',
-				component: Langs,
 				meta: {
 					//requiresAuth: true,
 				},

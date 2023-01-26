@@ -117,10 +117,9 @@ import lib from '@/lib';
 import { useMeta } from 'vue-meta';
 
 export default {
-	name: 'Login',
 	mixins: lib.mixins,
 	setup(){
-		useMeta({title: 'Авторизация'});
+		useMeta({title: 'Авторизация | Biblioteka'});
 	},
 	data: () => ({
 		username: '',
