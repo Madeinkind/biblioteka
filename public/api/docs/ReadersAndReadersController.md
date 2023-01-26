@@ -1,6 +1,6 @@
 <details><summary>ReadersAndReadersController</summary>
 <details><summary><code>GET</code> <code><b>/books-readers</b></code> <code>(get параметр выдача книг)</code></summary>
- 
+
 Принимает
 ```json
 {
