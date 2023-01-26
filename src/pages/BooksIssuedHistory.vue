@@ -16,8 +16,8 @@
                   <input
                     type="text"
                     class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
+                    placeholder="Поиск..."
+                    aria-label="Поиск..."
 					v-model="search"
 					@keyup="loadBooks()"
                   />
@@ -28,7 +28,16 @@
           </nav>
           <!-- / Navbar -->
 	 <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4">Список</h4>
+                  <!-- Custom style1 Breadcrumb -->
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-style1">
+                      <li class="breadcrumb-item">
+                        <router-link :to="{path: '/'}" class="menu-link">Главная</router-link>
+                      </li>
+                      <li class="breadcrumb-item active">Список книг</li>
+                    </ol>
+                  </nav>
+              <h4 class="fw-bold py-3 mb-4">История выданных книг</h4>
 
               <!-- Basic Bootstrap Table -->
               <div class="card">
@@ -38,13 +47,13 @@
 					<tr>
 						<th scope="col">ID</th>
             			<th scope="col">Название</th>
-            			<th scope="col">date_start</th>
-            			<th scope="col">date_end_plan</th>
-            			<th scope="col">date_end_fact</th>
+            			<th scope="col">Дата выдачи</th>
+            			<th scope="col">Дата плановой сдачи</th>
+            			<th scope="col">Дата фактической сдачи</th>
             			<th scope="col">Издатель</th>
             			<th scope="col">ФИО</th>
             			<th scope="col">Группа</th>
-            			<th scope="col">IIN</th>
+            			<th scope="col">ИИН</th>
 					</tr>
 					</thead>
 					<tbody class="table-group-divider">

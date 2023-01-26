@@ -16,8 +16,8 @@
                   <input
                     type="text"
                     class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
+                    placeholder="Поиск..."
+                    aria-label="Поиск..."
 					v-model="search"
 					@keyup="loadBooks()"
                   />
@@ -27,8 +27,17 @@
             </div>
           </nav>
           <!-- / Navbar -->
-	 <div class="container-xxl flex-grow-1 container-p-y">
-              <h4 class="fw-bold py-3 mb-4">Список</h4>
+	 	<div class="container-xxl flex-grow-1 container-p-y">
+                  <!-- Custom style1 Breadcrumb -->
+                  <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb breadcrumb-style1">
+                      <li class="breadcrumb-item">
+                        <router-link :to="{path: '/'}" class="menu-link">Главная</router-link>
+                      </li>
+                      <li class="breadcrumb-item active">Список книг</li>
+                    </ol>
+                  </nav>
+              <h4 class="fw-bold py-3 mb-4">Выданные книги</h4>
 
               <!-- Basic Bootstrap Table -->
               <div class="card">

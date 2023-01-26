@@ -8,12 +8,12 @@
                         <router-link :to="{path: '/'}" class="menu-link">Главная</router-link>
                       </li>
 					  <li class="breadcrumb-item">
-                        <router-link :to="{path: '/books'}" class="menu-link">Книги</router-link>
+                        <router-link :to="{path: '/books'}" class="menu-link">Список книг</router-link>
                       </li>
-                      <li class="breadcrumb-item active">Добавить</li>
+                      <li class="breadcrumb-item active">Добавление книги</li>
                     </ol>
                   </nav>
-    		<h4 class="fw-bold py-3 mb-2">Добавить</h4>
+    		<h4 class="fw-bold py-3 mb-2">Добавление книги</h4>
 			<!-- Content wrapper -->
 		<div class="content-wrapper">
             <!-- Content -->
@@ -27,23 +27,23 @@
 						<div class="row">
 							<div class="col text-center">
 								<img
-									src="/assets/images/book.png "
-									alt="user-avatar"
+									:src="book_img_poster"
+									alt="book-poster"
 									class="rounded mb-3"
 									width="300"
-									id="uploadedAvatar"
+									id="uploadedPoster"
 								/>
 								<div class="button-wrapper">
 									<label for="upload" class="btn btn-primary me-2 mb-4" tabindex="0">
 										<span class="d-none d-sm-block">Загрузить фото</span>
 										<i class="bx bx-upload d-block d-sm-none"></i>
-										<input type="file" id="upload" class="account-file-input" hidden accept="image/png, image/jpeg" />
+										<input type="file" id="upload" ref="book_img" class="account-file-input" hidden @change="handlePosterFileUpload()" accept="image/png, image/jpeg" />
 									</label>
-									<button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+									<button type="button" @click="resetPosterFile()" class="btn btn-outline-secondary account-image-reset mb-4">
 										<i class="bx bx-reset d-block d-sm-none"></i>
 										<span class="d-none d-sm-block">Сброс</span>
 									</button>
-									<p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+									<p class="text-muted mb-0">Разрешены форматы файлов JPG, PNG. Максимальный размер файла 1 МБ</p>
 								</div>
 							</div>
 							<div class="col">
@@ -125,10 +125,15 @@ export default {
 		book_inventory_number: '',
 		book_year_publishing: '',
 		book_img: '',
+		book_img_poster: '/assets/images/book.png',
 		book_author: '',
 	}),
 	methods: {
 		onBookAdd(){
+			//let formData = new FormData();
+			//formData.append('name', this.book_name);
+			//formData.append('img', this.book_img);
+
 			fetch('/api/books', {
 				method: 'POST',
 				body: JSON.stringify({
@@ -150,6 +155,23 @@ export default {
 			}).catch(error => {
 				console.log(error);
 			});
+		},
+
+		handlePosterFileUpload(){
+			this.book_img = this.$refs.book_img.files[0];
+			let reader  = new FileReader();
+			reader.addEventListener("load", function(){
+				this.book_img_poster = reader.result;
+			}.bind(this), false);
+			if(this.book_img){
+				if(/\.(jpe?g|png)$/i.test(this.book_img.name)){
+					reader.readAsDataURL(this.book_img);
+				}
+			}
+		},
+		resetPosterFile(){
+			this.book_img = '';
+			this.book_img_poster = '/assets/images/book.png';
 		},
 	},
 	mounted(){

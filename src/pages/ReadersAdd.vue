@@ -10,10 +10,10 @@
                       <li class="breadcrumb-item">
 						<router-link :to="{path: '/readers'}" class="menu-link">Список читателей</router-link>
                       </li>
-                      <li class="breadcrumb-item active">Читатель</li>
+                      <li class="breadcrumb-item active">Добавление читателя</li>
                     </ol>
                   </nav>
-              <h4 class="fw-bold py-3 mb-4">Читатель</h4>
+              <h4 class="fw-bold py-3 mb-4">Добавление читателя</h4>
 
 			  <div class="content-wrapper">
             <!-- Content -->
@@ -48,11 +48,11 @@
 								<router-link :to="{path: '/readers'}" class="btn btn-outline-secondary">
 									Назад
 								</router-link>
+								</div>
 							</div>
-						</div>
-					</form>
+						</form>
 
-                    <!-- /Account -->
+						<!-- /Account -->
                   </div>
                 </div>
               </div>

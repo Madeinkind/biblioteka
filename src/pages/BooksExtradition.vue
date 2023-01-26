@@ -14,8 +14,8 @@
             <input
               type="text"
               class="form-control border-0 shadow-none"
-              placeholder="Search..."
-              aria-label="Search..."
+              placeholder="Поиск..."
+              aria-label="Поиск..."
               v-model="search"
               @keyup="page_name == 'select-book' ? loadBooks() : (page_name == 'select-reader' ? loadReaders() : null)"
             />

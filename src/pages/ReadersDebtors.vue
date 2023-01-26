@@ -16,8 +16,8 @@
                   <input
                     type="text"
                     class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
+                    placeholder="Поиск..."
+                    aria-label="Поиск..."
 					v-model="search"
 					@keyup="loadReadersDebtors()"
                   />
@@ -48,7 +48,7 @@
 						<th scope="col">ID</th>
 						<th scope="col">ФИО</th>
 						<th scope="col">Группа</th>
-						<th scope="col">IIN</th>
+						<th scope="col">ИИН</th>
 					</tr>
 					</thead>
 					<tbody class="table-group-divider">

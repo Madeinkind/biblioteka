@@ -16,8 +16,8 @@
                   <input
                     type="text"
                     class="form-control border-0 shadow-none"
-                    placeholder="Search..."
-                    aria-label="Search..."
+                    placeholder="Поиск..."
+                    aria-label="Поиск..."
 					v-model="search"
 					@keyup="loadBooks()"
                   />
@@ -35,10 +35,10 @@
                       <li class="breadcrumb-item">
                         <router-link :to="{path: '/'}" class="menu-link">Главная</router-link>
                       </li>
-                      <li class="breadcrumb-item active">Книги</li>
+                      <li class="breadcrumb-item active">Список книг</li>
                     </ol>
                   </nav>
-              <h4 class="fw-bold py-3 mb-4">Книги</h4>
+              <h4 class="fw-bold py-3 mb-4">Список книг</h4>
               <!-- Basic Bootstrap Table -->
               <div class="card">
 				<router-link :to="{path: '/books/add'}" class="btn btn-primary">
