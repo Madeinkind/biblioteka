@@ -1,5 +1,6 @@
 <details><summary>ReadersAndReadersController</summary>
 <details><summary><code>GET</code> <code><b>/books-readers</b></code> <code>(get параметр выдача книг)</code></summary>
+ 
 Принимает
 ```json
 {
@@ -39,12 +40,12 @@
 <details><summary><code>POST</code> <code><b>/books-readers</b></code> <code>(POST параметр выдача книг)</code></summary>
 Принимает
 ```json
-[
+
 	"reader_id": , \\ айди читателя
 	"book_id": , \\ айди книги
 	"date_start": , \\ дата выдачи
 	"date_end_plan": , \\ дата сдачи по плану
-]
+
 ```
 Возвращает
 ```json
@@ -57,7 +58,7 @@
 Принимает
 ```json
 
-"date_end_fact": , \\ дата сдачи по факту
+ "date_end_fact": , \\ дата сдачи по факту
 
 ```
 Возвращает
