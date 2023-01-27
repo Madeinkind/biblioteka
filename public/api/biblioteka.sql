@@ -49,6 +49,17 @@ CREATE TABLE `readers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
+DROP TABLE IF EXISTS `sessions`;
+CREATE TABLE `sessions` (
+  `ssid` varchar(255) NOT NULL COMMENT 'id сессии',
+  `expired` datetime NOT NULL COMMENT 'дата окончания действия сессии',
+  `ugmtime_add` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT 'дата добавления',
+  `ugmtime_change` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT 'дата изменения',
+  UNIQUE KEY `ssid` (`ssid`),
+  KEY `expired` (`expired`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='сессии администратора';
+
+
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'айди',
@@ -58,4 +69,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Таблица Пользователей';
 
 
--- 2023-01-26 06:16:52
+-- 2023-01-27 16:18:30

@@ -33,84 +33,84 @@ const routes = [
 				path: '/books',
 				component: Books,
 				meta: {
-					//requiresAuth: true,
+					requiresAuth: true,
 				},
 			},
 			{
 				path: '/readers-debtors',
 				component: ReadersDebtors,
 				meta: {
-					//requiresAuth: true,
+					requiresAuth: true,
 				},
 			},
 			{
 				path: '/readers',
 				component: Readers,
 				meta: {
-					//requiresAuth: true,
+					requiresAuth: true,
 				},
 			},
 			{
 				path: '/readers/add',
 				component: ReadersAdd,
 				meta: {
-					//requiresAuth: true,
+					requiresAuth: true,
 				},
 			},
 			{
 				path: '/books-issued',
 				component: BooksIssued,
 				meta: {
-					//requiresAuth: true,
+					requiresAuth: true,
 				},
 			},
 			{
 				path: '/books-issued-return/:id',
 				component: BooksIssuedReturn,
 				meta: {
-					//requiresAuth: true,
+					requiresAuth: true,
 				},
 			},
 			{
 				path: '/books-issued-history',
 				component: BooksIssuedHistory,
 				meta: {
-					//requiresAuth: true,
+					requiresAuth: true,
 				},
 			},
 			{
 				path: '/books-extradition',
 				component: BooksExtradition,
 				meta: {
-					//requiresAuth: true,
+					requiresAuth: true,
 				},
 			},
 			{
 				path: '/books-extradition-add',
 				component: BooksExtraditionAdd,
 				meta: {
-					//requiresAuth: true,
+					requiresAuth: true,
 				},
 			},
 			{
 				path: '/books/:id/edit',
 				component: BooksEdit,
 				meta: {
-					//requiresAuth: true,
+					requiresAuth: true,
 				},
 			},
 			{
 				path: '/readers/:id/edit',
 				component: ReadersEdit,
 				meta: {
-					//requiresAuth: true,
+					requiresAuth: true,
 				},
 			},
 			{
 				path: '/books/add',
 				component: BooksAdd,
 				meta: {
-					//requiresAuth: true,
+					requiresAuth: true,
 				},
 			},
 		],
@@ -119,15 +119,15 @@ const routes = [
 		path: '/login',
 		component: Login,
 		meta: {
-			//guest: true,
+			guest: true,
 		},
 	},
 	{
 		path: '/logout',
 		beforeEnter(to, from, next){
-			/*storeInstance.state.app.auth.doLogout().then(() => {
+			storeInstance.state.app.auth.doLogout().then(() => {
 				next({path: '/login'});
-			});*/
+			});
 		},
 	},
 	{
@@ -148,7 +148,7 @@ const router = createRouter({
 });
 
 router.beforeEach((to, from, next) => {
-	/*storeInstance.state.app.auth.doCheckAuth().then(() => {
+	storeInstance.state.app.auth.doCheckAuth().then(() => {
 		if(to.matched.some(record => record.meta.requiresAuth)){
 			if(!storeInstance.state.app.auth.isAuth()){
 				next({
@@ -158,16 +158,6 @@ router.beforeEach((to, from, next) => {
 					},
 				})
 			} else {
-				let user = lib.localStorageGet('user')||{};
-				if(to.matched.some(record => record.meta.is_admin)){
-					if(user.is_admin){
-						next()
-					} else {
-						next('/')
-					}
-				} else {
-					next()
-				}
 				next()
 			}
 		} else if(to.matched.some(record => record.meta.guest)){
@@ -179,8 +169,7 @@ router.beforeEach((to, from, next) => {
 		} else {
 			next() 
 		}
-	});*/
-	next() 
+	});
 });
 /*router.beforeEach((to, from, next) => {
 	if (to.path == '/login' && storeInstance.state.app.auth.userProfile !== null) next({path: '/'})

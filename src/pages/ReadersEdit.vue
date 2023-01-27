@@ -96,14 +96,12 @@ export default {
 					iin: this.reader_iin,
 				}),
 				headers: {
+					Authorization: 'Bearer '+this.authModel.token,
 					'Content-Type': 'application/json',
 				},
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
-				if(
-					data.success
-				)
-				{
+				if(data.success){
 					this.$router.push('/readers');
 				}
 			}).catch(error => {
@@ -111,7 +109,11 @@ export default {
 			});
 		},
 		onLoad(id){
-			fetch('/api/readers/' + id).then(stream => stream.json()).then((data) => {
+			fetch('/api/readers/' + id, {
+				headers: {
+					Authorization: 'Bearer '+this.authModel.token,
+				},
+			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.reader_fio = data.fio;
 				this.reader_group = data.group;

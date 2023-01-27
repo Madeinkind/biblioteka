@@ -55,19 +55,6 @@ class AuthController extends Controller
 			], 200);
 		}
 		
-		$user = DB::table('users')
-			//->select('')
-			->where('id', '=', $arr->user_id)
-			->first();
-		if(!$user)
-		{
-			return response()->json([
-				'auth' => false,
-			], 200);
-		}
-		
-		$user_roles = User::getRoles($user->id);
-		
 		$expired = time() + env('JWT_COOKIE_TIMEOUT');
 		
 		DB::table('sessions')
@@ -77,9 +64,8 @@ class AuthController extends Controller
 			]);
 		
 		// создаем новый JWT токен
-		//$jwt_token = new JWTToken();
-		//$jwt_token->user_id = $user->id;
-		//$jwt_token->session = $session;
+		$jwt_token = new JWTToken();
+		$jwt_token->session = $session;
 		$jwt_token->expired = $expired;
 		$jwt_string = $jwt_token->encode(env('JWT_PRIVATE_KEY'));
 		
@@ -103,38 +89,21 @@ class AuthController extends Controller
 			'session' => $session,
 			'expired' => $expired,
 			'timeout' => env('JWT_COOKIE_TIMEOUT'),
-			'user_data' => [
-				'id' => $user->id,
-				'login' => $user->login,
-				'sname' => $user->sname,
-				'fname' => $user->fname,
-				'lname' => $user->lname,
-				'gender' => $user->gender,
-				'email' => $user->email,
-				'tel' => $user->tel,
-				'about' => $user->about,
-				'iin' => $user->iin,
-				'avatar' => getAvatar($user->login)['fullAvaLink'],
-				'theme' => $user->theme,
-				'lang_code' => $user->lang_code,
-			],
-			'user_roles' => $user_roles,
 		], 200);
 	}
 	
 	public function login(Request $request)
 	{
 		$data = $request->input();
-		$username = isset($data['username']) ? $data['username'] : '';
+		$login = isset($data['login']) ? $data['login'] : '';
 		$password = isset($data['password']) ? $data['password'] : '';
 		
-		if($username == '')
+		if($login == '')
 		{
 			return response()->json([
-				'error' => 'Username not provided.',
+				'error' => 'Login not provided.',
 			], 400);
 		}
-		
 		if($password == '')
 		{
 			return response()->json([
@@ -150,27 +119,16 @@ class AuthController extends Controller
 			$session = $jwt_token->session;
 		}
 		
-		$user = DB::table('users')
-			//->select('')
-			->orWhere('login', '=', $username)
-			->orWhere('email', '=', $username)
-			->orWhere('tel', '=', $username)
-			->first();
-		if(!$user)
+		$admin_login = env('ADMIN_LOGIN');
+		$admin_password = env('ADMIN_PASSWORD');
+		
+		if($login != $admin_login
+		or $password != $admin_password)
 		{
 			return response()->json([
-				'error' => 'Пользователь не найден',
+				'error' => 'Пара логин/пароль не совпадает',
 			], 400);
 		}
-		
-		if(md5($password) != $user->password)
-		{
-			return response()->json([
-				'error' => 'Пароль не совпадает',
-			], 400);
-		}
-		
-		$user_roles = User::getRoles($user->id);
 		
 		if($session == '')
 		{
@@ -182,15 +140,10 @@ class AuthController extends Controller
 		DB::table('sessions')
 			->updateOrInsert(
 				['ssid' => $session],
-				[
-					'user_id' => $user->id,
-					'ip' => getRealIP(),
-					'expired' => @gmdate('Y-m-d H:i:s', $expired)
-				]
+				['expired' => @gmdate('Y-m-d H:i:s', $expired)]
 			);
 		
 		$jwt_token = new JWTToken();
-		$jwt_token->user_id = $user->id;
 		$jwt_token->session = $session;
 		$jwt_token->expired = $expired;
 		$jwt_string = $jwt_token->encode(env('JWT_PRIVATE_KEY'));
@@ -214,22 +167,6 @@ class AuthController extends Controller
 			'session' => $session,
 			'expired' => $expired,
 			'timeout' => env('JWT_COOKIE_TIMEOUT'),
-			'user_data' => [
-				'id' => $user->id,
-				'login' => $user->login,
-				'sname' => $user->sname,
-				'fname' => $user->fname,
-				'lname' => $user->lname,
-				'gender' => $user->gender,
-				'email' => $user->email,
-				'tel' => $user->tel,
-				'about' => $user->about,
-				'iin' => $user->iin,
-				'avatar' => getAvatar($user->login)['fullAvaLink'],
-				'theme' => $user->theme,
-				'lang_code' => $user->lang_code,
-			],
-			'user_roles' => $user_roles,
 		], 200);
 	}
 	

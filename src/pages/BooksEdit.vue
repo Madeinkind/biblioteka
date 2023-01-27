@@ -128,43 +128,41 @@ export default {
 		book_year_publishing: '',
 		book_img: '',
 		book_img_poster: '/assets/images/book.png',
+		book_img_reset: false,
 		book_author: '',
 	}),
 	methods: {
 		onBookEdit(id){
-			//let formData = new FormData();
-			//formData.append('name', this.book_name);
-			//formData.append('img', this.book_img);
+			let formData = new FormData();
+			formData.append('name', this.book_name);
+			formData.append('count', this.book_count);
+			formData.append('publishing', this.book_publishing);
+			formData.append('about', this.book_about);
+			formData.append('inventory_number', this.book_inventory_number);
+			formData.append('year_publishing', this.book_year_publishing);
+			formData.append('author', this.book_author);
+			formData.append('img', this.book_img);
+			formData.append('img_reset', this.book_img_reset);
 
 			fetch('/api/books/' + id, {
 				method: 'POST',
-				body: JSON.stringify({
-					name: this.book_name,
-					count: this.book_count,
-					publishing: this.book_publishing,
-					about: this.book_about,
-					inventory_number: this.book_inventory_number,
-					year_publishing: this.book_year_publishing,
-					img: this.book_img,
-					author: this.book_author,
-				}),
+				body: formData,
 				headers: {
-					'Content-Type': 'application/json',
+					Authorization: 'Bearer '+this.authModel.token,
 				},
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
-				if(
-					data.success
-				)
-				{
-					this.$router.push('/books');
-				}
+				this.$router.push('/books');
 			}).catch(error => {
 				console.log(error);
 			});
 		},
 		onLoad(id){
-			fetch('/api/books/' + id).then(stream => stream.json()).then((data) => {
+			fetch('/api/books/' + id, {
+				headers: {
+					Authorization: 'Bearer '+this.authModel.token,
+				},
+			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.book_name = data.name;
 				this.book_count = data.count;
@@ -172,7 +170,7 @@ export default {
 				this.book_about = data.about;
 				this.book_inventory_number = data.inventory_number;
 				this.book_year_publishing = data.year_publishing;
-				this.book_img_poster = data.img ? data.img : '/assets/images/book.png';
+				this.book_img_poster = data.img ? '/api/storage/posters/' + data.img : '/assets/images/book.png';
 				this.book_author = data.author;
 			}).catch(error => {
 				console.log(error);
@@ -180,7 +178,9 @@ export default {
 		},
 
 		handlePosterFileUpload(){
+			this.book_img_poster = '/assets/images/book.png';
 			this.book_img = this.$refs.book_img.files[0];
+			this.book_img_reset = false;
 			let reader  = new FileReader();
 			reader.addEventListener("load", function(){
 				this.book_img_poster = reader.result;
@@ -194,6 +194,7 @@ export default {
 		resetPosterFile(){
 			this.book_img = '';
 			this.book_img_poster = '/assets/images/book.png';
+			this.book_img_reset = true;
 		},
 	},
 

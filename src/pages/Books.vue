@@ -115,7 +115,11 @@ export default {
 				search: this.search,
 				start: (this.page - 1) * this.limit,
 				limit: this.limit,
-			})).then(stream => stream.json()).then((data) => {
+			}), {
+				headers: {
+					Authorization: 'Bearer '+this.authModel.token,
+				},
+			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.books = data.list;
 				this.books_count = data.count;
@@ -132,6 +136,7 @@ export default {
 						count: this.book_count,
 					}),*/
 					headers: {
+						Authorization: 'Bearer '+this.authModel.token,
 						'Content-Type': 'application/json',
 					},
 				}).then(stream => stream.json()).then((data) => {

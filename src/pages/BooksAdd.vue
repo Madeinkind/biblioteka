@@ -130,34 +130,34 @@ export default {
 	}),
 	methods: {
 		onBookAdd(){
-			//let formData = new FormData();
-			//formData.append('name', this.book_name);
-			//formData.append('img', this.book_img);
+			let formData = new FormData();
+			formData.append('name', this.book_name);
+			formData.append('count', this.book_count);
+			formData.append('publishing', this.book_publishing);
+			formData.append('about', this.book_about);
+			formData.append('inventory_number', this.book_inventory_number);
+			formData.append('year_publishing', this.book_year_publishing);
+			formData.append('author', this.book_author);
+			formData.append('img', this.book_img);
 
 			fetch('/api/books', {
 				method: 'POST',
-				body: JSON.stringify({
-					name: this.book_name,
-					count: this.book_count,
-					publishing: this.book_publishing,
-					about: this.book_about,
-					inventory_number: this.book_inventory_number,
-					year_publishing: this.book_year_publishing,
-					img: this.book_img,
-					author: this.book_author,
-				}),
+				body: formData,
 				headers: {
-					'Content-Type': 'application/json',
+					Authorization: 'Bearer '+this.authModel.token,
 				},
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
-				this.$router.push('/books');
+				if(data.success){
+					this.$router.push('/books');
+				}
 			}).catch(error => {
 				console.log(error);
 			});
 		},
 
 		handlePosterFileUpload(){
+			this.book_img_poster = '/assets/images/book.png';
 			this.book_img = this.$refs.book_img.files[0];
 			let reader  = new FileReader();
 			reader.addEventListener("load", function(){

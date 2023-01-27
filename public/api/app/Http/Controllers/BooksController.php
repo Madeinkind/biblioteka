@@ -6,6 +6,7 @@ use Log;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
+use Illuminate\Support\Facades\File;
 
 class BooksController extends Controller
 {
@@ -16,7 +17,7 @@ class BooksController extends Controller
      */
     public function __construct()
     {
-        //$this->middleware('jwt.auth');
+        $this->middleware('jwt.auth');
     }
 	
 	/**
@@ -233,7 +234,6 @@ class BooksController extends Controller
 	public function add(Request $request)
 	{
 		$data = $request->input();
-		//$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
 		$name = isset($data['name']) ? $data['name'] : '';
 		$count = isset($data['count']) ? $data['count'] : 1;
 		$publishing = isset($data['publishing']) ? $data['publishing'] : '';
@@ -251,16 +251,28 @@ class BooksController extends Controller
 		}
 		
 		$id = DB::table('books')->insertGetId([
-			//'virtualspace_id' => $virtualspace_id,
 			'name' => $name,
 			'count' => $count,
 			'publishing' => $publishing,
 			'about' => $about,
 			'inventory_number' => $inventory_number,
 			'year_publishing' => $year_publishing,
-			'img' => $img,
 			'author' => $author,
 		]);
+		
+		if($request->file('img'))
+		{
+			$img = $id . '.' . $request->file('img')->extension();
+			$destinationPath = 'storage/posters/';
+			File::makeDirectory($destinationPath, 0777, true, true);
+			$request->file('img')->move($destinationPath, $img);
+			
+			DB::table('books')
+				->where('id', '=', $id)
+				->update([
+					'img' => $img,
+				]);
+		}
 		
 		return response()->json([
 			'id' => $id,
@@ -341,6 +353,7 @@ class BooksController extends Controller
 		$inventory_number = isset($data['inventory_number']) ? $data['inventory_number'] : '';
 		$year_publishing = isset($data['year_publishing']) ? $data['year_publishing'] : '';
 		$img = isset($data['img']) ? $data['img'] : '';
+		$img_reset = isset($data['img_reset']) ? $data['img_reset'] : false;
 		$author = isset($data['author']) ? $data['author'] : '';
 		
 		if($name == '')
@@ -348,6 +361,40 @@ class BooksController extends Controller
 			return response()->json([
 				'error' => 'Не передано Название проекта',
 			], 400);
+		}
+		
+		$item = DB::table('books')
+			->where('id', '=', $id)
+			->first();
+		$img = '';
+		if($item) $img = $item->img;
+		
+		if($img_reset)
+		{
+			if($item)
+			{
+				if(File::exists('storage/posters/'.$img))
+				{
+					File::delete('storage/posters/'.$img);
+					$img = '';
+				}
+			}
+		}
+		
+		if($request->file('img'))
+		{
+			$img2 = $id . '.' . $request->file('img')->extension();
+			$destinationPath = 'storage/posters/';
+			File::makeDirectory($destinationPath, 0777, true, true);
+			if($item)
+			{
+				if(File::exists('storage/posters/'.$img))
+				{
+					File::delete('storage/posters/'.$img);
+				}
+			}
+			$request->file('img')->move($destinationPath, $img2);
+			$img = $img2;
 		}
 		
 		$success = true;
@@ -358,9 +405,12 @@ class BooksController extends Controller
 			'about' => $about,
 			'inventory_number' => $inventory_number,
 			'year_publishing' => $year_publishing,
-			'img' => $img,
 			'author' => $author,
 		];
+		if($item->img != $img)
+		{
+			$updateData['img'] = $img;
+		}
 		$success = DB::table('books')
 			->where('id', '=', $id)
 			->update($updateData);
