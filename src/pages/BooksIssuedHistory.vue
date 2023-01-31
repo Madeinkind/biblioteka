@@ -110,11 +110,7 @@ export default {
 				search: this.search,
 				start: (this.page - 1) * this.limit,
 				limit: this.limit,
-			}), {
-				headers: {
-					Authorization: 'Bearer '+this.authModel.token,
-				},
-			}).then(stream => stream.json()).then((data) => {
+			})).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.books = data.list;
 				this.books_count = data.count;

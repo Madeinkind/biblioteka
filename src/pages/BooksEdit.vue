@@ -128,11 +128,11 @@ export default {
 		book_year_publishing: '',
 		book_img: '',
 		book_img_poster: '/assets/images/book.png',
-		book_img_reset: false,
 		book_author: '',
 	}),
 	methods: {
 		onBookEdit(id){
+<<<<<<< HEAD
 			let formData = new FormData();
 			formData.append('name', this.book_name);
 			formData.append('speciality', this.book_speciality);
@@ -143,26 +143,41 @@ export default {
 			formData.append('author', this.book_author);
 			formData.append('img', this.book_img);
 			formData.append('img_reset', this.book_img_reset);
+=======
+			//let formData = new FormData();
+			//formData.append('name', this.book_name);
+			//formData.append('img', this.book_img);
+>>>>>>> parent of fb9befe (release)
 
 			fetch('/api/books/' + id, {
 				method: 'POST',
-				body: formData,
+				body: JSON.stringify({
+					name: this.book_name,
+					count: this.book_count,
+					publishing: this.book_publishing,
+					about: this.book_about,
+					inventory_number: this.book_inventory_number,
+					year_publishing: this.book_year_publishing,
+					img: this.book_img,
+					author: this.book_author,
+				}),
 				headers: {
-					Authorization: 'Bearer '+this.authModel.token,
+					'Content-Type': 'application/json',
 				},
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
-				this.$router.push('/books');
+				if(
+					data.success
+				)
+				{
+					this.$router.push('/books');
+				}
 			}).catch(error => {
 				console.log(error);
 			});
 		},
 		onLoad(id){
-			fetch('/api/books/' + id, {
-				headers: {
-					Authorization: 'Bearer '+this.authModel.token,
-				},
-			}).then(stream => stream.json()).then((data) => {
+			fetch('/api/books/' + id).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.book_name = data.name;
 				this.book_speciality = data.speciality;
@@ -170,7 +185,7 @@ export default {
 				this.book_about = data.about;
 				this.book_inventory_number = data.inventory_number;
 				this.book_year_publishing = data.year_publishing;
-				this.book_img_poster = data.img ? '/api/storage/posters/' + data.img : '/assets/images/book.png';
+				this.book_img_poster = data.img ? data.img : '/assets/images/book.png';
 				this.book_author = data.author;
 			}).catch(error => {
 				console.log(error);
@@ -178,9 +193,7 @@ export default {
 		},
 
 		handlePosterFileUpload(){
-			this.book_img_poster = '/assets/images/book.png';
 			this.book_img = this.$refs.book_img.files[0];
-			this.book_img_reset = false;
 			let reader  = new FileReader();
 			reader.addEventListener("load", function(){
 				this.book_img_poster = reader.result;
@@ -194,7 +207,6 @@ export default {
 		resetPosterFile(){
 			this.book_img = '';
 			this.book_img_poster = '/assets/images/book.png';
-			this.book_img_reset = true;
 		},
 	},
 

@@ -93,7 +93,6 @@ export default {
 					iin: this.reader_iin,
 				}),
 				headers: {
-					Authorization: 'Bearer '+this.authModel.token,
 					'Content-Type': 'application/json',
 				},
 			}).then(stream => stream.json()).then((data) => {

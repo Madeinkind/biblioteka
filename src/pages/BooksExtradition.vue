@@ -54,11 +54,11 @@
       <div class="row mb-5">
         <div class="col-md-6 col-lg-2 mb-3" v-for="book in books" :key="book.id">
           <div class="card h-100">
-            <img class="card-img-top" :src="book.img ? '/api/storage/posters/' + book.img : '/assets/images/book.png'"/>
+            <img class="card-img-top" :src="book.img ? book.img : '/assets/images/book.png'"/>
             <div class="card-body">
-              <h5 class="card-title mb-1">{{book.name}}</h5>
-              <div class="card-text text-muted"> Автор: {{book.author}}</div>
-              <div class="card-text text-muted mb-3"> Год: {{book.year_publishing}}</div>
+              <h5 class="card-title">{{book.name}}</h5>
+              <p class="card-text text-muted"> Автор: {{book.author}}</p>
+              <p class="card-text text-muted"> Год: {{book.year_publishing}}</p>
               <div class="btn btn-outline-primary" @click="search = ''; if(reader_id == ''){page_name = 'select-reader'; loadReaders();} else {page_name = 'select-date';} book_id = book.id;">Выбрать</div>
             </div>
           </div>
@@ -149,9 +149,7 @@
 </template>
 
 <style lang="css" scoped>
-.card-img-top {
-	height: 200px;
-}
+
 </style>
 
 
@@ -191,12 +189,8 @@ export default {
 		async loadBooks(){
 			await fetch('/api/books?' + new URLSearchParams({
 				search: this.search,
-				limit: 18,
-			}), {
-				headers: {
-					Authorization: 'Bearer '+this.authModel.token,
-				},
-			}).then(stream => stream.json()).then((data) => {
+        limit: 18,
+			})).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.books = data.list;
 				this.books_count = data.count;
@@ -208,12 +202,8 @@ export default {
     async loadReaders(){
 		  await fetch('/api/readers?' + new URLSearchParams({
 				search: this.search,
-				limit: 18,
-			}), {
-				headers: {
-					Authorization: 'Bearer '+this.authModel.token,
-				},
-			}).then(stream => stream.json()).then((data) => {
+        limit: 18,
+			})).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.readers = data.list;
 				this.readers_count = data.count;
@@ -232,7 +222,6 @@ export default {
             iin: this.reader_iin,
           }),
           headers: {
-			Authorization: 'Bearer '+this.authModel.token,
             'Content-Type': 'application/json',
           },
         }).then(stream => stream.json()).then(async (data) => {
@@ -261,11 +250,10 @@ export default {
 					body: JSON.stringify({
 						book_id: this.book_id,
 						reader_id: this.reader_id,
-						date_start: this.date_start,
-						date_end_plan: this.date_end_plan,
+            date_start: this.date_start,
+            date_end_plan: this.date_end_plan,
 					}),
 					headers: {
-						Authorization: 'Bearer '+this.authModel.token,
 						'Content-Type': 'application/json',
 					},
 				}).then(stream => stream.json()).then((data) => {

@@ -130,6 +130,7 @@ export default {
 	}),
 	methods: {
 		onBookAdd(){
+<<<<<<< HEAD
 			let formData = new FormData();
 			formData.append('name', this.book_name);
 			formData.append('speciality', this.book_speciality);
@@ -139,25 +140,36 @@ export default {
 			formData.append('year_publishing', this.book_year_publishing);
 			formData.append('author', this.book_author);
 			formData.append('img', this.book_img);
+=======
+			//let formData = new FormData();
+			//formData.append('name', this.book_name);
+			//formData.append('img', this.book_img);
+>>>>>>> parent of fb9befe (release)
 
 			fetch('/api/books', {
 				method: 'POST',
-				body: formData,
+				body: JSON.stringify({
+					name: this.book_name,
+					count: this.book_count,
+					publishing: this.book_publishing,
+					about: this.book_about,
+					inventory_number: this.book_inventory_number,
+					year_publishing: this.book_year_publishing,
+					img: this.book_img,
+					author: this.book_author,
+				}),
 				headers: {
-					Authorization: 'Bearer '+this.authModel.token,
+					'Content-Type': 'application/json',
 				},
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
-				if(data.success){
-					this.$router.push('/books');
-				}
+				this.$router.push('/books');
 			}).catch(error => {
 				console.log(error);
 			});
 		},
 
 		handlePosterFileUpload(){
-			this.book_img_poster = '/assets/images/book.png';
 			this.book_img = this.$refs.book_img.files[0];
 			let reader  = new FileReader();
 			reader.addEventListener("load", function(){

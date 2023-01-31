@@ -120,6 +120,12 @@
               <span class="menu-header-text">Аккаунт</span>
             </li>
             <li class="menu-item">
+              <router-link :to="{path: '/login'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-log-in"></i>
+                <div data-i18n="Analytics">Войти</div>
+              </router-link>
+            </li>
+            <li class="menu-item">
               <router-link :to="{path: '/logout'}" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-log-out"></i>
                 <div data-i18n="Analytics">Выйти</div>

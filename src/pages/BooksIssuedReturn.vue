@@ -51,7 +51,6 @@ export default {
 						date_end_fact: this.date_end_fact,
 					}),
 					headers: {
-						Authorization: 'Bearer '+this.authModel.token,
 						'Content-Type': 'application/json',
 					},
 				}).then(stream => stream.json()).then((data) => {

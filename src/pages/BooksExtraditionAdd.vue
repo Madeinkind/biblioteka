@@ -152,7 +152,6 @@ export default {
 					author: this.book_author,
 				}),
 				headers: {
-					Authorization: 'Bearer '+this.authModel.token,
 					'Content-Type': 'application/json',
 				},
 			}).then(stream => stream.json()).then((data) => {

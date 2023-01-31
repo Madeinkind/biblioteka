@@ -112,11 +112,7 @@ export default {
 				search: this.search,
 				start: (this.page - 1) * this.limit,
 				limit: this.limit,
-			}), {
-				headers: {
-					Authorization: 'Bearer '+this.authModel.token,
-				},
-			}).then(stream => stream.json()).then((data) => {
+			})).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.readers = data.list;
 				this.readers_count = data.count;
@@ -136,7 +132,6 @@ export default {
 				}),*/
 				headers: {
 					'Content-Type': 'application/json',
-					Authorization: 'Bearer '+this.authModel.token,
 				},
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);

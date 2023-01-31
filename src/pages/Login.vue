@@ -67,15 +67,15 @@
             </router-link> 
               <h4 class="mb-2">Авторизация</h4>
 
-              <form class="mb-3" @submit.prevent="onLoginSubmit()">
+              <form id="formAuthentication" class="mb-3" action="index.html" method="POST">
                 <div class="mb-3">
-                  <label for="login" class="form-label">Логин</label>
+                  <label for="email" class="form-label">Логин</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="login"
+                    id="email"
+                    name="email-username"
                     placeholder="Введите логин"
-					v-model="login"
                     autofocus
                   />
                 </div>
@@ -88,17 +88,14 @@
                       type="password"
                       id="password"
                       class="form-control"
-                      v-model="password"
+                      name="password"
                       placeholder="&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;&#xb7;"
                       aria-describedby="password"
                     />
                   </div>
                 </div>
                 <div class="mb-3">
-                  <button class="btn btn-primary d-grid w-100" type="submit" :disabled="btnLoginDisabled">Войти</button>
-                </div>
-				<div class="mb-3">
-                  <div class="alert alert-warning text-center" v-if="error"><b>{{error}}</b></div>
+                  <button class="btn btn-primary d-grid w-100" type="submit">Войти</button>
                 </div>
               </form>
             </div>
@@ -125,7 +122,7 @@ export default {
 		useMeta({title: 'Авторизация | Biblioteka'});
 	},
 	data: () => ({
-		login: '',
+		username: '',
 		password: '',
 		error: '',
 		btnLoginDisabled: false,
@@ -135,7 +132,7 @@ export default {
 			this.btnLoginDisabled = true;
 			this.error = '';
 			
-			let res = await this.authModel.doLogin(this.login, this.password);
+			let res = await this.authModel.doLogin(this.username, this.password);
 			
 			/* Если авторизация произошла успешно */
 			this.btnLoginDisabled = false;
@@ -150,12 +147,19 @@ export default {
 	},
 	beforeMount(){
 		window.scrollTo(0, 0);
+		document.body.classList.add('authentication-bg');
+	},
+	beforeUnmount(){
+		document.body.classList.remove('authentication-bg');
 	},
 	beforeRouteUpdate(to, from, next){
 		next();
 		window.scrollTo(0, 0);
+		document.body.classList.add('authentication-bg');
 	},
 	computed: {},
-	components: {},
+	components: {
+		
+	},
 };
 </script>
