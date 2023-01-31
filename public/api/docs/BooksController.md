@@ -9,13 +9,13 @@
     {
       "id": 3, //айди
       "name": "dsadsa", //имя
-      "count": 1, //кол-во
+      "speciality": "", //кол-во
       "publishing": "" //издательство
     },
     {
       "id": 8, //айди
       "name": "dsadsa", //имя
-      "count": 1, //кол-во
+      "speciality": "", //кол-во
       "publishing": "" //издательство
 	  "about": "" //автор
 	  "inventory_number": "" //инвентарь номер
@@ -78,7 +78,7 @@
 {
    "id": 3,
    "name": "dsadsa",
-   "count": 1,
+   "speciality": "",
    "publishing": ""
 }
 ```
@@ -90,7 +90,7 @@
 ```json
 {
 	"name" : '', //название книги
-	"count" : 1, //кол-во
+	"speciality" : '', //кол-во
 	"publishing" : '', //издательство
 	"about" : '', //о книге
 	"inventory_number": '', //инвентарь номер

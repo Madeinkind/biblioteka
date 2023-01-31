@@ -66,7 +66,7 @@
 								</div>
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Кол-во</label>
-									<input class="form-control" type="number" v-model="book_count" required>
+									<input class="form-control" type="number" v-model="book_speciality" required>
 								</div>
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Инвентарный номер</label>
@@ -121,7 +121,7 @@ export default {
 	},
 	data: () => ({
 		book_name: '',
-		book_count: 1,
+		book_speciality: '',
 		book_publishing: '',
 		book_about: '',
 		book_inventory_number: '',
@@ -135,7 +135,7 @@ export default {
 		onBookEdit(id){
 			let formData = new FormData();
 			formData.append('name', this.book_name);
-			formData.append('count', this.book_count);
+			formData.append('speciality', this.book_speciality);
 			formData.append('publishing', this.book_publishing);
 			formData.append('about', this.book_about);
 			formData.append('inventory_number', this.book_inventory_number);
@@ -165,7 +165,7 @@ export default {
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.book_name = data.name;
-				this.book_count = data.count;
+				this.book_speciality = data.speciality;
 				this.book_publishing = data.publishing;
 				this.book_about = data.about;
 				this.book_inventory_number = data.inventory_number;

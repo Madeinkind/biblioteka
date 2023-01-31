@@ -64,8 +64,8 @@
 									<input class="form-control" type="text" v-model="book_year_publishing" required>
 								</div>
 								<div class="mb-3">
-									<label for="firstName" class="form-label">Кол-во</label>
-									<input class="form-control" type="number" v-model="book_count" required>
+									<label for="firstName" class="form-label">Специальность</label>
+									<input class="form-control" type="text" v-model="book_speciality" required>
 								</div>
 								<div class="mb-3">
 									<label for="firstName" class="form-label">Инвентарный номер</label>
@@ -119,7 +119,7 @@ export default {
 	},
 	data: () => ({
 		book_name: '',
-		book_count: 1,
+		book_speciality: '',
 		book_publishing: '',
 		book_about: '',
 		book_inventory_number: '',
@@ -132,7 +132,7 @@ export default {
 		onBookAdd(){
 			let formData = new FormData();
 			formData.append('name', this.book_name);
-			formData.append('count', this.book_count);
+			formData.append('speciality', this.book_speciality);
 			formData.append('publishing', this.book_publishing);
 			formData.append('about', this.book_about);
 			formData.append('inventory_number', this.book_inventory_number);

@@ -50,7 +50,7 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Название</th>
-            <th scope="col">Кол-во</th>
+            <th scope="col">Специальность</th>
             <th scope="col">Автор</th>
             <th scope="col">Год выпуска</th>
             <th scope="col">Инвентарный номер</th>
@@ -61,7 +61,7 @@
           <tr v-for="book in books" :key="book.id">
             <td>{{book.id}}</td>
             <td>{{book.name}}</td>
-            <td>{{book.count}}</td>
+            <td>{{book.speciality}}</td>
             <td>{{book.author}}</td>
             <td>{{book.year_publishing}}</td>
             <td>{{book.inventory_number}}</td>
@@ -107,7 +107,7 @@ export default {
 		limit: 5,
 		
 		books: [],
-		books_count: 0,
+		books_speciality: '',
 	}),
 	methods: {
 		loadBooks(){
@@ -122,7 +122,7 @@ export default {
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
 				this.books = data.list;
-				this.books_count = data.count;
+				this.books_speciality = data.speciality;
 			}).catch(error => {
 				console.log(error);
 			});
@@ -151,7 +151,7 @@ export default {
 		},
 		// получение количества страниц для списка новостей
 		getPagesCount(){
-			return Math.ceil(this.books_count / this.limit);
+			return Math.ceil(this.books_speciality / this.limit);
 		},
 	},
 	mounted(){
