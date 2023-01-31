@@ -133,6 +133,7 @@ export default {
 	methods: {
 		onBookEdit(id){
 <<<<<<< HEAD
+<<<<<<< HEAD
 			let formData = new FormData();
 			formData.append('name', this.book_name);
 			formData.append('speciality', this.book_speciality);
@@ -143,6 +144,11 @@ export default {
 			formData.append('author', this.book_author);
 			formData.append('img', this.book_img);
 			formData.append('img_reset', this.book_img_reset);
+=======
+			//let formData = new FormData();
+			//formData.append('name', this.book_name);
+			//formData.append('img', this.book_img);
+>>>>>>> parent of fb9befe (release)
 =======
 			//let formData = new FormData();
 			//formData.append('name', this.book_name);

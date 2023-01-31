@@ -131,6 +131,7 @@ export default {
 	methods: {
 		onBookAdd(){
 <<<<<<< HEAD
+<<<<<<< HEAD
 			let formData = new FormData();
 			formData.append('name', this.book_name);
 			formData.append('speciality', this.book_speciality);
@@ -140,6 +141,11 @@ export default {
 			formData.append('year_publishing', this.book_year_publishing);
 			formData.append('author', this.book_author);
 			formData.append('img', this.book_img);
+=======
+			//let formData = new FormData();
+			//formData.append('name', this.book_name);
+			//formData.append('img', this.book_img);
+>>>>>>> parent of fb9befe (release)
 =======
 			//let formData = new FormData();
 			//formData.append('name', this.book_name);
