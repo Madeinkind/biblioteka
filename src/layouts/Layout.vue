@@ -78,27 +78,30 @@
               <span class="menu-header-text">Страницы</span>
             </li>
             <li class="menu-item">
+              <router-link :to="{path: '/books-issued'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-add-to-queue"></i>
+                <div data-i18n="Analytics">Выданные книги</div>
+              </router-link>
+            </li>
+            <li class="menu-item">
+              <router-link :to="{path: '/books-issued-history'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-history"></i>
+                <div data-i18n="Analytics">История</div>
+              </router-link>
+            </li>
+            <li class="menu-item">
               <router-link :to="{path: '/books'}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-book  "></i>
                 <div data-i18n="Analytics">Список книг</div>
               </router-link>
             </li>
-            <li class="menu-item">
-              <router-link :to="{path: '/readers'}" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-group"></i>
-                <div data-i18n="Analytics">Список читателей</div>
-              </router-link>
+            <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">Люди</span>
             </li>
             <li class="menu-item">
               <router-link :to="{path: '/books-extradition'}" class="menu-link">
                 <i class="menu-icon tf-icons bx bxs-book-content"></i>
                 <div data-i18n="Analytics">Выдача книг</div>
-              </router-link>
-            </li>
-            <li class="menu-item">
-              <router-link :to="{path: '/books-issued'}" class="menu-link">
-                <i class="menu-icon tf-icons bx bxs-add-to-queue"></i>
-                <div data-i18n="Analytics">Выданные книги</div>
               </router-link>
             </li>
             <li class="menu-item">
@@ -108,12 +111,11 @@
               </router-link>
             </li>
             <li class="menu-item">
-              <router-link :to="{path: '/books-issued-history'}" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-history"></i>
-                <div data-i18n="Analytics">История</div>
+              <router-link :to="{path: '/readers'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bxs-group"></i>
+                <div data-i18n="Analytics">Список читателей</div>
               </router-link>
             </li>
-
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Аккаунт</span>
             </li>
@@ -142,7 +144,7 @@
             <footer class="content-footer footer bg-footer-theme">
               <div class="container-xxl d-flex flex-wrap justify-content-center py-2 flex-md-row flex-column">
                 <div class="mb-2 mb-md-0">
-                  2023 © Разработано студентами группы ПОб-42, Палагута Данил и Гурьянов Илья 
+                  2023 © Разработано студентами группы ПОб-42, Палагута Данил и Гурьянов Илья ❤️ 
                   
                 </div>
               </div>
