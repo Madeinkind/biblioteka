@@ -7,9 +7,6 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
-CREATE DATABASE `biblioteka` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
-USE `biblioteka`;
-
 DROP TABLE IF EXISTS `books`;
 CREATE TABLE `books` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'айди',
@@ -72,4 +69,14 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Таблица Пользователей';
 
 
--- 2023-02-01 02:07:43
+DROP TABLE IF EXISTS `visitors`;
+CREATE TABLE `visitors` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `fio` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'фио посетителя',
+  `group` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'группа посетителя',
+  `date` datetime NOT NULL COMMENT 'дата посещения',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='посетители';
+
+
+-- 2023-02-01 02:46:30
