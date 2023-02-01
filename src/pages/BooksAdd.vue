@@ -48,32 +48,32 @@
 							</div>
 							<div class="col">
 								<div class="mb-3">
-									<label for="firstName" class="form-label">Название</label>
-									<input class="form-control" type="text"  v-model="book_name" required>
+									<label for="book_name" class="form-label">Название</label>
+									<input id="book_name" class="form-control" type="text"  v-model="book_name" required>
 								</div>
 								<div class="mb-3">
-									<label for="firstName" class="form-label">Издатель</label>
-									<input class="form-control" type="text" v-model="book_publishing" required>
+									<label for="book_publishing" class="form-label">Издатель</label>
+									<input id="book_publishing" class="form-control" type="text" v-model="book_publishing" required>
 								</div>
 								<div class="mb-3">
-									<label for="firstName" class="form-label">Автор</label>
-									<input class="form-control" type="text" v-model="book_author" required>
+									<label for="book_author" class="form-label">Автор</label>
+									<input id="book_author" class="form-control" type="text" v-model="book_author" required>
 								</div>
 								<div class="mb-3">
-									<label for="firstName" class="form-label">Год выпуска</label>
-									<input class="form-control" type="text" v-model="book_year_publishing" required>
+									<label for="book_year_publishing" class="form-label">Год выпуска</label>
+									<input id="book_year_publishing" class="form-control" type="text" v-model="book_year_publishing" required>
 								</div>
 								<div class="mb-3">
-									<label for="firstName" class="form-label">Кол-во</label>
-									<input class="form-control" type="number" v-model="book_count" required>
+									<label for="book_inventory_number" class="form-label">Инвентарный номер</label>
+									<input id="book_inventory_number" class="form-control" type="text" v-model="book_inventory_number">
 								</div>
 								<div class="mb-3">
-									<label for="firstName" class="form-label">Инвентарный номер</label>
-									<input class="form-control" type="text" v-model="book_inventory_number">
+									<label for="book_group" class="form-label">Группа</label>
+									<input id="book_group" class="form-control" type="text" v-model="book_group">
 								</div>
 								<div class="mb-3">
-									<label for="firstName" class="form-label">Описание</label>
-									<textarea rows="5" class="form-control" v-model="book_about"></textarea>
+									<label for="book_about" class="form-label">Описание</label>
+									<textarea id="book_about" rows="5" class="form-control" v-model="book_about"></textarea>
 								</div>
 							
 							</div>
@@ -119,7 +119,7 @@ export default {
 	},
 	data: () => ({
 		book_name: '',
-		book_count: 1,
+		book_group: '',
 		book_publishing: '',
 		book_about: '',
 		book_inventory_number: '',
@@ -132,7 +132,7 @@ export default {
 		onBookAdd(){
 			let formData = new FormData();
 			formData.append('name', this.book_name);
-			formData.append('count', this.book_count);
+			formData.append('group', this.book_group);
 			formData.append('publishing', this.book_publishing);
 			formData.append('about', this.book_about);
 			formData.append('inventory_number', this.book_inventory_number);
