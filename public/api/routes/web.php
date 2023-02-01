@@ -58,9 +58,10 @@ $router->group(['prefix' => ''], function () use ($router)
 	$router->get('/auth/checkauth', 'AuthController@checkauth'); // проверка авторизованности
 	$router->post('/auth/login', 'AuthController@login');
 	$router->get('/auth/logout', 'AuthController@logout');
-
+	
 	$router->get('/visitors', 'VisitorsController@list'); // получение списка всех посетителей
 	$router->post('/visitors', 'VisitorsController@add'); // добавление посетителя
 	$router->get('/visitors/{id}', 'VisitorsController@get'); // получение посетителя по его id
 	$router->post('/visitors/{id}', 'VisitorsController@edit'); // изменение посетителя по ее id
 	$router->delete('/visitors/{id}', 'VisitorsController@delete'); // удаление пользователя по ее id
+});
