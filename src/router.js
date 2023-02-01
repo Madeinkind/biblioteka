@@ -68,7 +68,7 @@ const routes = [
 				},
 			},
 			{
-				path: '/visitors/edit',
+				path: '/visitors/:id/edit',
 				component: VisitorsEdit,
 				meta: {
 					requiresAuth: true,

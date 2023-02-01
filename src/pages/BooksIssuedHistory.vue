@@ -131,6 +131,7 @@ export default {
 		formatDate(date_str){
 			try {
 				let d = new Date(date_str);
+				d.setHours(d.getHours()+6); //gmt+6
 				let d2 = d.toISOString().split('T')[0];
 				return d2.split('-').reverse().join('.');
 			} catch (e){

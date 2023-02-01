@@ -8,7 +8,7 @@
                         <router-link :to="{path: '/'}" class="menu-link">Главная</router-link>
                       </li>
                       <li class="breadcrumb-item">
-						<router-link :to="{path: '/readers'}" class="menu-link">Добавление посетители</router-link>
+						<router-link :to="{path: '/visitors'}" class="menu-link">Добавление посетители</router-link>
                       </li>
                     </ol>
                   </nav>
@@ -21,21 +21,21 @@
                 <div class="col-md-10">
                   <div class="card mb-4">
                     <!-- Account -->
-					<form @submit.prevent="onReaderAdd()">
+					<form @submit.prevent="onVisitorAdd()">
 						<div class="card-body">
 							<div class="row">
 								<div class="col">
 									<div class="mb-3">
 										<label for="firstName" class="form-label">ФИО</label>
-										<input class="form-control" type="text"  v-model="reader_fio" required>
+										<input id="visitor_fio" class="form-control" type="text"  v-model="visitor_fio" required>
 									</div>
 									<div class="mb-3">
 										<label for="firstName" class="form-label">Группа</label>
-										<input class="form-control" type="text" v-model="reader_group" required>
+										<input id="visitor_group" class="form-control" type="text" v-model="visitor_group" required>
 									</div>
 									<div class="mb-3">
 										<label for="firstName" class="form-label">Дата посещения</label>
-										<input class="form-control" type="date" required v-model="date_start">
+										<input id="visitor_date" class="form-control" type="date" required v-model="visitor_date">
 									</div>
 								</div>
 							</div>
@@ -75,24 +75,21 @@ import { useMeta } from 'vue-meta';
 export default {
 	mixins: lib.mixins,
 	setup(){
-		useMeta({title: 'Добавление читателя | Biblioteka'});
+		useMeta({title: 'Добавление посетителя | Biblioteka'});
 	},
 	data: () => ({
-		reader_fio: '',
-		reader_group: '',
-		reader_iin: '',
-
-		date_start:'',
+		visitor_fio: '',
+		visitor_group: '',
+		visitor_date:'',
 	}),
 	methods: {
-		onReaderAdd(){
-			fetch('/api/visitors/add', {
+		onVisitorAdd(){
+			fetch('/api/visitors', {
 				method: 'POST',
 				body: JSON.stringify({
-					fio: this.reader_fio,
-					group: this.reader_group,
-					iin: this.reader_iin,
-					date_start: this.date_start,
+					fio: this.visitor_fio,
+					group: this.visitor_group,
+					date: this.visitor_date,
 				}),
 				headers: {
 					Authorization: 'Bearer '+this.authModel.token,

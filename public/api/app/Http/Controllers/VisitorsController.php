@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\File;
 
-class BooksController extends Controller
+class VisitorsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -36,12 +36,10 @@ class BooksController extends Controller
 			$count = DB::table('visitors')
 				->orWhere('fio', 'like', '%'.$search.'%')
 				->orWhere('group', 'like', '%'.$search.'%')
-				->orWhere('date', 'like', '%'.$search.'%')
 				->count();
 			$list = DB::table('visitors')
 				->orWhere('fio', 'like', '%'.$search.'%')
 				->orWhere('group', 'like', '%'.$search.'%')
-				->orWhere('date', 'like', '%'.$search.'%')
 				->limit($limit)
 				->offset($start)
 				->get();
@@ -161,7 +159,7 @@ class BooksController extends Controller
 	 */
 	public function delete($id, Request $request)
 	{
-		$success = DB::table('books')
+		$success = DB::table('visitors')
 			->where('id', '=', $id)
 			->delete();
 		

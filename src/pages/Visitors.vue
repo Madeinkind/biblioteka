@@ -11,7 +11,7 @@
             <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
               <!-- Search -->
               <div class="navbar-nav align-items-center w-100" >
-                <form class="nav-item d-flex align-items-center w-100" @submit.prevent="loadReaders()">
+                <form class="nav-item d-flex align-items-center w-100" @submit.prevent="loadVisitors()">
                   <i class="bx bx-search fs-4 lh-0"></i>
                   <input
                     type="text"
@@ -19,7 +19,7 @@
                     placeholder="Поиск..."
                     aria-label="Поиск..."
 					v-model="search"
-					@keyup="loadReaders()"
+					@keyup="loadVisitors()"
                   />
 				</form>
               </div>
@@ -56,15 +56,17 @@
 					</tr>
 					</thead>
 					<tbody class="table-group-divider">
-					<tr v-for="reader in readers" :key="reader.id">
-						<td>{{reader.id}}</td>
-						<td>{{reader.fio}}</td>
-						<td>{{reader.group}}</td>
+					<tr v-for="visitor in visitors" :key="visitor.id">
+						<td>{{visitor.id}}</td>
+						<td>{{visitor.fio}}</td>
+						<td>{{visitor.group}}</td>
+						<td>{{formatDate(visitor.date)}}</td>
+						
 						<td class="text-end">
-							<router-link :to="{path: '/visitors/'+reader.id+'/edit'}" class="btn btn-success me-1 px-3">
+							<router-link :to="{path: '/visitors/'+visitor.id+'/edit'}" class="btn btn-success me-1 px-3">
 								<i class='bx bxs-pencil'></i>
 							</router-link>
-							<input type="button" class="btn btn-danger" @click="onDeleteReader(reader.id)" value="✖" />
+							<input type="button" class="btn btn-danger" @click="onDeleteVisitor(visitor.id)" value="✖" />
             			</td>
 					</tr>
 					
@@ -72,12 +74,12 @@
 				</table>
 			  </div>
 			  <nav aria-label="Page navigation">
-            <ul class="pagination justify-content-center">
-				<li class="page-item" v-for="p in getPagesCount()">
-					<a class="page-link" href="javascript://" @click="page = p; loadReaders();">{{p}}</a>
-				</li>
-            </ul>
-        </nav>
+				<ul class="pagination justify-content-center">
+					<li class="page-item" v-for="p in getPagesCount()">
+						<a class="page-link" href="javascript://" @click="page = p; loadVisitors();">{{p}}</a>
+					</li>
+				</ul>
+        	</nav>
         </div>
 </template>
 
@@ -95,19 +97,19 @@ import { useMeta } from 'vue-meta';
 export default {
 	mixins: lib.mixins,
 	setup(){
-		useMeta({title: 'Список читателей | Biblioteka'});
+		useMeta({title: 'Список посетителей | Biblioteka'});
 	},
 	data: () => ({	
 		search: '',
 		page: 1,
 		limit: 10,
 		
-		readers: [],
-		readers_count: 0,
+		visitors: [],
+		visitors_count: 0,
 	}),
 	methods: {
-		loadReaders(){
-			fetch('/api/readers?' + new URLSearchParams({
+		loadVisitors(){
+			fetch('/api/visitors?' + new URLSearchParams({
 				search: this.search,
 				start: (this.page - 1) * this.limit,
 				limit: this.limit,
@@ -117,17 +119,17 @@ export default {
 				},
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
-				this.readers = data.list;
-				this.readers_count = data.count;
+				this.visitors = data.list;
+				this.visitors_count = data.count;
 			}).catch(error => {
 				console.log(error);
 			});
 		},
 		
 
-		onDeleteReader(id){
+		onDeleteVisitor(id){
 			if(confirm('Вы уверены?')){
-     		   fetch('/api/readers/'+id, {
+     		   fetch('/api/visitors/'+id, {
 				method: 'DELETE',
 				/*body: JSON.stringify({
 					name: this.read_name,
@@ -140,7 +142,7 @@ export default {
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
         if(data.success){
-			this.loadReaders();
+			this.loadVisitors();
         }
 			}).catch(error => {
 				console.log(error);
@@ -150,7 +152,18 @@ export default {
 		},
 				// получение количества страниц для списка новостей
 		getPagesCount(){
-			return Math.ceil(this.readers_count / this.limit);
+			return Math.ceil(this.visitors_count / this.limit);
+		},
+
+		formatDate(date_str){
+			try {
+				let d = new Date(date_str);
+				d.setHours(d.getHours()+6); //gmt+6
+				let d2 = d.toISOString().split('T')[0];
+				return d2.split('-').reverse().join('.');
+			} catch (e){
+				return '';
+			}
 		},
 	},
 	mounted(){
@@ -158,12 +171,12 @@ export default {
 	},
 	beforeMount(){
 		window.scrollTo(0, 0);
-		this.loadReaders();
+		this.loadVisitors();
 	},
 	beforeRouteUpdate(to, from, next){
 		next();
 		window.scrollTo(0, 0);
-		this.loadReaders();
+		this.loadVisitors();
 	},
 	computed: {},
 	components: {

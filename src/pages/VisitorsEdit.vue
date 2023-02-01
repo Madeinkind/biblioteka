@@ -27,16 +27,16 @@
 							<div class="col">
 						
 							<div class="mb-3">
-                            	<label for="firstName" class="form-label">ФИО</label>
-                            	<input class="form-control" type="text" v-model="reader_fio" placeholder="ФИО" aria-label="default input example">
+                            	<label for="visitor_fio" class="form-label">ФИО</label>
+                            	<input id="visitor_fio" class="form-control" type="text" v-model="visitor_fio" placeholder="ФИО" aria-label="default input example">
                           </div>
 							<div class="mb-3">
-                            	<label for="firstName" class="form-label">Группа</label>
-                            	<input class="form-control" type="text" v-model="reader_group" placeholder="ПО-42" aria-label="default input example">
+                            	<label for="visitor_group" class="form-label">Группа</label>
+                            	<input id="visitor_group" class="form-control" type="text" v-model="visitor_group" placeholder="ПО-42" aria-label="default input example">
                           </div>
 							<div class="mb-3">
-								<label for="firstName" class="form-label">Дата посещения</label>
-								<input class="form-control" type="date" required v-model="date_start">
+								<label for="visitor_date" class="form-label">Дата посещения</label>
+								<input id="visitor_date" class="form-control" type="date" required v-model="visitor_date">
                           </div>
 							</div>
 						</div>
@@ -45,7 +45,7 @@
                     <div class="card-body">
 						<div class="mt-2">
                           <button type="submit" class="btn btn-primary me-2">Сохранить</button>
-						  	<router-link :to="{path: '/readers'}" class="btn btn-outline-secondary">
+						  	<router-link :to="{path: '/visitors'}" class="btn btn-outline-secondary">
 								Назад
               				</router-link>
                         </div>
@@ -77,22 +77,22 @@ import { useMeta } from 'vue-meta';
 export default {
 	mixins: lib.mixins,
 	setup(){
-		useMeta({title: 'Изменение читателя | Biblioteka'});
+		useMeta({title: 'Изменение посетителя | Biblioteka'});
 	},
 	data: () => ({
 		
-		reader_fio: '',
-		reader_group: '',
-		reader_iin: '',
+		visitor_fio: '',
+		visitor_group: '',
+		visitor_date: '',
 	}),
 	methods: {
 		onReaderEdit(){
-			fetch('/api/readers/' + this.$route.params.id, {
+			fetch('/api/visitors/' + this.$route.params.id, {
 				method: 'POST',
 				body: JSON.stringify({
-					fio: this.reader_fio,
-					group: this.reader_group,
-					iin: this.reader_iin,
+					fio: this.visitor_fio,
+					group: this.visitor_group,
+					date: this.visitor_date,
 				}),
 				headers: {
 					Authorization: 'Bearer '+this.authModel.token,
@@ -100,23 +100,25 @@ export default {
 				},
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
-				if(data.success){
-					this.$router.push('/readers');
-				}
+				this.$router.push('/visitors');
 			}).catch(error => {
 				console.log(error);
 			});
 		},
 		onLoad(id){
-			fetch('/api/readers/' + id, {
+			fetch('/api/visitors/' + id, {
 				headers: {
 					Authorization: 'Bearer '+this.authModel.token,
 				},
 			}).then(stream => stream.json()).then((data) => {
 				//console.log(data);
-				this.reader_fio = data.fio;
-				this.reader_group = data.group;
-				this.reader_iin = data.iin;
+				this.visitor_fio = data.fio;
+				this.visitor_group = data.group;
+
+				let d = new Date(data.date);
+				d.setHours(d.getHours()+6); //gmt+6
+				let d2 = d.toISOString().split('T')[0];
+				this.visitor_date = d2;
 			}).catch(error => {
 				console.log(error);
 			});
