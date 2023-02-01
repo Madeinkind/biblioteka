@@ -113,6 +113,12 @@
                 <div data-i18n="Analytics">История</div>
               </router-link>
             </li>
+            <li class="menu-item">
+              <router-link :to="{path: '/visitors'}" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-history"></i>
+                <div data-i18n="Analytics">Посетители</div>
+              </router-link>
+            </li>
 
             <li class="menu-header small text-uppercase">
               <span class="menu-header-text">Аккаунт</span>

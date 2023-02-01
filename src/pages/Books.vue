@@ -50,8 +50,8 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Название</th>
-            <th scope="col">Кол-во</th>
             <th scope="col">Автор</th>
+            <th scope="col">Группа</th>
             <th scope="col">Год выпуска</th>
             <th scope="col">Инвентарный номер</th>
             <th scope="col">Издатель</th>
@@ -61,8 +61,8 @@
           <tr v-for="book in books" :key="book.id">
             <td>{{book.id}}</td>
             <td>{{book.name}}</td>
-            <td>{{book.count}}</td>
             <td>{{book.author}}</td>
+            <td>{{book.group}}</td>
             <td>{{book.year_publishing}}</td>
             <td>{{book.inventory_number}}</td>
             <td>{{book.publishing}}</td>

@@ -14,6 +14,9 @@ import Books from '@/pages/Books.vue';
 import BooksEdit from '@/pages/BooksEdit.vue';
 import ReadersEdit from '@/pages/ReadersEdit.vue';
 import Readers from '@/pages/Readers.vue';
+import Visitors from '@/pages/Visitors.vue';
+import VisitorsAdd from '@/pages/VisitorsAdd.vue';
+import VisitorsEdit from '@/pages/VisitorsEdit.vue';
 import ReadersAdd from '@/pages/ReadersAdd.vue';
 import ReadersDebtors from '@/pages/ReadersDebtors.vue';
 import BooksAdd from '@/pages/BooksAdd.vue';
@@ -46,6 +49,27 @@ const routes = [
 			{
 				path: '/readers',
 				component: Readers,
+				meta: {
+					requiresAuth: true,
+				},
+			},
+			{
+				path: '/visitors',
+				component: Visitors,
+				meta: {
+					requiresAuth: true,
+				},
+			},
+			{
+				path: '/visitors/add',
+				component: VisitorsAdd,
+				meta: {
+					requiresAuth: true,
+				},
+			},
+			{
+				path: '/visitors/edit',
+				component: VisitorsEdit,
 				meta: {
 					requiresAuth: true,
 				},
