@@ -7,15 +7,18 @@ SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 SET NAMES utf8mb4;
 
+CREATE DATABASE `biblioteka` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci */;
+USE `biblioteka`;
+
 DROP TABLE IF EXISTS `books`;
 CREATE TABLE `books` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT 'айди',
   `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'название книги',
-  `count` int(10) unsigned NOT NULL DEFAULT '1' COMMENT 'кол-во',
   `publishing` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'издатель',
   `about` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'о книге',
   `inventory_number` int(255) unsigned NOT NULL COMMENT 'инвентарь номер',
   `year_publishing` int(4) unsigned DEFAULT NULL COMMENT 'год издательства',
+  `group` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'группа студентов для данной книги',
   `img` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'картинка (ссылка',
   `author` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL COMMENT 'автор',
   PRIMARY KEY (`id`)
@@ -69,4 +72,4 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Таблица Пользователей';
 
 
--- 2023-01-27 16:18:30
+-- 2023-02-01 02:07:43

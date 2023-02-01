@@ -44,6 +44,7 @@ class BooksController extends Controller
 				->orWhere('inventory_number', 'like', '%'.$search.'%')
 				->orWhere('year_publishing', 'like', '%'.$search.'%')
 				->orWhere('author', 'like', '%'.$search.'%')
+				->orWhere('group', 'like', '%'.$search.'%')
 				->count();
 			$list = DB::table('books')
 				->orWhere('name', 'like', '%'.$search.'%')
@@ -52,6 +53,7 @@ class BooksController extends Controller
 				->orWhere('inventory_number', 'like', '%'.$search.'%')
 				->orWhere('year_publishing', 'like', '%'.$search.'%')
 				->orWhere('author', 'like', '%'.$search.'%')
+				->orWhere('group', 'like', '%'.$search.'%')
 				->limit($limit)
 				->offset($start)
 				->get();
@@ -235,11 +237,11 @@ class BooksController extends Controller
 	{
 		$data = $request->input();
 		$name = isset($data['name']) ? $data['name'] : '';
-		$count = isset($data['count']) ? $data['count'] : 1;
 		$publishing = isset($data['publishing']) ? $data['publishing'] : '';
 		$about = isset($data['about']) ? $data['about'] : '';
 		$inventory_number = isset($data['inventory_number']) ? $data['inventory_number'] : '';
 		$year_publishing = isset($data['year_publishing']) ? $data['year_publishing'] : '';
+		$group = isset($data['group']) ? $data['group'] : '';
 		$img = isset($data['img']) ? $data['img'] : '';
 		$author = isset($data['author']) ? $data['author'] : '';
 		
@@ -252,11 +254,11 @@ class BooksController extends Controller
 		
 		$id = DB::table('books')->insertGetId([
 			'name' => $name,
-			'count' => $count,
 			'publishing' => $publishing,
 			'about' => $about,
 			'inventory_number' => $inventory_number,
 			'year_publishing' => $year_publishing,
+			'group' => $group,
 			'author' => $author,
 		]);
 		
@@ -290,7 +292,6 @@ class BooksController extends Controller
 	public function addIssue(Request $request)
 	{
 		$data = $request->input();
-		//$virtualspace_id = isset($data['virtualspace_id']) ? $data['virtualspace_id'] : null;
 		$book_id = isset($data['book_id']) ? $data['book_id'] : '';
 		$reader_id = isset($data['reader_id']) ? $data['reader_id'] : '';
 		$date_start = isset($data['date_start']) ? $data['date_start'] : '';
@@ -323,7 +324,6 @@ class BooksController extends Controller
 		}
 		
 		$id = DB::table('books_readers')->insertGetId([
-			//'virtualspace_id' => $virtualspace_id,
 			'book_id' => $book_id,
 			'reader_id' => $reader_id,
 			'date_start' => $date_start,
@@ -347,11 +347,11 @@ class BooksController extends Controller
 	{
 		$data = $request->input();
 		$name = isset($data['name']) ? $data['name'] : '';
-		$count = isset($data['count']) ? $data['count'] : 1;
 		$publishing = isset($data['publishing']) ? $data['publishing'] : '';
 		$about = isset($data['about']) ? $data['about'] : '';
 		$inventory_number = isset($data['inventory_number']) ? $data['inventory_number'] : '';
 		$year_publishing = isset($data['year_publishing']) ? $data['year_publishing'] : '';
+		$group = isset($data['group']) ? $data['group'] : '';
 		$img = isset($data['img']) ? $data['img'] : '';
 		$img_reset = isset($data['img_reset']) ? $data['img_reset'] : false;
 		$author = isset($data['author']) ? $data['author'] : '';
@@ -400,12 +400,12 @@ class BooksController extends Controller
 		$success = true;
 		$updateData = [
 			'name' => $name,
-			'count' => $count,
 			'publishing' => $publishing,
 			'about' => $about,
 			'inventory_number' => $inventory_number,
 			'year_publishing' => $year_publishing,
 			'author' => $author,
+			'group' => $group,
 		];
 		if($item->img != $img)
 		{
