@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+vendor/
+public/api/vendor/
+
+# Build artifacts
+public/bundle.js
+public/bundle.js.map
+
+# Local env & secrets
+.env
+public/api/.env
+
+# Local database
+public/api/database/*.sqlite
+public/api/database/*.sqlite3
+
+# Runtime files
+public/api/storage/logs/*.log
+public/api/storage/posters/*
+public/api/storage/uploads/*
+public/api/storage/framework/**
+
+# Archives and misc
+zip/
+*.log
+npm-debug.log*
+v8-compile-cache-0
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

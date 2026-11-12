@@ -1,0 +1,24 @@
+# Apache Rewrite Rules for Laravel/Lumen SPA
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # Handle API requests - proxy to api/index.php
+    RewriteCond %{REQUEST_URI} ^/api/
+    RewriteRule ^(.*)$ api/index.php [P,L,QSA]
+
+    # Handle all other requests - serve from current directory
+    # This handles SPA routing for frontend
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.html [L]
+</IfModule>
+
+# Serve static files directly
+<IfModule !mod_mime.c>
+    AddDefaultType application/octet-stream
+    AddType application/json .json
+    AddType text/javascript .js
+    AddType text/html .html .htm
+    AddType text/css .css
+    AddType text/xml .xml
+</IfModule>

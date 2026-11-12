@@ -1,0 +1,54 @@
+-- SQLite schema for the Biblioteka API
+-- Usage: sqlite3 database/database.sqlite < database/schema.sql
+-- or run: php database/init.php
+
+CREATE TABLE IF NOT EXISTS books (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT NOT NULL,
+  publishing TEXT NOT NULL,
+  about TEXT NOT NULL,
+  inventory_number INTEGER NOT NULL,
+  year_publishing INTEGER,
+  "group" TEXT NOT NULL,
+  img TEXT NOT NULL,
+  author TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS readers (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  fio TEXT NOT NULL,
+  "group" TEXT NOT NULL,
+  iin TEXT NOT NULL UNIQUE
+);
+
+CREATE TABLE IF NOT EXISTS books_readers (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  reader_id INTEGER NOT NULL,
+  book_id INTEGER NOT NULL,
+  date_start DATETIME NOT NULL,
+  date_end_plan DATETIME NOT NULL,
+  date_end_fact DATETIME NOT NULL,
+  FOREIGN KEY (reader_id) REFERENCES readers(id) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (book_id) REFERENCES books(id) ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS sessions (
+  ssid TEXT NOT NULL UNIQUE,
+  expired DATETIME NOT NULL,
+  ugmtime_add DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  ugmtime_change DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP
+);
+CREATE INDEX IF NOT EXISTS sessions_expired ON sessions(expired);
+
+CREATE TABLE IF NOT EXISTS user (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  username TEXT NOT NULL,
+  password TEXT NOT NULL
+);
+
+CREATE TABLE IF NOT EXISTS visitors (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  fio TEXT NOT NULL,
+  "group" TEXT NOT NULL,
+  date DATETIME NOT NULL
+);
